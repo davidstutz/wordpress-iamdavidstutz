@@ -1,6 +1,6 @@
 # Wordpress Theme IAMDAVIDSTUTZ
 
-This is the theme used for my personal webpage [davidstutz.de](http://davidstutz.de/). It is licensed under the [GPLv3](http://www.gnu.org/licenses/gpl). If you use parts of this theme, please change both header and footer!
+This is the theme used for my personal webpage [davidstutz.de](http://davidstutz.de/). It is licensed under the [GPLv3](http://www.gnu.org/licenses/gpl). If you use parts of this theme, please change the content both the header and the footer!
 
 Copyright (C) 2013-2014 David Stutz
 
