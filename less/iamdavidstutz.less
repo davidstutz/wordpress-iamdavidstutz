@@ -1,0 +1,279 @@
+article, header {
+    dispaly: block;
+}
+
+.header {
+    margin-top: 24px;
+    margin-bottom: 36px;
+
+    h1, h2, h3, h4 {
+        margin: 0;
+    }
+
+    .nav {
+        margin-top: 4px;
+    }
+
+    .header-social {
+        margin-left: 12px;
+    }
+    
+    .header-navigation {
+        font-size: (@font-size-base * 1.2);
+
+        > a {
+            margin-right: 6px;
+        }
+    }
+}
+
+.article-container {
+    .article {
+        margin-left: 138px;
+
+        .article-date {
+            font-size: @font-size-large;
+        }
+
+        .article-header {
+            h2 {
+                margin-top: 0;
+            }
+        }
+
+        .article-tags-alternative {
+            margin-bottom: 12px;
+        }
+
+        .article-excerpt {
+            margin-bottom: @line-height-computed;
+            font-size: (@font-size-base * 1.15);
+            font-weight: 200;
+            line-height: 1.4;
+
+            @media (min-width: 768px) {
+              font-size: (@font-size-base * 1.2);
+            }
+        }
+
+        .article-content {
+            margin-bottom: 12px;
+        }
+
+        .article-footer {
+            font-size: @font-size-small;
+        }
+
+        .article-comments {
+            margin-top: 24px;
+
+            blockquote.article-comment {
+
+                h4 {
+
+                    small.article-comment-edit {
+                        display: inline;
+                    }
+                }
+            }
+        }
+    }
+
+    .article-tags {
+        margin-top: 2px;
+        float: left;
+        text-align: right;
+        width: 132px;
+
+        li {
+            margin-bottom: 4px;
+
+            a {
+                &:hover, &:active, &:visited, &:link {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    // Covering xs and sm.
+    @media (max-width: @screen-sm-max) {
+        .article-tags {
+            width: 0px !important;
+        }
+        .article {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+.page {
+    margin-left: 48px;
+
+    .page-footer {
+        font-size: @font-size-small;
+    }
+}
+
+.elusive {
+    text-decoration: none;
+    color: @text-color;
+
+    &:hover, &:active, &:visited, &:link, &:focus {
+        text-decoration: none;
+    }
+}
+
+.dead-link {
+
+    h1, h3, h4 {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: floor(@font-size-base * 8);
+    }
+
+    h3 {
+        font-size: floot(@font-size-base * 3);
+    }
+
+    h4 {
+        font-size: floor(@font-size-base * 4);
+    }
+}
+
+.nothing {
+    margin-left: 20%;
+
+    h1, h4 {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: floor(@font-size-base * 6);
+    }
+
+    h4 {
+        font-size: floor(@font-size-base * 3);
+    }
+}
+
+.sidebar {
+    .sidebar-search {
+        margin-bottom: 24px;
+
+        form {
+            margin-bottom: 0;
+        }
+    }
+
+    .sidebar-header {
+        margin-bottom: 12px;
+        margin-left: 12%;
+
+        h4 {
+            margin: 0;
+        }
+    }
+
+    .sidebar-archives {
+        text-align: right;
+        float: left;
+        width: 50%;
+        padding-right: 8px;
+
+        .sidebar-archives-year {
+            
+        }
+    }
+
+    .sidebar-tags {
+        text-align: left;
+        float: right;
+        width: 50%;
+        padding-left: 8px;
+
+        li {
+            margin-bottom: 4px;
+
+            a {
+                text-decoration: none;
+
+                &:hover, &:active, &:visited, &:link, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .sidebar-lead {
+        font-size: ceil(@font-size-base * 2.6);
+    }
+}
+
+.searching {
+    margin-left: 20%;
+    margin-bottom: 12px;
+
+    h1,h2 {
+        margin: 0;
+    }
+}
+
+.searching-tag {
+    margin-left: 20%;
+    margin-bottom: 24px;
+}
+
+.searching-category {
+    margin-left: 20%;
+    margin-bottom: 24px;
+}
+
+.searching-archive {
+    margin-left: 5%;
+    margin-bottom: 24px;
+}
+
+.project {
+
+    .project-list {
+        margin-left: 12px;
+        
+        .project-name {
+            font-size: floor(@font-size-base * 1.5);
+        }
+
+        .project-description {
+            margin-left: 12px;
+        }
+    }
+}
+
+.footer {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.comment-form {
+    
+    .comment-form-user {
+        padding-top: 7px;
+    }
+}
+
+.author {
+    .author-title {
+        margin-left: 20%;
+        margin-bottom: 24px;
+    }
+
+    .author-description p {
+        font-size: floor(@font-size-base * 1.25);
+    }
+
+    .author-description small {
+        font-size: @font-size-base;
+    }
+}
