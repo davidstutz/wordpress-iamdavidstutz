@@ -1,43 +1,43 @@
 <?php if ('open' == $post->comment_status): ?>
     <script type="text/javascript"><!--//--><![CDATA[//><!--
-		$(document).ready(function() {
-			$('.comment-form').validate({
-				rules: {
-					name: {
-						minlength: 2,
-						required: true
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					comment: {
-						minlength: 40,
-						required: true
-					},
-				},
-				messages: {
-					email: {
-						email: '<?php echo __('Enter a valid email address.', 'iamdavidstutz'); ?>',
-						required: '<?php echo __('Enter your email address.', 'iamdavidstutz'); ?>',
-					},
-					comment: {
-						minLength: '<?php echo __('Your comment is not long enough. 40 characters are required.', 'iamdavidstutz'); ?>',
-						required: '<?php echo __('What do you want to say without any comment?', 'iamdavidstutz'); ?>',
-					},
-					name: {
-						minLength: '<?php echo __('Enter at least 2 characters for your name.', 'iamdavidstutz'); ?>',
-						required: '<?php echo __('Enter your name.', 'iamdavidstutz'); ?>',
-					}
-				},
-				highlight: function(label) {
-					$(label).closest('.form-group').addClass('has-error');
-				},
-				errorContainer: '.comment-form-errors',
-				errorLabelContainer: '.comment-form-errors',
-			});
-		});
-	//--><!]]></script>
+            $(document).ready(function() {
+                $('.comment-form').validate({
+                    rules: {
+                        name: {
+                            minlength: 2,
+                            required: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        comment: {
+                            minlength: 40,
+                            required: true
+                        },
+                    },
+                    messages: {
+                        email: {
+                            email: '<?php echo __('Enter a valid email address.', 'iamdavidstutz'); ?>',
+                            required: '<?php echo __('Enter your email address.', 'iamdavidstutz'); ?>',
+                        },
+                        comment: {
+                            minLength: '<?php echo __('Your comment is not long enough. 40 characters are required.', 'iamdavidstutz'); ?>',
+                            required: '<?php echo __('What do you want to say without any comment?', 'iamdavidstutz'); ?>',
+                        },
+                        name: {
+                            minLength: '<?php echo __('Enter at least 2 characters for your name.', 'iamdavidstutz'); ?>',
+                            required: '<?php echo __('Enter your name.', 'iamdavidstutz'); ?>',
+                        }
+                    },
+                    highlight: function(label) {
+                        $(label).closest('.form-group').addClass('has-error');
+                    },
+                    errorContainer: '.comment-form-errors',
+                    errorLabelContainer: '.comment-form-errors',
+                });
+            });
+    //--><!]]></script>
     
     <h4>COMMENTS</h4>                         
     <form method="POST" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" class="comment-form form-horizontal">

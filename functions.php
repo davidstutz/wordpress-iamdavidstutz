@@ -20,21 +20,21 @@ if (!class_exists('IAMDAVIDSTUTZ_Walker')) {
  * - generator
  */
 function iamdavidstutz_head_cleanup() {
-	remove_action('wp_head', 'feed_links_extra', 3);
-	remove_action('wp_head', 'feed_links', 2);
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'index_rel_link');
-	remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-	remove_action('wp_head', 'start_post_rel_link', 10, 0);
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-	
-	if (!is_admin()) {
-		wp_deregister_script('jquery');
-		wp_deregister_script('jquery.validate');
-		wp_register_script('jquery.validate', '', '', '', true);
-		wp_register_script('jquery', '', '', '', true);
-	}
+    remove_action('wp_head', 'feed_links_extra', 3);
+    remove_action('wp_head', 'feed_links', 2);
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'index_rel_link');
+    remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+    remove_action('wp_head', 'start_post_rel_link', 10, 0);
+    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_deregister_script('jquery.validate');
+        wp_register_script('jquery.validate', '', '', '', true);
+        wp_register_script('jquery', '', '', '', true);
+    }
 }
 
 add_action('init', 'iamdavidstutz_head_cleanup');
@@ -43,13 +43,13 @@ add_action('init', 'iamdavidstutz_head_cleanup');
  * Register custom menus for theme.
  */
 function iamdavidstutz_register_custom_menus() {
-	register_nav_menus(array(
-		'top' => __('Top Menu', 'iamdavidstutz'),
+    register_nav_menus(array(
+        'top' => __('Top Menu', 'iamdavidstutz'),
         'footer' => __('Footer Menu', 'iamdavidstutz'),
         'header' => __('Header Menu', 'iamdavidstutz')
-	));
-	
-	wp_dequeue_script('jquery', get_bloginfo( 'template_directory' ) . '/js/jquery.min.js');
+    ));
+
+    wp_dequeue_script('jquery', get_bloginfo( 'template_directory' ) . '/js/jquery.min.js');
 }
 
 add_action('init', 'iamdavidstutz_register_custom_menus');
@@ -59,7 +59,7 @@ add_action('init', 'iamdavidstutz_register_custom_menus');
  * The function is added to as filter to the 'wp_nav_menu_top_items' hook.
  */
 function iamdavidstutz_wp_nav_menu_top_items($items, $args = array()) {
-	return str_replace('current_page_item', 'active', $items);
+    return str_replace('current_page_item', 'active', $items);
 }
 
 add_filter('wp_nav_menu_top_items', 'iamdavidstutz_wp_nav_menu_top_items');
@@ -72,45 +72,45 @@ add_filter('wp_nav_menu_top_items', 'iamdavidstutz_wp_nav_menu_top_items');
  * @param   integer depth
  */
 function iamdavidstutz_custom_comments($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment;
-	
-	switch ($comment->comment_type):
-		case 'pingback' :
-		case 'trackback' :
-	?>
-			<p class="pingback">
-				<?php __('Pingback:', 'iamdavidstutz'); ?> <?php comment_author_link(); ?> <?php edit_comment_link('<span class="glyphicon glyphicon-pencil"></span>'); ?>
-			</p>
-			<?php break; ?>
-		<?php default : ?>
-            <?php if ($comment->comment_approved == '0') : ?>
-                <div class="alert alert-info"><?php __('Your comment is awaiting moderation.', 'iamdavidstutz'); ?></div>
-            <?php endif; ?>
-            <blockquote class="article-comment">
-                <?php $time = strtotime($comment->comment_date); ?>
-                <h4>
-                    <?php $day = date('d', $time); ?>
-                    <?php if ($day == 1): ?>
-                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php elseif ($day == 2): ?>
-                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php elseif ($day == 2): ?>
-                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php else: ?>
-                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php endif; ?>
-                     &mdash; 
-                    <a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a>
-                    <?php if (current_user_can('edit_comment',$comment->comment_ID)): ?>
-                        <small class="article-comment-edit">
-                            <a href="<?php echo get_edit_comment_link($comment->comment_ID); ?>"><?php echo __('Edit', 'iamdavidstutz'); ?></a>
-                        </small>
-                    <?php endif; ?>
-                </h4>
-                <?php comment_text(); ?>
-            </blockquote>
-			<?php break; ?>
-	<?php endswitch;
+    $GLOBALS['comment'] = $comment;
+
+    switch ($comment->comment_type):
+        case 'pingback' :
+        case 'trackback' :
+    ?>
+        <p class="pingback">
+            <?php __('Pingback:', 'iamdavidstutz'); ?> <?php comment_author_link(); ?> <?php edit_comment_link('<span class="glyphicon glyphicon-pencil"></span>'); ?>
+        </p>
+        <?php break; ?>
+    <?php default : ?>
+        <?php if ($comment->comment_approved == '0') : ?>
+            <div class="alert alert-info"><?php __('Your comment is awaiting moderation.', 'iamdavidstutz'); ?></div>
+        <?php endif; ?>
+        <blockquote class="article-comment">
+            <?php $time = strtotime($comment->comment_date); ?>
+            <h4>
+                <?php $day = date('d', $time); ?>
+                <?php if ($day == 1): ?>
+                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 2): ?>
+                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 2): ?>
+                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php else: ?>
+                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php endif; ?>
+                 &mdash; 
+                <a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a>
+                <?php if (current_user_can('edit_comment',$comment->comment_ID)): ?>
+                    <small class="article-comment-edit">
+                        <a href="<?php echo get_edit_comment_link($comment->comment_ID); ?>"><?php echo __('Edit', 'iamdavidstutz'); ?></a>
+                    </small>
+                <?php endif; ?>
+            </h4>
+            <?php comment_text(); ?>
+        </blockquote>
+        <?php break; ?>
+    <?php endswitch;
 }
 
 /**
@@ -121,52 +121,52 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
  * @return  string  html
  */
 function iamdavidstutz_pagination($pages = NULL, $range = 2) {  
-	global $paged;
-	
-	$showitems = ($range * 2) + 1;
-	
-	if(empty($paged)) {
-		$paged = 1;
-	}
-	
-	if($pages === null) {
-		global $wp_query;
-		
-		$pages = $wp_query->max_num_pages;
-		if(!$pages) {
-			$pages = 1;
-		}
-	}
-	
-	if($pages != 1) {
-		$output = '<div style="text-align:center;"><ul class=pagination pagination-sm">';
-		if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
-			$output .= '<li><a href="' . get_pagenum_link( 1 ) . '">&laquo;</a></li>';
-		}
-		
-		if($paged > 1 && $showitems < $pages) {
-			$output .= '<li><a href="' . get_pagenum_link( $paged - 1 ) . '">&lsaquo;</a></li>';
-		}
-		
-		for ($i = 1; $i <= $pages; $i++) {
-			if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged-$range-1 ) || $pages <= $showitems)) {
-				$output .= $paged == $i ? 
-					'<li class="active"><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>'
-					: '<li><a href="' . get_pagenum_link( $i ) . '" class="inactive">' . $i . '</a></li>';
-			}
-		}
-		
-		if ($paged < $pages && $showitems < $pages) {
-			$output .= '<li><a href="' . get_pagenum_link($paged + 1)  . '">&rsaquo;</a></li>';
-		}
-		if ($paged < $pages - 1 &&  $paged+$range-1 < $pages && $showitems < $pages) {
-			$output .= '<li><a href="' . get_pagenum_link($pages) . '">&raquo;</a></li>';
-		}
-		
-		$output .= '</ul></div>';
-		
-		return $output;
-	}
+    global $paged;
+
+    $showitems = ($range * 2) + 1;
+
+    if(empty($paged)) {
+        $paged = 1;
+    }
+
+    if($pages === null) {
+        global $wp_query;
+
+        $pages = $wp_query->max_num_pages;
+        if(!$pages) {
+            $pages = 1;
+        }
+    }
+
+    if($pages != 1) {
+        $output = '<div style="text-align:center;"><ul class=pagination pagination-sm">';
+        if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
+            $output .= '<li><a href="' . get_pagenum_link( 1 ) . '">&laquo;</a></li>';
+        }
+
+        if($paged > 1 && $showitems < $pages) {
+            $output .= '<li><a href="' . get_pagenum_link( $paged - 1 ) . '">&lsaquo;</a></li>';
+        }
+
+        for ($i = 1; $i <= $pages; $i++) {
+            if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged-$range-1 ) || $pages <= $showitems)) {
+                $output .= $paged == $i ? 
+                    '<li class="active"><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>'
+                    : '<li><a href="' . get_pagenum_link( $i ) . '" class="inactive">' . $i . '</a></li>';
+            }
+        }
+
+        if ($paged < $pages && $showitems < $pages) {
+            $output .= '<li><a href="' . get_pagenum_link($paged + 1)  . '">&rsaquo;</a></li>';
+        }
+        if ($paged < $pages - 1 &&  $paged+$range-1 < $pages && $showitems < $pages) {
+            $output .= '<li><a href="' . get_pagenum_link($pages) . '">&raquo;</a></li>';
+        }
+
+        $output .= '</ul></div>';
+
+        return $output;
+    }
 }
 
 /**
@@ -175,14 +175,14 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
  * @return  stirng  html
  */
 function iamdavidstutz_get_archives() {
-	global $wpdb;
+    global $wpdb;
 
-    // CHeck when the posts where changed last for using the cache.
-	$last_changed = wp_cache_get('last_changed', 'posts');
-	if (!$last_changed) {
-		$last_changed = microtime();
-		wp_cache_set('last_changed', $last_changed, 'posts');
-	}
+    // Check when the posts where changed last for using the cache.
+    $last_changed = wp_cache_get('last_changed', 'posts');
+    if (!$last_changed) {
+        $last_changed = microtime();
+        wp_cache_set('last_changed', $last_changed, 'posts');
+    }
     
     // Take cached archives if possible.
     $query = 'SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM ' . $wpdb->posts . ' WHERE post_type = \'post\' AND post_status = \'publish\' GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY YEAR(post_date) DESC, MONTH(post_date) DESC LIMIT 12';
