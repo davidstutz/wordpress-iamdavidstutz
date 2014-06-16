@@ -1,13 +1,17 @@
 <div class="sidebar">
     <div class="sidebar-search">
-        <h4>
+        <h5>
             <span class="sidebar-lead"><?php echo __('SEARCH', 'iamdavidstutz'); ?></span><?php echo __('THEBLOG', 'iamdavidstutz'); ?>
-        </h4>
+        </h5>
         <?php get_search_form(); ?>
-        <h4 class="pull-right">
+        <h5 class="pull-right">
             <?php echo __('FOR', 'iamdavidstutz'); ?><?php echo __('INTERESTING', 'iamdavidstutz'); ?><?php echo __('STUFF', 'iamdavidstutz'); ?>
-        </h4>
+        </h5>
         <div class="clearfix"></div>
+    </div>
+    <div class="sidebar-twitter">
+        <a class="twitter-timeline" href="https://twitter.com/david_stutz" data-widget-id="478636565548118016">Tweets von @david_stutz</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
     <div class="sidebar-header">
         <h4>ARCHIVES</h4>
