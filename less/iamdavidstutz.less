@@ -6,12 +6,16 @@ article, header {
     margin-top: 24px;
     margin-bottom: 36px;
 
+    @media (max-width: @screen-xs-max) {
+        margin-bottom: 12px;
+    }
+    
     h1, h2, h3, h4 {
         margin: 0;
     }
 
     .nav {
-        margin-top: 4px;
+        margin: 4px 0;
     }
 
     .header-social {
@@ -29,7 +33,7 @@ article, header {
 
 .article-container {
     .article {
-        margin-left: 138px;
+        margin-left: 146px;
 
         .article-date {
             font-size: @font-size-large;
@@ -83,7 +87,7 @@ article, header {
         margin-top: 2px;
         float: left;
         text-align: right;
-        width: 132px;
+        width: 140px;
 
         li {
             margin-bottom: 4px;
@@ -102,7 +106,7 @@ article, header {
             width: 0px !important;
         }
         .article {
-            margin-left: 0 !important;
+            margin: 0px 15px !important;
         }
     }
 }

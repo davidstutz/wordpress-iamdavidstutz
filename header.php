@@ -54,10 +54,12 @@
         <div class="container">
             <div class="header">
                 <h1 style="display:inline;">
-                    IAM
+                    <?php echo __('IAM', 'iamdavidstutz'); ?>
                 </h1>
                 <h4 style="display:inline;">
-                    <?php echo __('OPENSOURCEFAN', 'iamdavidstutz'); ?>
+                    <span class="hidden-xs-inline">
+                        <?php echo __('OPENSOURCEFAN', 'iamdavidstutz'); ?>
+                    </span>
                     <span class="header-navigation">
                         <?php wp_nav_menu(array(
                             'menu' => 'header',
@@ -70,15 +72,17 @@
                         )); ?>
                     </span>
                     <br>
-                    <?php echo __('STUDYINGMATHANDCOMPUTERSCIENCE', 'iamdavidstutz'); ?>
-                    <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="elusive icon-twitter"></span></a>
-                    <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="elusive icon-github"></span></a>
+                    <span class="hidden-xs-inline">
+                        <?php echo __('STUDYINGMATHANDCOMPUTERSCIENCE', 'iamdavidstutz'); ?>
+                        <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="elusive icon-twitter"></span></a>
+                        <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="elusive icon-github"></span></a>
+                    </span>
                 </h4>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h1><?php echo __('DAVIDSTUTZ', 'iamdavidstutz'); ?></h1>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <ul class="nav nav-pills">
                             <?php wp_nav_menu(array(
                                 'menu' => 'top',
@@ -92,7 +96,7 @@
                         </ul>
                     </div>
                 </div>
-                <h4>
+                <h4 class="hidden-xs">
                     <?php echo __('RWTHSTUDENTWEBDEVELOPER', 'iamdavidstutz'); ?><br>
                     <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
                 </h4>
