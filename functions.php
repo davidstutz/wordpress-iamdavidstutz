@@ -65,6 +65,19 @@ function iamdavidstutz_wp_nav_menu_top_items($items, $args = array()) {
 add_filter('wp_nav_menu_top_items', 'iamdavidstutz_wp_nav_menu_top_items');
 
 /**
+ * Exclude reading categoriy everywhere.
+ */
+//function reading_exclude_categories($query) {
+// 
+//    $reading = get_category_by_slug('reading');
+//    $excluded = array($reading->term_id);
+//    
+//    $query->set('category__not_in', $excluded);
+//}
+//
+//add_filter('pre_get_posts', 'reading_exclude_categories');
+
+/**
  * Display custom comments.
  * 
  * @param   object  comment
@@ -220,6 +233,23 @@ function iamdavidstutz_get_archives() {
 function iamdavidstutz_article_tags() {
     $tags = get_the_tags(); ?>
     <ul class="article-tags list-unstyled hidden-xs hidden-sm">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>
+            <?php endforeach; ?>
+        <?php endif; ?>      
+    </ul>
+    <?php
+}
+
+/**
+ * Display tags for reading.
+ * 
+ * @return  string  html
+ */
+function iamdavidstutz_reading_tags() {
+    $tags = get_the_tags(); ?>
+    <ul class="reading-tags list-unstyled hidden-xs hidden-sm">
         <?php if ($tags): ?>
             <?php foreach ($tags as $tag): ?>
                 <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>

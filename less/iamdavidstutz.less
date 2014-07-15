@@ -52,7 +52,7 @@ article, header {
         .article-excerpt {
             margin-bottom: @line-height-computed;
             font-size: (@font-size-base * 1.15);
-            font-weight: 200;
+            font-weight: 400;
             line-height: 1.4;
 
             @media (min-width: 768px) {
@@ -283,5 +283,68 @@ article, header {
 
     .author-description small {
         font-size: @font-size-base;
+    }
+}
+
+.reading-container {
+    .reading-first {
+        margin-left: 0;
+        
+        .reading-date {
+            font-size: @font-size-large;
+        }
+        
+        .reading-reference {
+            margin-bottom: @line-height-computed;
+            font-size: (@font-size-base * 1.15);
+            font-weight: 400;
+            line-height: 1.4;
+
+            @media (min-width: 768px) {
+              font-size: (@font-size-base * 1.2);
+            }
+        }
+        
+        .reading-first-tags {
+            margin-top: 6px;
+            margin-bottom: 12px;
+            
+            a {
+                &:hover, &:active, &:visited, &:link {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    .reading {
+        margin-left: 146px;
+    }
+
+    .reading-tags {
+        margin-top: 2px;
+        float: left;
+        text-align: right;
+        width: 140px;
+
+        li {
+            margin-bottom: 4px;
+
+            a {
+                &:hover, &:active, &:visited, &:link {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    // Covering xs and sm.
+    @media (max-width: @screen-sm-max) {
+        .article-tags {
+            width: 0px !important;
+        }
+        .article {
+            margin: 0px 15px !important;
+        }
     }
 }
