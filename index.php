@@ -35,6 +35,7 @@
                     </div>
                 <?php endif; ?>
             <?php endwhile; ?>
+            <?php echo iamdavidstutz_pagination(); ?>
         <?php else: ?>
             <div class="nothing">
                 <h1><?php echo __('NOTHING', 'iamdavidstutz'); ?></h1>

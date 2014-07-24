@@ -142,7 +142,7 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
         $paged = 1;
     }
 
-    if($pages === null) {
+    if($pages === NULL) {
         global $wp_query;
 
         $pages = $wp_query->max_num_pages;
@@ -154,18 +154,18 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
     if($pages != 1) {
         $output = '<div style="text-align:center;"><ul class=pagination pagination-sm">';
         if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link( 1 ) . '">&laquo;</a></li>';
+            $output .= '<li><a href="' . get_pagenum_link(1) . '">&laquo;</a></li>';
         }
 
         if($paged > 1 && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link( $paged - 1 ) . '">&lsaquo;</a></li>';
+            $output .= '<li><a href="' . get_pagenum_link($paged - 1) . '">&lsaquo;</a></li>';
         }
 
         for ($i = 1; $i <= $pages; $i++) {
             if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged-$range-1 ) || $pages <= $showitems)) {
                 $output .= $paged == $i ? 
                     '<li class="active"><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>'
-                    : '<li><a href="' . get_pagenum_link( $i ) . '" class="inactive">' . $i . '</a></li>';
+                    : '<li><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>';
             }
         }
 

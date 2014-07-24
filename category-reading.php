@@ -8,7 +8,9 @@
             <?php endif; ?>
         </div>
         <?php if (have_posts()) : ?>
+        
             <?php $first = TRUE; ?>
+            <?php query_posts($query_string.'&posts_per_page=20'); ?>
             <?php while (have_posts()): the_post(); ?>
                 <?php if ($first === TRUE): ?>
                     <div class="reading-container">
@@ -62,6 +64,7 @@
                     </div>
                 <?php endif; ?>
             <?php endwhile; ?>
+            <?php echo iamdavidstutz_pagination(); ?>
         <?php else: ?>
             <div class="nothing">
                 <h1><?php echo __('NOTHING', 'iamdavidstutz'); ?></h1>
