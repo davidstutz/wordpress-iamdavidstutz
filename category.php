@@ -4,7 +4,7 @@
         <div class="searching-category">
             <h1><?php echo __('CATEGORY', 'iamdavidstutz'); ?>&raquo;<?php echo single_cat_title( '', false ); ?>&laquo;</h1>
             <?php if (category_description()): ?>
-				<div class="lead"><?php echo category_description(); ?></div>
+		<div class="lead"><?php echo category_description(); ?></div>
             <?php endif; ?>
         </div>
         <?php if (have_posts()) : ?>

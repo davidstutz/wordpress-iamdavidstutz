@@ -4,7 +4,7 @@
         <div class="searching-category">
             <h1><?php echo __('READING', 'iamdavidstutz'); ?></h1>
             <?php if (category_description()): ?>
-				<div class="lead"><?php echo __('Books and papers I am currently reading ...', 'iamdavidstutz'); ?></div>
+                <div class="lead"><?php echo __('Books and papers I am currently reading ...', 'iamdavidstutz'); ?></div>
             <?php endif; ?>
         </div>
         <?php if (have_posts()) : ?>
@@ -38,6 +38,11 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
+                            <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
+                                <div class="reading-comment">
+                                    <?php echo $post->post_content; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <?php $first = false; ?>
@@ -60,6 +65,11 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
+                            <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
+                                <div class="reading-comment">
+                                    <?php echo $post->post_content; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endif; ?>
