@@ -51,7 +51,7 @@
                     <input class="form-control" name="author" type="text" value="<?php echo $comment_author ?>" size="30" maxlength="20" tabindex="3" />
                 </div>
             </div>
-            <div class="form-group has-error">
+            <div class="form-group">
                 <label class="col-md-2 control-label" for="email">
                     <?php echo __('Email', 'iamdavidstutz'); ?>
                 </label>
