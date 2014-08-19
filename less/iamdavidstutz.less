@@ -300,7 +300,7 @@ article, header {
         .reading-reference {
             margin-bottom: @line-height-computed;
             font-size: (@font-size-base * 1.15);
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1.4;
 
             @media (min-width: 768px) {
@@ -360,10 +360,23 @@ article, header {
     
     // Covering xs and sm.
     @media (max-width: @screen-sm-max) {
-        .article-tags {
+        .reading-first {
+            .reading-first-tags {
+                display: none;
+                margin: 0px !important;
+            }
+            .reading-date {
+                font-size: @font-size-base;
+            }
+            .reading-reference {
+                font-size: @font-size-base;
+            }
+        }
+        
+        .reading-tags {
             width: 0px !important;
         }
-        .article {
+        .reading, .reading-first {
             margin: 0px 15px !important;
         }
     }
