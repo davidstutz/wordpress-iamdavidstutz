@@ -20,8 +20,10 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
 	 * @param object $args
 	 */
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		global $post;
+		
 		$indent = ($depth) ? str_repeat("\t", $depth) : '';
-
+		
 		$class_names = $value = '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -30,12 +32,14 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         
         $reading = get_category_by_slug('reading');
         if (FALSE !== array_search('menu-item-object-category', $classes)) {
-            if ($reading->term_id == get_query_var('cat')) {
+            if ($reading->term_id == get_query_var('cat')
+					|| in_category('reading', $post)) {
                 $classes[] = 'active';
             }
         }
         else if (FALSE !== array_search('menu-item-home', $classes)) {
-            if ($reading->term_id != get_query_var('cat')) {
+            if ($reading->term_id != get_query_var('cat')
+					&& !in_category('reading', $post)) {
                 $classes[] = 'active';
             }
         }
