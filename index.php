@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 <div class="row">
     <div class="col-md-9">
+		<?php $reading = get_category_by_slug('reading'); ?>
+		<?php query_posts('cat=-' . $reading->term_id); ?>
         <?php if (have_posts()) : ?>
             <?php while (have_posts()): the_post(); ?>
                 <?php if (in_category('reading')): ?>
