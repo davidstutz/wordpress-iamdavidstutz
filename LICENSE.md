@@ -1,10 +1,4 @@
-# Wordpress Theme IAMDAVIDSTUTZ
-
-This is the theme used for my personal webpage [davidstutz.de](http://davidstutz.de/). **If you use parts of this theme, please change both the header and the footer!** - That is remove the following names and companies: David Stutz, RS Computer.
-
-## License
-
-Copyright (C) 2013-2014 David Stutz
+Copyright (C) 2013 - 2014 David Stutz
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
