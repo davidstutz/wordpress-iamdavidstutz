@@ -2,6 +2,8 @@
 
 This is the theme used for my personal webpage [davidstutz.de](http://davidstutz.de/). **If you use parts of this theme, please change both the header and the footer!** - That is remove the following names and companies: David Stutz, RS Computer.
 
+![Wordpress Theme IAMDAVIDSTUTZ.](screenshot.png?raw=true "Wordpress Theme IAMDAVIDSTUTZ.")
+
 ## License
 
 Copyright (C) 2013-2014 David Stutz
