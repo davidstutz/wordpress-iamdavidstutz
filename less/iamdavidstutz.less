@@ -70,6 +70,15 @@ article, header {
             margin-bottom: 12px;
         }
 
+        .article-author {
+            blockquote.author-description {
+                h3 {
+                    margin-top: 0px;
+                    font-size: floor(@font-size-base * 1.25);
+                }
+            }
+        }
+        
         .article-footer {
             font-size: @font-size-small;
         }
@@ -78,9 +87,7 @@ article, header {
             margin-top: 24px;
 
             blockquote.article-comment {
-
                 h4 {
-
                     small.article-comment-edit {
                         display: inline;
                     }
@@ -302,12 +309,13 @@ article, header {
         margin-bottom: 24px;
     }
 
-    .author-description p {
-        font-size: floor(@font-size-base * 1.25);
-    }
-
-    .author-description small {
-        font-size: @font-size-base;
+    blockquote.author-description {
+        p {
+            font-size: floor(@font-size-base * 1.25);
+        }
+        small {
+            font-size: @font-size-base;
+        }
     }
 }
 
