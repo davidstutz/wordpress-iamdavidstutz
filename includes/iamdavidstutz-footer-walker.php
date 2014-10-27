@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Custom menu walker for header navigation.
+ * Custom menu walker for footer navigation.
  * 
  * @see http://codex.wordpress.org/Function_Reference/wp_nav_menu
- * @class IAMDAVIDSTUTZ_Header_Walker
+ * @class IAMDAVIDSTUTZ_Footer_Walker
  * @author David Stutz
  */
-class IAMDAVIDSTUTZ_Header_Walker extends Walker_Nav_Menu {
+class IAMDAVIDSTUTZ_Footer_Walker extends Walker_Nav_Menu {
   
     /**
      * This walker does not support any levels.
@@ -21,14 +21,14 @@ class IAMDAVIDSTUTZ_Header_Walker extends Walker_Nav_Menu {
     }
 
     /**
-	 * Nothing to end here.
-	 *
-	 * @param   string  $output
-	 * @param   integer $depth
-	 */
-	function end_lvl(&$output, $depth = 0, $args = array()) {
-		
-	}
+     * Nothing to end here.
+     *
+     * @param   string  $output
+     * @param   integer $depth
+     */
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+
+    }
     
     /**
      * Each item is simply displayed as anchor.
@@ -52,13 +52,13 @@ class IAMDAVIDSTUTZ_Header_Walker extends Walker_Nav_Menu {
     }
     
     /**
-	 * Element is already compeltely covered in start_el.
-	 *
-	 * @param   string  $output
-	 * @param   object  $item
-	 * @param   integer $depth
-	 */
-	function end_el(&$output, $item, $depth = 0, $args = array()) {
-		
-	}
+     * Element is already compeltely covered in start_el.
+     *
+     * @param   string  $output
+     * @param   object  $item
+     * @param   integer $depth
+     */
+    function end_el(&$output, $item, $depth = 0, $args = array()) {
+
+    }
 }

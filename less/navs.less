@@ -110,9 +110,16 @@
 // Pills
 // -------------------------
 .nav-pills {
+    
+  &.nav-pills-border {
+    > li > a {
+      border: 1px solid @nav-pills-border-color;
+    }
+  }
+    
   > li {
     float: left;
-
+    
     // Links rendered as pills
     > a {
       border-radius: @border-radius-base;

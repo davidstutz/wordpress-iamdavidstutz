@@ -4,8 +4,8 @@ if (!class_exists('IAMDAVIDSTUTZ_Shortcodes')) {
     require_once 'includes/iamdavidstutz-shortcodes.php';
 }
 
-if (!class_exists('IAMDAVIDSTUTZ_Header_Walker')) {
-    require_once 'includes/iamdavidstutz-header-walker.php';
+if (!class_exists('IAMDAVIDSTUTZ_Footer_Walker')) {
+    require_once 'includes/iamdavidstutz-footer-walker.php';
 }
 
 if (!class_exists('IAMDAVIDSTUTZ_Walker')) {
@@ -46,7 +46,6 @@ function iamdavidstutz_register_custom_menus() {
     register_nav_menus(array(
         'top' => __('Top Menu', 'iamdavidstutz'),
         'footer' => __('Footer Menu', 'iamdavidstutz'),
-        'header' => __('Header Menu', 'iamdavidstutz')
     ));
 
     wp_dequeue_script('jquery', get_bloginfo( 'template_directory' ) . '/js/jquery.min.js');
@@ -65,17 +64,13 @@ function iamdavidstutz_wp_nav_menu_top_items($items, $args = array()) {
 add_filter('wp_nav_menu_top_items', 'iamdavidstutz_wp_nav_menu_top_items');
 
 /**
- * Exclude reading categoriy everywhere.
+ * Add excerpts to pages.
  */
-//function reading_exclude_categories($query) {
-// 
-//    $reading = get_category_by_slug('reading');
-//    $excluded = array($reading->term_id);
-//    
-//    $query->set('category__not_in', $excluded);
-//}
-//
-//add_filter('pre_get_posts', 'reading_exclude_categories');
+function iamdavidstutz_page_excerpts() {
+    add_post_type_support('page', 'excerpt');
+}
+
+add_action('init', 'iamdavidstutz_page_excerpts');
 
 /**
  * Display custom comments.
@@ -183,6 +178,24 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
 }
 
 /**
+ * Simple "Older" - "Newer" pagination.
+ * 
+ * @param   integer pages
+ * @param   integer range
+ * @return  string  html
+ */
+function iamdavidstutz_pagination_simple() {
+    ?>
+    <div style="text-align:center;">
+        <ul class="pagination pagination-sm">
+            <li><?php previous_posts_link('<b>NEWER</b>ARTICLES'); ?></li>
+            <li><?php next_posts_link('<b>OLDER</b>ARTICLES'); ?></li>
+        </ul>
+    </div>
+    <?php
+}
+
+/**
  * Get custom ul for listing the archive.
  * 
  * @return  stirng  html
@@ -226,9 +239,22 @@ function iamdavidstutz_get_archives() {
 }
 
 /**
+ * Display tags for the first article.
+ */
+function iamdavidstutz_article_first_tags() {
+    $tags = get_the_tags(); ?>
+    <div class="article-first-tags">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a> 
+            <?php endforeach; ?>
+        <?php endif; ?>      
+    </div>
+    <?php
+}
+
+/**
  * Display tags for article.
- * 
- * @return  string  html
  */
 function iamdavidstutz_article_tags() {
     $tags = get_the_tags(); ?>
@@ -243,9 +269,22 @@ function iamdavidstutz_article_tags() {
 }
 
 /**
+ * Display tags for the first reading.
+ */
+function iamdavidstutz_reading_first_tags() {
+    $tags = get_the_tags(); ?>
+    <div class="reading-first-tags">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a> 
+            <?php endforeach; ?>
+        <?php endif; ?>      
+    </div>
+    <?php
+}
+
+/**
  * Display tags for reading.
- * 
- * @return  string  html
  */
 function iamdavidstutz_reading_tags() {
     $tags = get_the_tags(); ?>
@@ -260,9 +299,22 @@ function iamdavidstutz_reading_tags() {
 }
 
 /**
+ * Display tags below title if sm or xs.
+ */
+function iamdavidstutz_article_below_title() {
+    $tags = get_the_tags(); ?>
+    <div class="article-tags-alternative hidden-md hidden-lg">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+            <?php endforeach; ?>
+        <?php endif; ?>      
+    </div>   
+    <?php
+}
+
+/**
  * Display page footer.
- * 
- * @return  string  html
  */
 function iamdavidstutz_page_footer() {
     $tags = get_the_tags(); ?>
@@ -292,8 +344,6 @@ function iamdavidstutz_page_footer() {
 
 /**
  * Display post footer.
- * 
- * @return  string  html
  */
 function iamdavidstutz_article_footer() {
     // Get author description (bio).
@@ -326,16 +376,24 @@ function iamdavidstutz_article_footer() {
 }
 
 /**
- * Display tags below title if sm or xs.
+ * Display related links of page.
+ * 
+ * @param   int id
  */
-function iamdavidstutz_article_below_title() {
-    $tags = get_the_tags(); ?>
-    <div class="article-tags-alternative hidden-md hidden-lg">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>      
-    </div>   
-    <?php
+function iamdavidstutz_related_links($id) {
+    global $post;
+    
+    if ($string = get_field('related-links', $id)) {
+        
+        $links = explode(';', $string);
+        foreach ($links as $link) {
+            $parts = str_getcsv($link, ':', '"');
+            
+            if (sizeof($parts) == 2) {
+                $title = $parts[0];
+                $href = $parts[1];
+                ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a> <?php
+            }
+        }
+    }
 }

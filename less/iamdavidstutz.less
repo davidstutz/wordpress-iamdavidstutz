@@ -4,7 +4,7 @@ article, header {
 
 .header {
     margin-top: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
 
     @media (max-width: @screen-xs-max) {
         margin-bottom: 12px;
@@ -21,18 +21,11 @@ article, header {
     .header-social {
         margin-left: 12px;
     }
-    
-    .header-navigation {
-        font-size: (@font-size-base * 1.2);
-
-        > a {
-            margin-right: 6px;
-        }
-    }
 }
 
 .article-container {
-    .article {
+    .article,
+    .article-first {
         margin-left: 146px;
 
         .article-date {
@@ -45,10 +38,18 @@ article, header {
             }
         }
 
-        .article-tags-alternative {
-            margin-bottom: 12px
+        .article-tags-alternative,
+        .article-first-tags {
+            margin-top: 6px;
+            margin-bottom: 12px;
+            
+            a {
+                &:hover, &:active, &:visited, &:link {
+                    text-decoration: none;
+                }
+            }
         }
-
+        
         .article-excerpt {
             margin-bottom: @line-height-computed;
             font-size: (@font-size-base * 1.15);
@@ -81,6 +82,10 @@ article, header {
                 }
             }
         }
+    }
+    
+    .article-first {
+        margin-left: 0px;
     }
 
     .article-tags {
@@ -232,16 +237,31 @@ article, header {
 .searching-tag {
     margin-left: 20%;
     margin-bottom: 24px;
+    
+    > h1 {
+        margin-top: (@line-height-computed / 2);
+        margin-bottom: @line-height-computed;
+    }
 }
 
 .searching-category {
     margin-left: 20%;
     margin-bottom: 24px;
+    
+    > h1 {
+        margin-top: (@line-height-computed / 2);
+        margin-bottom: @line-height-computed;
+    }
 }
 
 .searching-archive {
     margin-left: 5%;
     margin-bottom: 24px;
+    
+    > h1 {
+        margin-top: (@line-height-computed / 2);
+        margin-bottom: @line-height-computed;
+    }
 }
 
 .project {
@@ -354,5 +374,12 @@ article, header {
         .article {
             margin: 0px 15px !important;
         }
+    }
+}
+
+.page-projects-container {
+    
+    .page-projects-subpage {
+        margin-bottom: 12px;
     }
 }

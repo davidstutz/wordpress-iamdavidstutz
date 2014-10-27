@@ -2,9 +2,9 @@
 <div class="row">
     <div class="col-md-9">
         <div class="searching-tag">
-            <h1><?php echo __('TAG', 'iamdavidstutz'); ?>&raquo;<?php echo single_cat_title( '', false ); ?>&laquo;</h1>
+            <h1><?php echo __('TAG', 'iamdavidstutz'); ?>&raquo;<?php echo single_cat_title('', false); ?>&laquo;</h1>
             <?php if (category_description()): ?>
-				<div class="lead"><?php echo category_description(); ?></div>
+                <div class="lead"><?php echo category_description(); ?></div>
             <?php endif; ?>
         </div>
         <?php if (have_posts()) : ?>
@@ -41,7 +41,7 @@
                     </div>
                 <?php endif; ?>
             <?php endwhile; ?>
-            <?php echo iamdavidstutz_pagination(); ?>
+            <?php echo iamdavidstutz_pagination_simple(); ?>
         <?php else: ?>
             <div class="nothing">
                 <h1><?php echo __('NOTHING', 'iamdavidstutz'); ?></h1>

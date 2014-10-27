@@ -61,17 +61,6 @@
                     <span class="hidden-xs-inline">
                         <?php echo __('OPENSOURCEFAN', 'iamdavidstutz'); ?>
                     </span>
-                    <span class="header-navigation">
-                        <?php wp_nav_menu(array(
-                            'menu' => 'header',
-                            'menu_class' => '',
-                            'theme_location' => 'header',
-                            'container' => FALSE,
-                            'depth' => 1,
-                            'items_wrap' => '%3$s',
-                            'walker' => new IAMDAVIDSTUTZ_Header_Walker(),
-                        )); ?>
-                    </span>
                     <br>
                     <span class="hidden-xs-inline">
                         <?php echo __('STUDYINGMATHANDCOMPUTERSCIENCE', 'iamdavidstutz'); ?>
@@ -97,7 +86,7 @@
                         </ul>
                     </div>
                 </div>
-                <h4 class="hidden-xs">
+                <h4 class="hidden-sm">
                     <?php echo __('RWTHSTUDENTWEBDEVELOPER', 'iamdavidstutz'); ?><br>
                     <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
                 </h4>
