@@ -35,7 +35,7 @@
                             </div>
                             <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                 <div class="reading-comment">
-                                    <?php echo $post->post_content; ?>
+                                    <?php echo do_shortcode($post->post_content); ?>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -62,7 +62,7 @@
                             </div>
                             <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                 <div class="reading-comment">
-                                    <?php echo $post->post_content; ?>
+                                    <?php echo do_shortcode($post->post_content); ?>
                                 </div>
                             <?php endif; ?>
                         </div>

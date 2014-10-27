@@ -346,17 +346,11 @@ function iamdavidstutz_page_footer() {
  * Display post footer.
  */
 function iamdavidstutz_article_footer() {
-    // Get author description (bio).
-    $description = get_the_author_meta('description');
+    // Get corresponding suer.
+    $id = get_the_author_meta('ID');
+    $user = get_user_by('id', $id);
+    
     ?>
-    <?php if (!empty($description)): ?>
-        <div class="article-author">
-            <blockquote>
-                <p><?php echo $description; ?></p>
-                <small><?php the_author_posts_link(); ?></small>
-            </blockquote>
-        </div>
-    <?php endif; ?>
     <div class="article-footer">
         <span class="page-footer-modified">
             <?php echo __('LASTMODIFIED', 'iamdavidstutz'); ?>
@@ -371,6 +365,26 @@ function iamdavidstutz_article_footer() {
                 <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
             <?php endif; ?>
         </span>
+    </div>
+    <div class="article-author">
+        <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&orderby=date&post_limits=1'); ?>
+        <?php while ($query->have_posts()): $query->the_post(); ?>
+            <blockquote class="author-description">
+                <p><?php the_content(); ?></p>
+                <small>
+                    <?php $day = get_the_date('d'); ?>
+                    <?php if ($day == 1): ?>
+                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                    <?php elseif ($day == 2): ?>
+                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                    <?php elseif ($day == 3): ?>
+                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
+                    <?php else: ?>
+                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                    <?php endif; ?>, <?php echo $user->display_name; ?>
+                </small>
+            </blockquote>
+        <?php endwhile; ?>
     </div>
     <?php
 }
