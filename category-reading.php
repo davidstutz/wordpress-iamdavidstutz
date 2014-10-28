@@ -11,10 +11,9 @@
         -->
         <?php if (have_posts()) : ?>
         
-            <?php $first = TRUE; ?>
-            <?php query_posts($query_string.'&posts_per_page=20'); ?>
+            <?php // query_posts($query_string.'&posts_per_page=20'); ?>
             <?php while (have_posts()): the_post(); ?>
-                <?php if ($first === TRUE): ?>
+                <?php if (get_the_ID() == iamdavidstutz_latest_reading_id()): ?>
                     <div class="reading-container">
                         <div class="reading-first">
                             <div class="reading-date">
@@ -40,7 +39,6 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                    <?php $first = false; ?>
                 <?php else: ?>
                     <div class="reading-container">
                         <?php iamdavidstutz_reading_tags(); ?>

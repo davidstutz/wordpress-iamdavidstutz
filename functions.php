@@ -371,6 +371,8 @@ function iamdavidstutz_article_footer() {
                 </small>
             </blockquote>
         <?php endwhile; ?>
+        <?php // IMPORTANT! ?>
+        <?php wp_reset_postdata(); ?>
     </div>
     <!--
         <div class="article-footer">
@@ -398,7 +400,6 @@ function iamdavidstutz_article_footer() {
  * @param   int id
  */
 function iamdavidstutz_related_links($id) {
-    global $post;
     
     if ($string = get_field('related-links', $id)) {
         
@@ -413,4 +414,73 @@ function iamdavidstutz_related_links($id) {
             }
         }
     }
+}
+
+/**
+ * Workaround for current bug: post comment_status always set to closed ...
+ * 
+ * @param   int     id
+ * @return  boolean comments open
+ */
+function iamdavidstutz_comments_open($id = NULL) {
+    global $post, $wpdb;
+    
+    if ($id === NULL OR empty($id)) {
+        $id = $post->ID;
+    }
+    
+    $results = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = ' . $id);
+    return ($results[0]->comment_status == 'open');
+}
+
+/**
+ * Get ID of latest post to highlight.
+ * 
+ * @return  int ID
+ */
+function iamdavidstutz_latest_post_id() {
+    $posts = wp_get_recent_posts(array(
+        'numberposts' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'reading',
+                'operator' => 'NOT IN'
+            ),
+        ),
+    ));
+    
+    if (sizeof($posts) <= 0) {
+        return FALSE;
+    }
+    
+    $recent = array_shift($posts);
+    return $recent['ID'];
+}
+
+/**
+ * Get ID of latest reading to highlight.
+ * 
+ * @return  int ID
+ */
+function iamdavidstutz_latest_reading_id() {
+    $readings = wp_get_recent_posts(array(
+        'numberposts' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'reading',
+                'operator' => 'IN'
+            ),
+        ),
+    ));
+    
+    if (sizeof($readings) <= 0) {
+        return FALSE;
+    }
+    
+    $recent = array_shift($readings);
+    return $recent['ID'];
 }

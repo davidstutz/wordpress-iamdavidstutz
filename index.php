@@ -1,13 +1,12 @@
 <?php get_header(); ?>
 <div class="row">
     <div class="col-md-9">
-        <?php $first = TRUE; ?>
         <?php if (have_posts()) : ?>
             <?php while (have_posts()): the_post(); ?>
                 <?php if (in_category('reading')): ?>
-        
+                    
                 <?php else: ?>
-                    <?php if ($first === TRUE): ?>
+                    <?php if (get_the_ID() == iamdavidstutz_latest_post_id()): ?>
                         <div class="article-container">
                             <div class="article-first">
                                 <div class="article-date">
@@ -35,7 +34,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php $first = FALSE; ?>
                     <?php else: ?>
                         <div class="article-container row">
                             <?php iamdavidstutz_article_tags(); ?>

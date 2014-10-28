@@ -1,4 +1,4 @@
-<?php if ('open' == $post->comment_status): ?>
+<?php if (iamdavidstutz_comments_open()): ?>
     <script type="text/javascript"><!--//--><![CDATA[//><!--
             $(document).ready(function() {
                 $('.comment-form').validate({
