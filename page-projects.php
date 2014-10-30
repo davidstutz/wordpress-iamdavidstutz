@@ -30,7 +30,7 @@
                             <div class="<?php if (sizeof($siblings) > 0): ?>col-md-9<?php else: ?>col-md-12<?php endif; ?>">
                                 <div class="subpage-projects">
                                     <div class="subpage-projects-content">
-                                        <?php echo $page->post_content; ?>
+                                        <?php echo do_shortcode($sibling->post_content); ?>
                                     </div>
                                     <?php iamdavidstutz_page_footer(); ?>
                                 </div>

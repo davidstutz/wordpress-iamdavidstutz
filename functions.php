@@ -48,7 +48,7 @@ function iamdavidstutz_register_custom_menus() {
         'footer' => __('Footer Menu', 'iamdavidstutz'),
     ));
 
-    wp_dequeue_script('jquery', get_bloginfo( 'template_directory' ) . '/js/jquery.min.js');
+    wp_dequeue_script('jquery', get_bloginfo('template_directory') . '/js/jquery.min.js');
 }
 
 add_action('init', 'iamdavidstutz_register_custom_menus');
