@@ -8,20 +8,19 @@
     <div class="col-md-9">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()): the_post(); ?>
-                <?php $page = get_post(); ?>
                 <?php if ($post->post_parent > 0): ?>
-                    <?php $parent = get_page($page->post_parent); ?>
-                    <?php $query = new WP_Query(); ?>
-                    <?php $pages = $query->query(array('post_type' => 'page')); ?>
-                    <?php $siblings = get_page_children($parent->ID, $pages); ?>
                     <div class="subpage-projects-container">
                         <div class="row">
+                            <?php $parent = get_page($post->post_parent); ?>
+                            <?php $query = new WP_Query(); ?>
+                            <?php $pages = $query->query(array('post_type' => 'page')); ?>
+                            <?php $siblings = get_page_children($parent->ID, $pages); ?>
                             <?php if (sizeof($siblings) > 0): ?>
                                 <div class="col-md-3">
                                     <div class="subpage-projects-navigation">
                                         <ul class="nav nav-pills nav-pills-border nav-stacked">
                                             <?php foreach ($siblings as $sibling): ?>
-                                                <li<?php if ($sibling->ID == $page->ID): ?> class="active"<?php endif; ?>><a href="<?php echo get_post_permalink($sibling->ID); ?>"><?php echo $sibling->post_title; ?></a></li>
+                                                <li<?php if ($sibling->ID == $post->ID): ?> class="active"<?php endif; ?>><a href="<?php echo get_post_permalink($sibling->ID); ?>"><?php echo $sibling->post_title; ?></a></li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
@@ -30,7 +29,7 @@
                             <div class="<?php if (sizeof($siblings) > 0): ?>col-md-9<?php else: ?>col-md-12<?php endif; ?>">
                                 <div class="subpage-projects">
                                     <div class="subpage-projects-content">
-                                        <?php echo do_shortcode($sibling->post_content); ?>
+                                        <?php echo do_shortcode($post->post_content); ?>
                                     </div>
                                     <?php iamdavidstutz_page_footer(); ?>
                                 </div>
@@ -41,7 +40,7 @@
                     <div class="page-projects-container">
                         <?php $query = new WP_Query(); ?>
                         <?php $pages = $query->query(array('post_type' => 'page')); ?>
-                        <?php $children = get_page_children($page->ID, $pages); ?>
+                        <?php $children = get_page_children($post->ID, $pages); ?>
                         <?php foreach ($children as $child): ?>
                             <div class="page-projects-subpage">
                                 <div class="row">

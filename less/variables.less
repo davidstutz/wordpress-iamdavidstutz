@@ -377,8 +377,8 @@
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
 @state-info-text:                #3a87ad;
-@state-info-bg:                  #d9edf7;
-@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+@state-info-bg:                  @brand-primary;
+@state-info-border:              @state-info-bg;
 
 
 // Tooltips
@@ -444,22 +444,25 @@
 @alert-border-radius:         @border-radius-base;
 @alert-link-font-weight:      bold;
 
-@alert-success-bg:            @state-success-bg;
-@alert-success-text:          @state-success-text;
-@alert-success-border:        @state-success-border;
+@alert-success-bg:            #f55f5;
+@alert-success-text:          @text-color;
+@alert-success-border:        #ddd;
+@alert-success-border-left:   darken(@state-success-border, 25%);
 
-@alert-info-bg:               @state-info-bg;
-@alert-info-text:             @state-info-text;
-@alert-info-border:           @state-info-border;
+@alert-info-bg:               #f55f5;
+@alert-info-text:             @text-color;
+@alert-info-border:           #ddd;
+@alert-info-border-left:      @state-info-border;
 
-@alert-warning-bg:            @state-warning-bg;
-@alert-warning-text:          @state-warning-text;
-@alert-warning-border:        @state-warning-border;
+@alert-warning-bg:            #f55f5;
+@alert-warning-text:          @text-color;
+@alert-warning-border:        #ddd;
+@alert-warning-border-left:   darken(@state-warning-border, 25%);
 
-@alert-danger-bg:             @state-danger-bg;
-@alert-danger-text:           @state-danger-text;
-@alert-danger-border:         @state-danger-border;
-
+@alert-danger-bg:             #f55f5;
+@alert-danger-text:           @text-color;
+@alert-danger-border:         #ddd;
+@alert-danger-border-left:    darken(@state-danger-border, 25%);
 
 // Progress bars
 // -------------------------
