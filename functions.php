@@ -410,7 +410,30 @@ function iamdavidstutz_related_links($id) {
             if (sizeof($parts) == 2) {
                 $title = $parts[0];
                 $href = $parts[1];
-                ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a> <?php
+                ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a><br><?php
+            }
+        }
+    }
+}
+
+/**
+ * Display related links of page.
+ * 
+ * @param   int id
+ */
+function iamdavidstutz_related_links_dashed($id) {
+    
+    if ($string = get_field('related-links', $id)) {
+        
+        $links = explode(';', $string);
+        $first = TRUE;
+        foreach ($links as $link) {
+            $parts = str_getcsv($link, ':', '"');
+            
+            if (sizeof($parts) == 2) {
+                $title = $parts[0];
+                $href = $parts[1];
+                ?><?php if ($first === TRUE): $first = FALSE; else: ?> &mdash; <?php endif; ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a> <?php
             }
         }
     }

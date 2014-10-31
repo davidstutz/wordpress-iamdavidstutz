@@ -24,6 +24,10 @@
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
+                                    <div class="subpage-projects-links">
+                                        <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b><br>
+                                        <?php iamdavidstutz_related_links($post->ID); ?>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                             <div class="<?php if (sizeof($siblings) > 0): ?>col-md-9<?php else: ?>col-md-12<?php endif; ?>">
@@ -55,7 +59,7 @@
                                         </div>
                                         <div class="page-projects-subpage-links">
                                             <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b>&nbsp;
-                                            <?php iamdavidstutz_related_links($child->ID); ?>
+                                            <?php iamdavidstutz_related_links_dashed($child->ID); ?>
                                         </div>
                                     </div>
                                 </div>
