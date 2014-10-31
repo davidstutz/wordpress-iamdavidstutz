@@ -13,7 +13,7 @@
                         <div class="row">
                             <?php $parent = get_page($post->post_parent); ?>
                             <?php $query = new WP_Query(); ?>
-                            <?php $pages = $query->query(array('post_type' => 'page')); ?>
+                            <?php $pages = $query->query(array('post_type' => 'page', 'order_by' => 'menu_order', 'order' => 'DESC')); ?>
                             <?php $siblings = get_page_children($parent->ID, $pages); ?>
                             <?php if (sizeof($siblings) > 0): ?>
                                 <div class="col-md-3">
@@ -43,7 +43,7 @@
                 <?php elseif ($post->post_parent == 0): ?>
                     <div class="page-projects-container">
                         <?php $query = new WP_Query(); ?>
-                        <?php $pages = $query->query(array('post_type' => 'page')); ?>
+                        <?php $pages = $query->query(array('post_type' => 'page', 'order_by' => 'menu_order', 'order' => 'DESC')); ?>
                         <?php $children = get_page_children($post->ID, $pages); ?>
                         <?php foreach ($children as $child): ?>
                             <div class="page-projects-subpage">

@@ -319,7 +319,7 @@ function iamdavidstutz_article_below_title() {
 function iamdavidstutz_page_footer() {
     $tags = get_the_tags(); ?>
     <div class="page-footer">
-        <span class="page-footer-modified">
+        <span class="page-footer-modified text-muted">
             <?php echo __('LASTMODIFIED', 'iamdavidstutz'); ?>
             <?php $day = get_the_modified_time('d'); ?>
             <?php if ($day == 1): ?>
