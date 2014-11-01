@@ -13,7 +13,7 @@
                         <div class="row">
                             <?php $parent = get_page($post->post_parent); ?>
                             <?php $query = new WP_Query(); ?>
-                            <?php $pages = $query->query(array('post_type' => 'page', 'order_by' => 'menu_order', 'order' => 'DESC')); ?>
+                            <?php $pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC')); ?>
                             <?php $siblings = get_page_children($parent->ID, $pages); ?>
                             <?php if (sizeof($siblings) > 0): ?>
                                 <div class="col-md-3">
@@ -25,7 +25,6 @@
                                         </ul>
                                     </div>
                                     <div class="subpage-projects-links">
-                                        <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b><br>
                                         <?php iamdavidstutz_related_links($post->ID); ?>
                                     </div>
                                 </div>
@@ -43,7 +42,7 @@
                 <?php elseif ($post->post_parent == 0): ?>
                     <div class="page-projects-container">
                         <?php $query = new WP_Query(); ?>
-                        <?php $pages = $query->query(array('post_type' => 'page', 'order_by' => 'menu_order', 'order' => 'DESC')); ?>
+                        <?php $pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC')); ?>
                         <?php $children = get_page_children($post->ID, $pages); ?>
                         <?php foreach ($children as $child): ?>
                             <div class="page-projects-subpage">
@@ -58,7 +57,6 @@
                                             <?php echo $child->post_excerpt; ?>
                                         </div>
                                         <div class="page-projects-subpage-links">
-                                            <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b>&nbsp;
                                             <?php iamdavidstutz_related_links_dashed($child->ID); ?>
                                         </div>
                                     </div>

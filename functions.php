@@ -83,14 +83,14 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 
     switch ($comment->comment_type):
-        case 'pingback' :
-        case 'trackback' :
+        case 'pingback':
+        case 'trackback':
     ?>
         <p class="pingback">
             <?php __('Pingback:', 'iamdavidstutz'); ?> <?php comment_author_link(); ?> <?php edit_comment_link('<span class="glyphicon glyphicon-pencil"></span>'); ?>
         </p>
         <?php break; ?>
-    <?php default : ?>
+    <?php default: ?>
         <?php if ($comment->comment_approved == '0') : ?>
             <div class="alert alert-info"><?php __('Your comment is awaiting moderation.', 'iamdavidstutz'); ?></div>
         <?php endif; ?>
@@ -402,15 +402,18 @@ function iamdavidstutz_article_footer() {
 function iamdavidstutz_related_links($id) {
     
     if ($string = get_field('related-links', $id)) {
-        
-        $links = explode(';', $string);
-        foreach ($links as $link) {
-            $parts = str_getcsv($link, ':', '"');
-            
-            if (sizeof($parts) == 2) {
-                $title = $parts[0];
-                $href = $parts[1];
-                ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a><br><?php
+        if (!empty($string)) {
+            ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b><br> <?php
+
+            $links = explode(';', $string);
+            foreach ($links as $link) {
+                $parts = str_getcsv($link, ':', '"');
+
+                if (sizeof($parts) == 2) {
+                    $title = $parts[0];
+                    $href = $parts[1];
+                    ?><a href="<?php echo $href; ?>" target="_blank"><?php echo $title; ?></a><br><?php
+                }
             }
         }
     }
@@ -424,16 +427,19 @@ function iamdavidstutz_related_links($id) {
 function iamdavidstutz_related_links_dashed($id) {
     
     if ($string = get_field('related-links', $id)) {
-        
-        $links = explode(';', $string);
-        $first = TRUE;
-        foreach ($links as $link) {
-            $parts = str_getcsv($link, ':', '"');
-            
-            if (sizeof($parts) == 2) {
-                $title = $parts[0];
-                $href = $parts[1];
-                ?><?php if ($first === TRUE): $first = FALSE; else: ?> &mdash; <?php endif; ?><a href="<?php echo $href; ?>"><?php echo $title; ?></a> <?php
+        if (!empty($string)) {
+            ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b>&nbsp;<?php
+
+            $links = explode(';', $string);
+            $first = TRUE;
+            foreach ($links as $link) {
+                $parts = str_getcsv($link, ':', '"');
+
+                if (sizeof($parts) == 2) {
+                    $title = $parts[0];
+                    $href = $parts[1];
+                    ?><?php if ($first === TRUE): $first = FALSE; else: ?> &mdash; <?php endif; ?><a href="<?php echo $href; ?>" target="_blank"><?php echo $title; ?></a> <?php
+                }
             }
         }
     }
