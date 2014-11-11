@@ -58,14 +58,20 @@
                     <?php echo __('IAM', 'iamdavidstutz'); ?>
                 </h1>
                 <h4 style="display:inline;">
-                    <span class="hidden-xs-inline">
+                    <span class="hidden-xs-inline hidden-sm-inline">
                         <?php echo __('OPENSOURCEFAN', 'iamdavidstutz'); ?>
                     </span>
+                    <span class="hidden-md-inline hidden-lg-inline">
+                        <?php echo __('STUDYING', 'iamdavidstutz'); ?>
+                    </span>
                     <br>
-                    <span class="hidden-xs-inline">
+                    <span class="hidden-xs-inline hidden-sm-inline">
                         <?php echo __('STUDYINGMATHANDCOMPUTERSCIENCE', 'iamdavidstutz'); ?>
                         <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="elusive icon-twitter"></span></a>
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="elusive icon-github"></span></a>
+                    </span>
+                    <span class="hidden-md-inline hidden-lg-inline">
+                        <?php echo __('COMPUTERSCIENCE', 'iamdavidstutz'); ?>
                     </span>
                 </h4>
                 <div class="row">
@@ -73,7 +79,7 @@
                         <h1><?php echo __('DAVIDSTUTZ', 'iamdavidstutz'); ?></h1>
                     </div>
                     <div class="col-md-8">
-                        <ul class="nav nav-pills">
+                        <ul class="nav nav-pills hidden-xs hidden-sm">
                             <?php wp_nav_menu(array(
                                 'menu' => 'top',
                                 'menu_class' => '',
@@ -86,7 +92,27 @@
                         </ul>
                     </div>
                 </div>
-                <h4 class="hidden-sm">
+                <h4 class="hidden-md hidden-lg">
+                    <?php echo __('RWTHSTUDENT', 'iamdavidstutz'); ?><br>
+                    <?php echo __('WEBDEVELOPER', 'iamdavidstutz'); ?>
+                    <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
+                </h4>
+                <div>
+                    <hr class="hidden-lg hidden-md">
+                    <ul class="nav nav-pills nav-stacked hidden-md hidden-lg">
+                        <?php wp_nav_menu(array(
+                            'menu' => 'top',
+                            'menu_class' => '',
+                            'theme_location' => 'top',
+                            'container' => FALSE,
+                            'depth' => 1,
+                            'items_wrap' => '%3$s',
+                            'walker' => new IAMDAVIDSTUTZ_Walker(),
+                        )); ?>
+                    </ul>
+                    <hr class="hidden-lg hidden-md">
+                </div>
+                <h4 class="hidden-sm hidden-xs">
                     <?php echo __('RWTHSTUDENTWEBDEVELOPER', 'iamdavidstutz'); ?><br>
                     <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
                 </h4>

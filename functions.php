@@ -470,6 +470,8 @@ function iamdavidstutz_comments_open($id = NULL) {
 function iamdavidstutz_latest_post_id() {
     $posts = wp_get_recent_posts(array(
         'numberposts' => 1,
+        'post_type' => 'post',
+        'post_status' => 'publish',
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
@@ -496,6 +498,8 @@ function iamdavidstutz_latest_post_id() {
 function iamdavidstutz_latest_reading_id() {
     $readings = wp_get_recent_posts(array(
         'numberposts' => 1,
+        'post_type' => 'post',
+        'post_status' => 'publish',
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
