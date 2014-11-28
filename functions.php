@@ -356,7 +356,7 @@ function iamdavidstutz_article_footer() {
         <?php while ($query->have_posts()): $query->the_post(); ?>
             <blockquote class="author-description">
                 <h3><?php echo __('ABOUTTHE', 'iamdavidstutz'); ?><b><?php echo __('AUTHOR', 'iamdavidstutz'); ?></b></h3>
-                <p><?php the_content(); ?></p>
+                <?php str_replace('<p></p>', '', the_content()); ?>
                 <small>
                     <?php $day = get_the_date('d'); ?>
                     <?php if ($day == 1): ?>

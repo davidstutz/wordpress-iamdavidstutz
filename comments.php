@@ -74,7 +74,7 @@
                 </label>
                 <div class="col-md-10">
                     <div class="comment-form-user">
-                        <span class="elusive icon-user"></span> David Stutz
+                        <span class="fa fa-user"></span> David Stutz
                     </div>
                 </div>
             </div>

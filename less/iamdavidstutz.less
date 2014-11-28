@@ -24,6 +24,13 @@ article, header {
 
     .header-social {
         margin-left: 12px;
+        color: @text-color;
+        
+        &:hover,
+        &:active,
+        &:active {
+            color: @text-color;
+        }
     }
 }
 
@@ -73,7 +80,7 @@ article, header {
             blockquote.author-description {
                 h3 {
                     margin-top: 0px;
-                    font-size: floor(@font-size-base * 1.25);
+                    font-size: @font-size-base;
                 }
             }
         }
@@ -132,15 +139,6 @@ article, header {
 
     .page-footer {
         font-size: @font-size-small;
-    }
-}
-
-.elusive {
-    text-decoration: none;
-    color: @text-color;
-
-    &:hover, &:active, &:visited, &:link, &:focus {
-        text-decoration: none;
     }
 }
 
@@ -293,6 +291,10 @@ article, header {
 .footer {
     margin-top: 24px;
     margin-bottom: 24px;
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
 }
 
 .comment-form {
@@ -304,16 +306,48 @@ article, header {
 
 .author {
     .author-title {
-        margin-left: 20%;
         margin-bottom: 24px;
+        
+        .author-title-text {
+            padding: 2px 0 0 0;
+            font-size: @font-size-base;
+        }
     }
 
-    blockquote.author-description {
-        p {
-            font-size: floor(@font-size-base * 1.25);
+    .author-links {
+        font-size: floor(@font-size-base * 1.25);
+        text-align: right;
+        padding: 12px 6px 0 0;
+        float: left;
+        width: 172px;
+        
+        > div {
+            margin: 8px 0;
         }
-        small {
-            font-size: @font-size-base;
+        
+        .fa {
+            padding-left: 12px;
+            font-size: floor(@font-size-base * 1.5);
+            color: @text-color;
+            
+            &:hover,
+            &:active,
+            &:visited {
+                color: @text-color;
+            }
+        }
+    }
+    
+    .author-biography {
+        margin-left: 180px;
+        
+        blockquote.author-description {
+            p {
+                font-size: @font-size-base;
+            }
+            small {
+                font-size: @font-size-base;
+            }
         }
     }
 }

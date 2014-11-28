@@ -1,11 +1,9 @@
 <?php get_header(); ?>
 <div class="row">
     <div class="col-md-9">
-        <div class="searching-category">
-            <div class="searching">
-                <h1><?php echo __('SEARCHINGBLOG...'); ?></h1>
-                <h2 style="margin-left:20%;">&raquo;<?php echo get_search_query(); ?>&laquo;</h2>
-            </div>
+        <div class="searching">
+            <h1><?php echo __('SEARCH'); ?>&raquo;<?php echo get_search_query(); ?>&laquo;</h1>
+            
         </div>
         <?php if (have_posts()) : ?>
             <?php while (have_posts()): the_post(); ?>

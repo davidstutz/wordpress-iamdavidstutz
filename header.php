@@ -67,8 +67,8 @@
                     <br>
                     <span class="hidden-xs-inline hidden-sm-inline">
                         <?php echo __('STUDYINGMATHANDCOMPUTERSCIENCE', 'iamdavidstutz'); ?>
-                        <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="elusive icon-twitter"></span></a>
-                        <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="elusive icon-github"></span></a>
+                        <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="fa fa-twitter"></span></a>
+                        <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                     </span>
                     <span class="hidden-md-inline hidden-lg-inline">
                         <?php echo __('COMPUTERSCIENCE', 'iamdavidstutz'); ?>
