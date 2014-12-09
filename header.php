@@ -41,6 +41,7 @@
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery-validate.js"></script>
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/respond.js"></script>
+        <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/bootstrap.js"></script>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>

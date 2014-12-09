@@ -68,7 +68,7 @@
 // Optional heading
 .panel-heading {
   padding: 10px 15px;
-  border-bottom: 1px solid transparent;
+  border: 1px solid transparent;
   .border-top-radius(@panel-border-radius - 1);
 }
 
@@ -108,7 +108,7 @@
   }
 
   .panel-heading {
-    border-bottom: 0;
+    // border-bottom: 0;
     + .panel-collapse .panel-body {
       border-top: 1px solid @panel-inner-border;
     }
@@ -122,7 +122,7 @@
 
   // New subcomponent for wrapping collapsable content for proper animations
   .panel-collapse {
-
+    border: 1px solid @panel-inner-border;
   }
 }
 
