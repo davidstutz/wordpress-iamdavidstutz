@@ -5,7 +5,7 @@
 
 // Base class
 .panel {
-  margin-bottom: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
   background-color: @panel-bg;
   border: 1px solid transparent;
   border-radius: @panel-border-radius;
@@ -97,6 +97,8 @@
 // the help of our collapse JavaScript plugin.
 
 .panel-group {
+  margin-bottom: 6px;
+  
   // Tighten up margin so it's only between panels
   .panel {
     margin-bottom: 0;
@@ -123,6 +125,7 @@
   // New subcomponent for wrapping collapsable content for proper animations
   .panel-collapse {
     border: 1px solid @panel-inner-border;
+    border-top: none;
   }
 }
 
