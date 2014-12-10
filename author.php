@@ -20,7 +20,7 @@
             
             <div class="author-links">
                 <div>
-                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/06/CV-online.pdf" target="_blank"><?php echo __('Resum&eacute;', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
+                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-sumè.pdf" target="_blank"><?php echo __('Resum&eacute;', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
                 </div>
                 <div>
                     <a href="https://github.com/davidstutz" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><span class="fa fa-github"></span></a>
