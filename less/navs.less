@@ -237,3 +237,32 @@
   // Remove the top rounded corners here since there is a hard edge above the menu
   .border-top-radius(0);
 }
+
+.nav-well {
+    > li {
+        > a {
+            display: block;
+            padding: @nav-well-padding;
+        }
+        
+        &:hover {
+            > a {
+                color: darken(@link-color, 5%);
+                background: darken(@well-bg, 5%);
+            }
+        }
+        
+        &.active {
+            > a {
+                color: #ffffff;
+                background: @link-color;
+            }
+        }
+        
+        &.nav-header {
+            color: darken(@well-bg, 40%);
+            padding: @nav-well-padding;
+            
+        }
+    }
+}

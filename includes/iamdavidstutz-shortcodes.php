@@ -75,12 +75,42 @@ class IAMDAVIDSTUTZ_Shortcodes {
      */
     public function bootstrap($attributes, $content = null) {
         extract(shortcode_atts(array(
-
+            
         ), $attributes));
 
         wp_enqueue_script('bootstrap', get_bloginfo('template_directory') . '/js/bootstrap.js');
 
         return '';
+    }
+    
+    /**
+     * Bind a bxSlider to the slides with the given id.
+     * 
+     * @param   array   attributes
+     * @param   string  content
+     * @return  string  html markup
+     */
+    public function bxslider($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'slides' => 1,
+            'id' => '',
+            'caption' => FALSE,
+        ), $attributes));
+        
+        if (!empty($id)) {
+            return '<script type="javascript/text">'
+                    . '$(document).ready(function() {'
+                        . '$(\'#' . $id . '\').bxslider({'
+                            . 'minSlides: ' . $slides . ','
+                            . 'maxSlides: ' . $slides . ','
+                            . ($caption !== FALSE ? 'caption: true' : '')
+                        . '});'
+                    . '});'
+                 . '</script>';
+        }
+        else {
+            return '';
+        }
     }
 }
 
