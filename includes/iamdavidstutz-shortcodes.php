@@ -24,6 +24,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('mathjax', array($this, 'mathjax'));
         add_shortcode('prettify', array($this, 'prettify'));
         add_shortcode('bootstrap', array($this, 'bootstrap'));
+        add_shortcode('bxslider', array($this, 'bxslider'));
     }
 
     /**
@@ -93,17 +94,20 @@ class IAMDAVIDSTUTZ_Shortcodes {
     public function bxslider($attributes, $content = NULL) {
         extract(shortcode_atts(array(
             'slides' => 1,
-            'id' => '',
-            'caption' => FALSE,
+            'width' => '300',
+            'class' => '',
+            'caption' => TRUE,
         ), $attributes));
         
-        if (!empty($id)) {
-            return '<script type="javascript/text">'
+        if (!empty($class)) {
+            return '<script type="text/javascript">'
                     . '$(document).ready(function() {'
-                        . '$(\'#' . $id . '\').bxslider({'
+                        . '$(\'.' . $class . '\').bxSlider({'
                             . 'minSlides: ' . $slides . ','
                             . 'maxSlides: ' . $slides . ','
-                            . ($caption !== FALSE ? 'caption: true' : '')
+                            . 'slideWidth: ' . $width . ','
+                            . 'slideMargin: 8,'
+                            . ($caption !== FALSE ? 'captions: true' : '')
                         . '});'
                     . '});'
                  . '</script>';

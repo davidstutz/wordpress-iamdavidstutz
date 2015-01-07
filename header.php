@@ -37,12 +37,14 @@
         <link href="http://fonts.googleapis.com/css?family=Gudea:400,400italic,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/style.css" />
-
+        <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/bxslider.css" />
+        
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery-validate.js"></script>
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/respond.js"></script>
         <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/bootstrap.js"></script>
-
+        <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/bxslider.js"></script>
+        
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="../js/html5shiv.js"></script>
