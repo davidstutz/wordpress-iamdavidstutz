@@ -6,6 +6,7 @@
                 global $wp_query;
                 $user = $wp_query->get_queried_object();
             ?>
+            <!--
             <div class="author-title">
                 <h2 style="display:inline;float:left;margin:0 12px 0 0;"><?php echo __('PROFILE', 'iamdavidstutz'); ?></h2>
                 <div class="author-title-text">
@@ -17,10 +18,11 @@
                     </p>
                 </div>
             </div>
+            -->
             
             <div class="author-links">
                 <div>
-                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-sumè.pdf" target="_blank"><?php echo __('Resum&eacute;', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
+                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-sumè.pdf" target="_blank"><?php echo __('Resum&eacute; / CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
                 </div>
                 <div>
                     <a href="https://github.com/davidstutz" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><span class="fa fa-github"></span></a>

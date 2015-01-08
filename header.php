@@ -120,5 +120,15 @@
                     <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
                 </h4>
             </div>
+        </div>
+        <?php if (!in_array('note', get_field('note'))): ?>
+            <div class="note">
+                <div class="container">
+                    <b><?php echo __('Check out my research on superpixel segmentation:', 'iamdavidstutz'); ?> <a href="#"><?php echo __('Superpixels / SEEDS', 'iamdavidstutz'); ?></a></b>
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="container">
+        
 				
 		
