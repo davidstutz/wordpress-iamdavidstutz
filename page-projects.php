@@ -24,7 +24,7 @@
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
-                                    <div class="subpage-projects-links">
+                                    <div class="subpage-projects-links hidden-sm hidden-xs">
                                         <?php iamdavidstutz_related_links($post->ID); ?>
                                     </div>
                                 </div>
@@ -34,6 +34,11 @@
                                     <div class="subpage-projects-content">
                                         <?php echo do_shortcode($post->post_content); ?>
                                     </div>
+                                    
+                                    <div class="subpage-projects-links hidden-lg hidden-md">
+                                        <?php iamdavidstutz_related_links_dashed($post->ID); ?>
+                                    </div>
+                                    
                                     <?php iamdavidstutz_page_footer(); ?>
                                 </div>
                             </div>
