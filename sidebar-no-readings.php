@@ -11,40 +11,14 @@
         <div class="clearfix"></div>
     </div>
     <hr class="hidden-lg hidden-md">
-    <!--
-    <div class="sidebar-header">
-        <h4><?php echo __('CURRENTLY', 'iamdavidstutz'); ?></h4>
-        <h4 style="margin-left:30%;"><?php echo __('READING', 'TAGS'); ?></h4>
-    </div>
-    <div class="sidebar-readings">
-        <?php $category = get_category_by_slug('reading'); ?>
-        <?php $posts = get_posts(array(
-            'category' => $category->term_id,
-        )); ?>
-        
-        <?php $i = 0; ?>
-        <?php foreach ($posts as $p): ?>
-            <?php if ($i > 2) break; ?>
-            <div class="sidebar-reading-container">
-                <div class="sidebar-reading">
-                    <div class="sidebar-reading-reference">
-                        <?php echo get_field('reference', $p->ID); ?>&nbsp;<?php if (get_field('pdf', $p->ID)): ?><a href="<?php echo get_field('pdf',$p->ID); ?>" target="_blank">PDF</a><?php endif; ?>
-                    </div>
-                </div>
-            </div>
-            <?php $i++; ?>
-        <?php endforeach; ?>
-    </div>
-    -->
-    <hr class="hidden-lg hidden-md">
     <div class="sidebar-twitter">
         <a class="twitter-timeline" href="https://twitter.com/david_stutz" data-widget-id="478636565548118016">Tweets von @david_stutz</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
     <hr class="hidden-lg hidden-md">
     <div class="sidebar-header">
-        <h4><?php echo __('ARCHIVES', 'iamdavidstutz'); ?></h4>
-        <h4 style="margin-left:30%;"><?php echo __('ARCHIVES', 'TAGS'); ?></h4>
+        <h4>ARCHIVES</h4>
+        <h4 style="margin-left:30%;">TAGS</h4>
     </div>
     <div class="sidebar-archives">
         <?php echo iamdavidstutz_get_archives(); ?>
