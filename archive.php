@@ -26,118 +26,64 @@
         <?php if (have_posts()) : ?>
             <?php while (have_posts()): the_post(); ?>
                 <?php if (in_category('reading')): ?>
-                    <?php if (get_the_ID() == iamdavidstutz_latest_reading_id()): ?>
-                        <div class="reading-container">
-                            <div class="reading-first">
-                                <div class="reading-date">
-                                    <?php $day = get_the_date('d'); ?>
-                                    <?php if ($day == 1): ?>
-                                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 2): ?>
-                                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 3): ?>
-                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
-                                    <?php else: ?>
-                                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php endif; ?>
-                                </div>
-                                <?php iamdavidstutz_reading_first_tags(); ?>
-                                <div class="reading-reference">
-                                    <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
-                                </div>
-                                <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
-                                    <div class="reading-comment">
-                                        <?php echo do_shortcode($post->post_content); ?>
-                                    </div>
+                    <div class="reading-container">
+                        <?php iamdavidstutz_reading_tags(); ?>
+                        <div class="reading">
+                            <div class="reading-date">
+                                <?php $day = get_the_date('d'); ?>
+                                <?php if ($day == 1): ?>
+                                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php elseif ($day == 2): ?>
+                                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php elseif ($day == 3): ?>
+                                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
+                                <?php else: ?>
+                                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
                             </div>
-                        </div>
-                    <?php else: ?>
-                        <div class="reading-container">
-                            <?php iamdavidstutz_reading_tags(); ?>
-                            <div class="reading">
-                                <div class="reading-date">
-                                    <?php $day = get_the_date('d'); ?>
-                                    <?php if ($day == 1): ?>
-                                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 2): ?>
-                                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 3): ?>
-                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
-                                    <?php else: ?>
-                                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="reading-reference">
-                                    <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
-                                </div>
-                                <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
-                                    <div class="reading-comment">
-                                        <?php echo do_shortcode($post->post_content); ?>
-                                    </div>
-                                <?php endif; ?>
+                            <div class="reading-reference">
+                                <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
+                            <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
+                                <div class="reading-comment">
+                                    <?php the_excerpt(); ?>
+                                    <p>
+                                        <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
+                                    </p>
+                                    <p class="clearfix"></p>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                    <?php endif; ?>
+                    </div>
                 <?php else: ?>
-                    <?php if (get_the_ID() == iamdavidstutz_latest_post_id()): ?>
-                        <div class="article-container">
-                            <div class="article-first">
-                                <div class="article-date">
-                                    <?php $day = get_the_date('d'); ?>
-                                    <?php if ($day == 1): ?>
-                                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 2): ?>
-                                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 3): ?>
-                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php else: ?>
-                                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="article-header">
-                                    <h2><?php the_title(); ?></h2>
-                                </div>
-                                <?php iamdavidstutz_article_first_tags(); ?>
-                                <div class="article-excerpt">
-                                    <?php the_excerpt(); ?>
-                                    <p>
-                                        <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
-                                    </p>
-                                    <p class="clearfix"></p>
-                                </div>
+                    <div class="article-container">
+                        <?php iamdavidstutz_article_tags(); ?>
+                        <div class="article">
+                            <div class="article-date">
+                                <?php $day = get_the_date('d'); ?>
+                                <?php if ($day == 1): ?>
+                                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php elseif ($day == 2): ?>
+                                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php elseif ($day == 3): ?>
+                                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php else: ?>
+                                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="article-header">
+                                <h2><?php the_title(); ?></h2>
+                            </div>
+                            <?php iamdavidstutz_article_below_title(); ?>
+                            <div class="article-excerpt">
+                                <?php the_excerpt(); ?>
+                                <p>
+                                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
+                                </p>
+                                <p class="clearfix"></p>
                             </div>
                         </div>
-                    <?php else: ?>
-                        <div class="article-container row">
-                            <?php iamdavidstutz_article_tags(); ?>
-                            <div class="article">
-                                <div class="article-date">
-                                    <?php $day = get_the_date('d'); ?>
-                                    <?php if ($day == 1): ?>
-                                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 2): ?>
-                                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php elseif ($day == 3): ?>
-                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php else: ?>
-                                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="article-header">
-                                    <h2><?php the_title(); ?></h2>
-                                </div>
-                                <?php iamdavidstutz_article_below_title(); ?>
-                                <div class="article-excerpt">
-                                    <?php the_excerpt(); ?>
-                                    <p>
-                                        <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
-                                    </p>
-                                    <p class="clearfix"></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
+                    </div>
                 <?php endif; ?>
             <?php endwhile; ?>
             <?php echo iamdavidstutz_pagination_simple(); ?>

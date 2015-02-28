@@ -35,6 +35,8 @@ article, header {
 }
 
 .article-container {
+    margin-bottom: @line-height-computed / 2;
+    
     .article,
     .article-first {
         margin-left: 146px;
@@ -394,12 +396,13 @@ article, header {
         }
     }
     
-    .reading-reference {
-            margin-bottom: @line-height-computed / 2;
-        }
-    
     .reading {
         margin-left: 146px;
+        
+        .reading-reference {
+            font-weight: 500;
+            margin-bottom: @line-height-computed / 2;
+        }
     }
 
     .reading-tags {
@@ -407,7 +410,6 @@ article, header {
         float: left;
         text-align: right;
         width: 140px;
-        margin-bottom: 0;
 
         li {
             margin-bottom: 4px;
@@ -509,4 +511,18 @@ article, header {
 // Fix for wordpress classes:
 body.page {
     margin: 0 !important;
+}
+
+.pseudocode {
+    list-style-type: none;
+    padding-left: 0;
+    
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    font-size: 0.925*@font-size-base;
+    
+    ul {
+        list-style-type: none;
+        padding-left: 24px;
+        border-left: 1px solid #dddddd;
+    }
 }

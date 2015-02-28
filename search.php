@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     <?php else: ?>
-                        <div class="article-container row">
+                        <div class="article-container">
                             <?php iamdavidstutz_article_tags(); ?>
                             <div class="article">
                                 <div class="article-date">

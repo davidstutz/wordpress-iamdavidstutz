@@ -21,10 +21,29 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * Register all shortcodes.
      */
     public function init() {
+        add_shortcode('pseudocode', array($this, 'pseudocode'));
         add_shortcode('mathjax', array($this, 'mathjax'));
         add_shortcode('prettify', array($this, 'prettify'));
         add_shortcode('bootstrap', array($this, 'bootstrap'));
         add_shortcode('bxslider', array($this, 'bxslider'));
+    }
+    
+    /**
+     * Include and initialiye jQuery Pseudocode.
+     * 
+     * @param	array 	attributes
+     * @param	string	content
+     * @param	string	html markup
+     */
+    public function pseudocode($attributes, $content = null) {
+        extract(shortcode_atts(array(
+
+        ), $attributes));
+        
+        wp_enqueue_script('pseudocode', get_bloginfo('template_directory') . '/js/jquery-pseudocode.js');
+        wp_enqueue_script('pseudocode-init', get_bloginfo('template_directory') . '/js/jquery-pseudocode-init.js');
+
+        return '';
     }
 
     /**
@@ -43,7 +62,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
 
         wp_enqueue_script('mathjax', 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML');
         wp_enqueue_script('mathjax-init', get_bloginfo('template_directory') . '/js/mathjax-init.js');
-
+        
         return '';
     }
 
