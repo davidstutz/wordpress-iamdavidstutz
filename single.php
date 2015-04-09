@@ -27,6 +27,9 @@
                                     <?php echo do_shortcode($post->post_content); ?>
                                 </div>
                             <?php endif; ?>
+                            <div class="reading-comments">
+                                <?php comments_template(); ?>
+                            </div>
                         </div>
                     </div>
                 <?php else: ?>

@@ -121,7 +121,7 @@
                 </h4>
             </div>
         </div>
-        <?php if (!in_array('note', get_field('note'))): ?>
+        <?php if (!get_field('note')): ?>
             <div class="note">
                 <div class="container">
                     <b><?php echo __('Check out my research on superpixel segmentation:', 'iamdavidstutz'); ?> <a href="http://davidstutz.de/projects/superpixelsseeds/"><?php echo __('Superpixels / SEEDS', 'iamdavidstutz'); ?></a></b>

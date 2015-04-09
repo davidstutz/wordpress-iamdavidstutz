@@ -39,6 +39,10 @@
                                         <?php iamdavidstutz_related_links_dashed($post->ID); ?>
                                     </div>
                                     
+                                    <div class="subpage-projects-comments">
+                                        <?php comments_template(); ?>
+                                    </div>
+                                    
                                     <?php iamdavidstutz_page_footer(); ?>
                                 </div>
                             </div>

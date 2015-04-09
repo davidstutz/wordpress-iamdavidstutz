@@ -53,6 +53,10 @@
                                     <p class="clearfix"></p>
                                 </div>
                             <?php endif; ?>
+                            <p>
+                                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Comments?'); ?></a>
+                            </p>
+                            <p class="clearfix"></p>
                         </div>
                     </div>
                 <?php else: ?>

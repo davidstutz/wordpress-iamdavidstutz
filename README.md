@@ -2,11 +2,9 @@
 
 This is the theme used for my personal webpage [davidstutz.de](http://davidstutz.de/). **If you use parts of this theme, please change both the header and the footer!** - That is remove the following names and companies: David Stutz, RS Computer.
 
-**Note:** The theme is based on my Wordpress Pluign called ["User Biography"](https://github.com/davidstutz/wordpress-user-biography).
+**Note:** The theme is based on the Wordpress plugins ["User Biography"](https://github.com/davidstutz/wordpress-user-biography) and [Wordpress GitHub](https://github.com/davidstutz/wordpress-github).
 
 ![Wordpress Theme IAMDAVIDSTUTZ.](screenshot.png?raw=true "Wordpress Theme IAMDAVIDSTUTZ.")
-
-
 
 ## License
 
