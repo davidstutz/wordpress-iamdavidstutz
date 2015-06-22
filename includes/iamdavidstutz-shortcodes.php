@@ -27,6 +27,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('bootstrap', array($this, 'bootstrap'));
         add_shortcode('bxslider', array($this, 'bxslider'));
         add_shortcode('line_plot', array($this, 'line_plot'));
+        add_shortcode('readings', array($this, 'readings'));
     }
     
     /**
@@ -184,6 +185,51 @@ class IAMDAVIDSTUTZ_Shortcodes {
         }
         else {
             return 'asd';
+        }
+    }
+    
+    /**
+     * Display several readings as accordion.
+     * 
+     * @param type $attributes
+     * @param type $contents
+     */
+    public function readings($attributes, $contents = NULL) {
+        extract(shortcode_atts(array(
+            'ids' => '',
+        ), $attributes));
+        
+        if (!empty($ids)) {
+            $readings = array_map('trim', explode(',', $ids));
+            
+            $html = '<div class="panel" role="tablist" aria-multiselectable="true">';
+            foreach ($readings as $id) {
+                $reading = get_post($id);
+                
+                if ($reading != NULL) {
+                    $panel_id = 'panel-' . time() . '-' . $reading->ID;
+                    $html .= '<div class="panel-group panel-default">'
+                                . '<div class="panel-heading" role="tab">'
+                                    . '<h4 class="panel-title">'
+                                        . '<a data-toggle="collapse" href="#' . $panel_id . '" aria-expanded="true" aria-controls="' . $panel_id . '">' 
+                                            . get_field('reference', $reading->ID)
+                                            // . ' <a href="' . get_field('pdf', $reading->ID) . '" target="_blank">PDF</a>'
+                                        . '</a>'
+                                    . '</h4>'
+                                . '</div>'
+                                . '<div class="panel-collapse collapse" id="' . $panel_id . '">'
+                                    . '<div class="panel-body">'
+                                        . $reading->post_content
+                                    . '</div>'
+                                . '</div>'
+                            . '</div>';   
+                }
+            }
+            
+            return $html . '</div>';
+        }
+        else {
+            return '';
         }
     }
 }
