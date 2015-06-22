@@ -26,6 +26,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('prettify', array($this, 'prettify'));
         add_shortcode('bootstrap', array($this, 'bootstrap'));
         add_shortcode('bxslider', array($this, 'bxslider'));
+        add_shortcode('line_plot', array($this, 'line_plot'));
     }
     
     /**
@@ -133,6 +134,56 @@ class IAMDAVIDSTUTZ_Shortcodes {
         }
         else {
             return '';
+        }
+    }
+    
+    /**
+     * Line plot using nvd3.js.
+     * 
+     * @param type $attributes
+     * @param type $content
+     */
+    public function line_plot($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'file' => '',
+            'field' => '',
+            'height' => 200,
+        ), $attributes));
+        
+        wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js');
+        wp_enqueue_script('nvd3', get_bloginfo('template_directory') . '/js/nv.d3.js');
+        wp_enqueue_style('nvd3', get_bloginfo('template_directory') . '/css/nv.d3.css');
+        
+        if (!empty($file)) {
+            $id = 'line-plot-' . time() . rand(0, 1000) . '-' . $field;
+            
+            return '<svg style="height:' . $height . 'px" id="' . $id . '" class="line-plot"></svg>'
+                    . '<script type="text/javascript">'
+                        . '$(document).ready(function() {'
+                            . 'd3.json(\'' . $file . '\', function(data) {'
+                                . 'nv.addGraph(function() {'
+                                    . 'var chart = nv.models.lineChart()'
+                                        . '.x(function(d) {'
+                                            . 'return d[0];'
+                                        . '})'
+                                        . '.y(function(d) {'
+                                            . 'return d[1];'
+                                        . '});'
+
+                                    . 'd3.select(\'#' . $id . '\')'
+                                        . '.datum(data' . (empty($field) ? '' : '[\'' . $field . '\']') . ')'
+                                        . '.call(chart);'
+
+                                    . 'nv.utils.windowResize(chart.update);'
+
+                                    . 'return chart;'
+                                . '});'
+                            . '});'
+                        . '});'
+                    . '</script>';
+        }
+        else {
+            return 'asd';
         }
     }
 }
