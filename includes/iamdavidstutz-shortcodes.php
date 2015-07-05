@@ -219,7 +219,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
                                 . '</div>'
                                 . '<div class="panel-collapse collapse" id="' . $panel_id . '">'
                                     . '<div class="panel-body">'
-                                        . $reading->post_content
+                                        . do_shortcode($reading->post_content)
                                     . '</div>'
                                 . '</div>'
                             . '</div>';   
