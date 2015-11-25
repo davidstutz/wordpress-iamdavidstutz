@@ -70,7 +70,7 @@
                     <br>
                     <span class="hidden-xs-inline hidden-sm-inline">
                         <?php echo __('STUDYINGCOMPUTERSCIENCEANDMATH', 'iamdavidstutz'); ?>
-                        <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="fa fa-twitter"></span></a>
+                        <a href="https://www.linkedin.com/in/davidstutz92" target="_blank" class="header-social"><span class="fa fa-linkedin-square"></span></a>
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                     </span>
                     <span class="hidden-md-inline hidden-lg-inline">
