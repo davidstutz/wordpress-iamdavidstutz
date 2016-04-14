@@ -19,6 +19,9 @@
                                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
                             </div>
+                            <div class="reading-top-header">
+                                <h3>READING</h3>
+                            </div>
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
@@ -47,6 +50,9 @@
                                 <?php else: ?>
                                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
+                            </div>
+                            <div class="article-top-header">
+                                <h3>ARTICLE</h3>
                             </div>
                             <div class="article-header">
                                 <h2><?php the_title(); ?></h2>

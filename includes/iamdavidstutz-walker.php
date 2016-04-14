@@ -30,18 +30,10 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         $classes[] = 'menu-item-' . $item->ID;
         $classes = apply_filters('nav_menu_css_class', array_filter($classes), $item, $args);
 
-        $reading = get_category_by_slug('reading');
         $projects = get_page_by_title('Projects');
         
-        if (FALSE !== array_search('menu-item-object-category', $classes)) {
-            if ($reading->term_id == get_query_var('cat')
-                    AND $post->post_type != 'page') {
-                $classes[] = 'active';
-            }
-        }
-        else if (FALSE !== array_search('menu-item-home', $classes)) {
-            if ($reading->term_id != get_query_var('cat')
-                    AND $post->post_type != 'page') {
+        if (FALSE !== array_search('menu-item-home', $classes)) {
+            if ($post->post_type != 'page') {
                 $classes[] = 'active';
             }
         }

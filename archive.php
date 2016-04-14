@@ -15,7 +15,7 @@
                         <?php echo __('ARCHIVEDAILY', 'iamdavidstutz'); ?>&raquo;<?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('FY')); ?>&laquo;
                     <?php endif; ?>
 				<?php elseif (is_month()): ?>
-                    <?php echo __('ARCHIVEMONTHLY', 'iamdavidstutz'); ?>&raquo;<?php echo get_the_date('FY'); ?>&laquo;
+                    <?php echo __('ARCHIVEMONTHLY', 'iamdavidstutz'); ?>&raquo;<?php echo strtoupper(get_the_date('FY')); ?>&laquo;
                 <?php elseif (is_year()): ?>
                     <?php echo __('ARCHIVEYEARLY', 'iamdavidstutz'); ?>&raquo;<?php echo get_the_date('Y'); ?>&laquo;
                 <?php else: ?>
@@ -41,20 +41,14 @@
                                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
                             </div>
+                            <div class="reading-top-header">
+                                <h3>READING</h3>
+                            </div>
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
-                            <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
-                                <div class="reading-comment">
-                                    <?php the_excerpt(); ?>
-                                    <p>
-                                        <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
-                                    </p>
-                                    <p class="clearfix"></p>
-                                </div>
-                            <?php endif; ?>
                             <p>
-                                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Comments?'); ?></a>
+                                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
                             </p>
                             <p class="clearfix"></p>
                         </div>
@@ -74,6 +68,9 @@
                                 <?php else: ?>
                                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
+                            </div>
+                            <div class="article-top-header">
+                                <h3>ARTICLE</h3>
                             </div>
                             <div class="article-header">
                                 <h2><?php the_title(); ?></h2>

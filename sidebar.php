@@ -37,11 +37,6 @@
     </div>
     -->
     <hr class="hidden-lg hidden-md">
-    <div class="sidebar-twitter">
-        <a class="twitter-timeline" href="https://twitter.com/david_stutz" data-widget-id="478636565548118016">Tweets von @david_stutz</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </div>
-    <hr class="hidden-lg hidden-md">
     <div class="sidebar-header">
         <h4><?php echo __('ARCHIVES', 'iamdavidstutz'); ?></h4>
         <h4 style="margin-left:30%;"><?php echo __('ARCHIVES', 'TAGS'); ?></h4>
