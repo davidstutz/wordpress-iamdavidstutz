@@ -57,8 +57,13 @@
                                 <h3>ARTICLE</h3>
                             </div>
                             <div class="article-header">
-                                <h2><?php the_title(); ?></h2>
+                                <h2<?php if(in_category('series')): echo ' style="margin-bottom:6px;"'; endif; ?>><?php the_title(); ?></h2>
                             </div>
+                            <?php if(in_category('series')): ?>
+                                <div class="article-series">
+                                    <h4>SERIES&raquo;<?php the_field('series'); ?>&laquo;</h4>
+                                </div>
+                            <?php endif; ?>
                             <?php iamdavidstutz_article_below_title(); ?>
                             <div class="article-excerpt">
                                 <?php the_excerpt(); ?>
