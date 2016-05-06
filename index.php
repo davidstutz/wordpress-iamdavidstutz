@@ -16,13 +16,13 @@
                                     <?php elseif ($day == 2): ?>
                                         <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                     <?php elseif ($day == 3): ?>
-                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
+                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                     <?php else: ?>
                                         <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="reading-top-header">
-                                    <h3>READING</h3>
+                                    <h3><?php echo __('READING', 'iamdavidstutz'); ?></h3>
                                 </div>
                                 <div class="reading-reference">
                                     <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
@@ -50,14 +50,14 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="article-top-header">
-                                    <h3>ARTICLE</h3>
+                                    <h3><?php echo __('ARTICLE', 'iamdavidstutz'); ?></h3>
                                 </div>
                                 <div class="article-header">
                                     <h2<?php if(in_category('series')): echo ' style="margin-bottom:6px;"'; endif; ?>><?php the_title(); ?></h2>
                                 </div>
                                 <?php if(in_category('series')): ?>
                                     <div class="article-series">
-                                        <h4>SERIES&raquo;<?php the_field('series'); ?>&laquo;</h4>
+                                        <h4><?php echo __('SERIES', 'iamdavidstutz'); ?>&raquo;<?php the_field('series'); ?>&laquo;</h4>
                                     </div>
                                 <?php endif; ?>
                                 <?php iamdavidstutz_article_below_title(); ?>
@@ -84,5 +84,5 @@
             <?php get_sidebar(); ?>
         </div>
     </div>
-    
+
     <?php get_footer(); ?>
