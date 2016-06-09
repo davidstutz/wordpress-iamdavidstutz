@@ -19,16 +19,19 @@
                 </div>
             </div>
             -->
-            
+
             <div class="author-links">
                 <div>
-                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-sumè.pdf" target="_blank"><?php echo __('Resum&eacute; / CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
+                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-sumè.pdf" target="_blank"><?php echo __('CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
+                </div>
+                <div>
+                    <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><?php echo __('LinkedIn', 'iamdavidstutz'); ?><span class="fa fa-linkedin-square"></span></a>
+                </div>
+                <div>
+                    <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><?php echo __('Xing', 'iamdavidstutz'); ?><span class="fa fa-xing"></span></a>
                 </div>
                 <div>
                     <a href="https://github.com/davidstutz" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><span class="fa fa-github"></span></a>
-                </div>
-                <div>
-                    <a href="https://twitter.com/david_stutz" target="_blank"><?php echo __('Twitter', 'iamdavidstutz'); ?><span class="fa fa-twitter"></span></a>
                 </div>
             </div>
             <div class="author-biography">
@@ -43,7 +46,7 @@
                             <?php elseif ($day == 2): ?>
                                 <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                             <?php elseif ($day == 3): ?>
-                                <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
+                                <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                             <?php else: ?>
                                 <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                             <?php endif; ?>, <?php echo $user->display_name; ?>
@@ -57,4 +60,4 @@
         <?php get_sidebar(); ?>
     </div>
 </div>
-<?php get_footer(); ?>	
+<?php get_footer(); ?>
