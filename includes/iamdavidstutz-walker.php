@@ -2,7 +2,7 @@
 
 /**
  * Custom menu walker for navigation.
- * 
+ *
  * @see http://codex.wordpress.org/Function_Reference/wp_nav_menu
  * @class IAMDAVIDSTUTZ_Walker
  * @author David Stutz
@@ -21,7 +21,7 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
      */
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $post;
-        
+
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
         $class_names = $value = '';
@@ -31,8 +31,12 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         $classes = apply_filters('nav_menu_css_class', array_filter($classes), $item, $args);
 
         $projects = get_page_by_title('Projects');
-        
-        if (FALSE !== array_search('menu-item-home', $classes)) {
+        $author = get_query_var('author_name') ? get_user_by('slug', get_query_var('author_name')) : FALSE;
+
+        if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
+            $classes[] = 'active';
+        }
+        else if (!$author && FALSE !== array_search('menu-item-home', $classes)) {
             if ($post->post_type != 'page') {
                 $classes[] = 'active';
             }
@@ -42,7 +46,7 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
                 $classes[] = 'active';
             }
         }
-        
+
         $class_names = join(' ', $classes);
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
 
