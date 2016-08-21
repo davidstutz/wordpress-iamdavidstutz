@@ -47,6 +47,7 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
+                            <?php iamdavidstutz_reading_below_title(); ?>
                             <p>
                                 <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
                             </p>

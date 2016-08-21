@@ -25,6 +25,7 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
+                            <?php iamdavidstutz_reading_below_title(); ?>
                             <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                 <div class="reading-comment">
                                     <?php echo do_shortcode($post->post_content); ?>

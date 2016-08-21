@@ -13,7 +13,7 @@ article, header {
     @media (max-width: @screen-xs-max) {
         margin-bottom: 12px;
     }
-    
+
     h1, h2, h3, h4 {
         margin: 0;
     }
@@ -25,7 +25,7 @@ article, header {
     .header-social {
         margin-left: 12px;
         color: @text-color;
-        
+
         &:hover,
         &:active,
         &:active {
@@ -36,33 +36,33 @@ article, header {
 
 .article-container {
     margin-bottom: @line-height-computed / 2;
-    
+
     .article {
         margin-left: 188px;
 
         .article-date {
             font-size: @font-size-large;
         }
-        
+
         .article-top-header {
             h3 {
                 margin-top: 0;
                 margin-bottom: 0;
             }
         }
-        
+
         .article-header {
             h2 {
                 margin-top: 0;
             }
         }
-        
+
         .article-series {
             h4 {
                 margin-top: 0;
             }
         }
-        
+
         .article-excerpt {
             margin-bottom: @line-height-computed;
             font-size: (@font-size-base * 1.15);
@@ -86,7 +86,7 @@ article, header {
                 }
             }
         }
-        
+
         .article-footer {
             font-size: @font-size-small;
         }
@@ -120,12 +120,12 @@ article, header {
             }
         }
     }
-    
+
     .article-tags-alternative {
-             margin-top: 6px;
-             margin-bottom: 12px;
+         margin-top: 6px;
+         margin-bottom: 12px;
     }
-    
+
     // Covering xs and sm.
     @media (max-width: @screen-sm-max) {
         .article-tags {
@@ -201,7 +201,7 @@ article, header {
     .sidebar-twitter {
         margin-bottom: 18px;
     }
-    
+
     .sidebar-archives {
         text-align: right;
         float: left;
@@ -209,7 +209,7 @@ article, header {
         padding-right: 8px;
 
         .sidebar-archives-year {
-            
+
         }
     }
 
@@ -235,10 +235,10 @@ article, header {
     .sidebar-lead {
         font-size: ceil(@font-size-base * 2.6);
     }
-    
+
     .sidebar-readings {
         margin-bottom: 18px;
-        
+
         .sidebar-reading-container {
             margin-bottom: 11px;
         }
@@ -257,7 +257,7 @@ article, header {
 .searching-tag {
     margin-left: 20%;
     margin-bottom: 24px;
-    
+
     > h1 {
         margin-top: (@line-height-computed / 2);
         margin-bottom: @line-height-computed;
@@ -267,7 +267,7 @@ article, header {
 .searching-category {
     margin-left: 20%;
     margin-bottom: 24px;
-    
+
     > h1 {
         margin-top: (@line-height-computed / 2);
         margin-bottom: @line-height-computed;
@@ -277,7 +277,7 @@ article, header {
 .searching-archive {
     margin-left: 5%;
     margin-bottom: 24px;
-    
+
     > h1 {
         margin-top: (@line-height-computed / 2);
         margin-bottom: @line-height-computed;
@@ -288,7 +288,7 @@ article, header {
 
     .project-list {
         margin-left: 12px;
-        
+
         .project-name {
             font-size: floor(@font-size-base * 1.5);
         }
@@ -302,14 +302,14 @@ article, header {
 .footer {
     margin-top: 24px;
     margin-bottom: 24px;
-    
+
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
     }
 }
 
 .comment-form {
-    
+
     .comment-form-user {
         padding-top: 7px;
     }
@@ -318,7 +318,7 @@ article, header {
 .author {
     .author-title {
         margin-bottom: 24px;
-        
+
         .author-title-text {
             padding: 2px 0 0 0;
             font-size: @font-size-base;
@@ -331,16 +331,16 @@ article, header {
         padding: 12px 6px 0 0;
         float: left;
         width: 172px;
-        
+
         > div {
             margin: 8px 0;
         }
-        
+
         .fa {
             padding-left: 12px;
             font-size: floor(@font-size-base * 1.5);
             color: @text-color;
-            
+
             &:hover,
             &:active,
             &:visited {
@@ -348,10 +348,10 @@ article, header {
             }
         }
     }
-    
+
     .author-biography {
         margin-left: 180px;
-        
+
         blockquote.author-description {
             p {
                 font-size: @font-size-base;
@@ -366,7 +366,7 @@ article, header {
 .reading-container {
     min-height: 75px;
     margin-bottom: @line-height-computed / 2;
-    
+
     .reading {
         .reading-top-header {
             h3 {
@@ -374,17 +374,17 @@ article, header {
                 margin-bottom: 0;
             }
         }
-        
+
         .reading-header {
             h2 {
                 margin-top: 0;
             }
         }
-        
+
         .reading-date {
             font-size: @font-size-large;
         }
-        
+
         .reading-reference {
             margin-bottom: (@line-height-computed / 2);
             font-size: (@font-size-base * 1.15);
@@ -396,10 +396,10 @@ article, header {
             }
         }
     }
-    
+
     .reading {
         margin-left: 188px;
-        
+
         .reading-reference {
             font-weight: 500;
             margin-bottom: @line-height-computed / 2;
@@ -422,7 +422,7 @@ article, header {
             }
         }
     }
-    
+
     .reading-archive {
         .reading-date {
             font-size: @font-size-large;
@@ -434,7 +434,12 @@ article, header {
             }
         }
     }
-    
+
+    .reading-tags-alternative {
+         margin-top: 6px;
+         margin-bottom: 12px;
+    }
+
     // Covering xs and sm.
     @media (max-width: @screen-sm-max) {
         .reading {
@@ -449,7 +454,7 @@ article, header {
                 font-size: @font-size-base;
             }
         }
-        
+
         .reading-tags {
             width: 0px !important;
         }
@@ -470,7 +475,7 @@ article, header {
         margin-bottom: 12px;
         margin-top: 12px;
     }
-    
+
     .subpage-projects-links {
         margin-bottom: (@line-height-computed / 2);
     }
@@ -503,7 +508,7 @@ article, header {
     margin-bottom: @line-height-computed*1;
     padding-top: @padding-large-vertical;
     padding-bottom: @padding-large-vertical;
-    
+
     ul {
         margin-bottom: 0;
     }
@@ -517,10 +522,10 @@ body.page {
 .pseudocode {
     list-style-type: none;
     padding-left: 0;
-    
+
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     font-size: 0.925*@font-size-base;
-    
+
     ul {
         list-style-type: none;
         padding-left: 24px;

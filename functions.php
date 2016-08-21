@@ -74,7 +74,7 @@ add_action('init', 'iamdavidstutz_page_excerpts');
 
 /**
  * Display custom comments.
- * 
+ *
  * @param   object  comment
  * @param   object  args
  * @param   integer depth
@@ -107,7 +107,7 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
                 <?php else: ?>
                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                 <?php endif; ?>
-                 &mdash; 
+                 &mdash;
                 <a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a>
                 <?php if (current_user_can('edit_comment',$comment->comment_ID)): ?>
                     <small class="article-comment-edit">
@@ -123,12 +123,12 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
 
 /**
  * Custom pagination.
- * 
+ *
  * @param   integer pages
  * @param   integer range
  * @return  string  html
  */
-function iamdavidstutz_pagination($pages = NULL, $range = 2) {  
+function iamdavidstutz_pagination($pages = NULL, $range = 2) {
     global $paged;
 
     $showitems = ($range * 2) + 1;
@@ -158,7 +158,7 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
 
         for ($i = 1; $i <= $pages; $i++) {
             if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged-$range-1 ) || $pages <= $showitems)) {
-                $output .= $paged == $i ? 
+                $output .= $paged == $i ?
                     '<li class="active"><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>'
                     : '<li><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>';
             }
@@ -179,7 +179,7 @@ function iamdavidstutz_pagination($pages = NULL, $range = 2) {
 
 /**
  * Simple "Older" - "Newer" pagination.
- * 
+ *
  * @param   integer pages
  * @param   integer range
  * @return  string  html
@@ -197,7 +197,7 @@ function iamdavidstutz_pagination_simple() {
 
 /**
  * Get custom ul for listing the archive.
- * 
+ *
  * @return  stirng  html
  */
 function iamdavidstutz_get_archives() {
@@ -209,17 +209,17 @@ function iamdavidstutz_get_archives() {
         $last_changed = microtime();
         wp_cache_set('last_changed', $last_changed, 'posts');
     }
-    
+
     // Take cached archives if possible.
     $query = 'SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM ' . $wpdb->posts . ' WHERE post_type = \'post\' AND post_status = \'publish\' GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY YEAR(post_date) DESC, MONTH(post_date) DESC LIMIT 12';
     $md5 = md5($query);
     $key = "wp_get_archives:$md5:$last_changed";
-    
+
     if (!$results = wp_cache_get($key, 'posts')) {
         $results = $wpdb->get_results($query);
         wp_cache_set($key, $results, 'posts');
     }
-    
+
     $html = '<ul class="list-unstyled">';
     if ($results) {
         $year = NULL;
@@ -228,13 +228,13 @@ function iamdavidstutz_get_archives() {
                 $html .= '<li class="sidebar-archives-year"><b>' . $result->year . ' &mdash;</b></li>';
                 $year = $result->year;
             }
-            
+
             $html .= '<li><a href="' . get_month_link($result->year, $result->month) . '">' . strtoupper(date("F", mktime(0, 0, 0, $result->month, 1, date('Y', time())))) . '</a></li>';
-            
+
         }
     }
     $html .= '</ul>';
-	
+
     return $html;
 }
 
@@ -246,9 +246,9 @@ function iamdavidstutz_article_first_tags() {
     <div class="article-first-tags">
         <?php if ($tags): ?>
             <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a> 
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
             <?php endforeach; ?>
-        <?php endif; ?>      
+        <?php endif; ?>
     </div>
     <?php
 }
@@ -263,7 +263,7 @@ function iamdavidstutz_article_tags() {
             <?php foreach ($tags as $tag): ?>
                 <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>
             <?php endforeach; ?>
-        <?php endif; ?>      
+        <?php endif; ?>
     </ul>
     <?php
 }
@@ -276,9 +276,9 @@ function iamdavidstutz_reading_first_tags() {
     <div class="reading-first-tags">
         <?php if ($tags): ?>
             <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a> 
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
             <?php endforeach; ?>
-        <?php endif; ?>      
+        <?php endif; ?>
     </div>
     <?php
 }
@@ -293,13 +293,13 @@ function iamdavidstutz_reading_tags() {
             <?php foreach ($tags as $tag): ?>
                 <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>
             <?php endforeach; ?>
-        <?php endif; ?>      
+        <?php endif; ?>
     </ul>
     <?php
 }
 
 /**
- * Display tags below title if sm or xs.
+ * Display tags /of articles) below title if sm or xs.
  */
 function iamdavidstutz_article_below_title() {
     $tags = get_the_tags(); ?>
@@ -308,8 +308,23 @@ function iamdavidstutz_article_below_title() {
             <?php foreach ($tags as $tag): ?>
                 <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
             <?php endforeach; ?>
-        <?php endif; ?>      
-    </div>   
+        <?php endif; ?>
+    </div>
+    <?php
+}
+
+/**
+ * Display tags (of readings) below title if sm or xs.
+ */
+function iamdavidstutz_reading_below_title() {
+    $tags = get_the_tags(); ?>
+    <div class="reading-tags-alternative hidden-md hidden-lg">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
     <?php
 }
 
@@ -349,7 +364,7 @@ function iamdavidstutz_article_footer() {
     // Get corresponding suer.
     $id = get_the_author_meta('ID');
     $user = get_user_by('id', $id);
-    
+
     ?>
     <div class="article-author">
         <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&posts_per_page=1'); ?>
@@ -364,7 +379,7 @@ function iamdavidstutz_article_footer() {
                     <?php elseif ($day == 2): ?>
                         <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                     <?php elseif ($day == 3): ?>
-                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
+                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                     <?php else: ?>
                         <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                     <?php endif; ?>, <a href="<?php echo get_author_posts_url($user->ID); ?>"><?php echo $user->display_name; ?></a>
@@ -396,11 +411,11 @@ function iamdavidstutz_article_footer() {
 
 /**
  * Display related links of page.
- * 
+ *
  * @param   int id
  */
 function iamdavidstutz_related_links($id) {
-    
+
     if ($string = get_field('related-links', $id)) {
         if (!empty($string)) {
             ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b><br> <?php
@@ -421,11 +436,11 @@ function iamdavidstutz_related_links($id) {
 
 /**
  * Display related links of page.
- * 
+ *
  * @param   int id
  */
 function iamdavidstutz_related_links_dashed($id) {
-    
+
     if ($string = get_field('related-links', $id)) {
         if (!empty($string)) {
             ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b>&nbsp;<?php
@@ -447,24 +462,24 @@ function iamdavidstutz_related_links_dashed($id) {
 
 /**
  * Workaround for current bug: post comment_status always set to closed ...
- * 
+ *
  * @param   int     id
  * @return  boolean comments open
  */
 function iamdavidstutz_comments_open($id = NULL) {
     global $post, $wpdb;
-    
+
     if ($id === NULL OR empty($id)) {
         $id = $post->ID;
     }
-    
+
     $results = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = ' . $id);
     return ($results[0]->comment_status == 'open');
 }
 
 /**
  * Get ID of latest post to highlight.
- * 
+ *
  * @return  int ID
  */
 function iamdavidstutz_latest_post_id() {
@@ -481,18 +496,18 @@ function iamdavidstutz_latest_post_id() {
             ),
         ),
     ));
-    
+
     if (sizeof($posts) <= 0) {
         return FALSE;
     }
-    
+
     $recent = array_shift($posts);
     return $recent['ID'];
 }
 
 /**
  * Get ID of latest reading to highlight.
- * 
+ *
  * @return  int ID
  */
 function iamdavidstutz_latest_reading_id() {
@@ -509,11 +524,11 @@ function iamdavidstutz_latest_reading_id() {
             ),
         ),
     ));
-    
+
     if (sizeof($readings) <= 0) {
         return FALSE;
     }
-    
+
     $recent = array_shift($readings);
     return $recent['ID'];
 }
