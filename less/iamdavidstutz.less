@@ -44,7 +44,7 @@ article, header {
             font-size: @font-size-large;
         }
 
-        .article-top-header {
+        .article-above-header {
             h3 {
                 margin-top: 0;
                 margin-bottom: 0;
@@ -54,12 +54,10 @@ article, header {
         .article-header {
             h2 {
                 margin-top: 0;
-            }
-        }
 
-        .article-series {
-            h4 {
-                margin-top: 0;
+                a, a:hover, a:active, a:visited {
+                    color: @text-color;
+                }
             }
         }
 
@@ -284,21 +282,6 @@ article, header {
     }
 }
 
-.project {
-
-    .project-list {
-        margin-left: 12px;
-
-        .project-name {
-            font-size: floor(@font-size-base * 1.5);
-        }
-
-        .project-description {
-            margin-left: 12px;
-        }
-    }
-}
-
 .footer {
     margin-top: 24px;
     margin-bottom: 24px;
@@ -316,15 +299,6 @@ article, header {
 }
 
 .author {
-    .author-title {
-        margin-bottom: 24px;
-
-        .author-title-text {
-            padding: 2px 0 0 0;
-            font-size: @font-size-base;
-        }
-    }
-
     .author-links {
         font-size: floor(@font-size-base * 1.25);
         text-align: right;
@@ -349,15 +323,41 @@ article, header {
         }
     }
 
-    .author-biography {
-        margin-left: 180px;
+    .author-above-header {
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
 
-        blockquote.author-description {
-            p {
-                font-size: @font-size-base;
-            }
-            small {
-                font-size: @font-size-base;
+    .author-header {
+        h2 {
+
+        }
+    }
+
+    .author-teaser {
+        margin-bottom: @line-height-computed;
+        font-size: (@font-size-base * 1.15);
+        font-weight: 400;
+        line-height: 1.4;
+
+        @media (min-width: 768px) {
+            font-size: (@font-size-base * 1.2);
+        }
+    }
+
+    .author-biography {
+        .author-updates {
+            margin-left: 180px;
+
+            blockquote.author-description {
+                p {
+                    font-size: @font-size-base;
+                }
+                small {
+                    font-size: @font-size-base;
+                }
             }
         }
     }
@@ -368,7 +368,7 @@ article, header {
     margin-bottom: @line-height-computed / 2;
 
     .reading {
-        .reading-top-header {
+        .reading-above-header {
             h3 {
                 margin-top: 0;
                 margin-bottom: 0;
@@ -467,6 +467,10 @@ article, header {
 .page-projects-container {
     .page-projects-subpage {
         margin-bottom: 12px;
+
+        .page-projects-subpage-navigation {
+            margin-bottom: 6px;
+        }
     }
 }
 
@@ -478,11 +482,13 @@ article, header {
 
     .subpage-projects-links {
         margin-bottom: (@line-height-computed / 2);
+        padding: 4px;
     }
 }
 
 .page-projects-subpage-excerpt {
     margin-bottom: 4px;
+    padding: 0px 4px 0px 4px;
 }
 
 .section-header {

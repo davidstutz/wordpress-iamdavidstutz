@@ -75,7 +75,7 @@
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                     </span>
                     <span class="hidden-md-inline hidden-lg-inline">
-                        <?php echo __('COMPUTERSCIENCE', 'iamdavidstutz'); ?>
+                        <?php echo __('COMPUTERSCIENCEANDMATH', 'iamdavidstutz'); ?>
                     </span>
                 </h4>
                 <div class="row">
@@ -97,9 +97,9 @@
                     </div>
                 </div>
                 <h4 class="hidden-md hidden-lg">
-                    <?php echo __('RWTHSTUDENT', 'iamdavidstutz'); ?><br>
-                    <?php echo __('WEBDEVELOPER', 'iamdavidstutz'); ?>
-                    <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
+                    <?php echo __('RWTHSTUDENTANDGEORGIATECHALUMNI', 'iamdavidstutz'); ?><br>
+                    <?php echo __('SOFTWAREENGINEERANDWEBDEVELOPER', 'iamdavidstutz'); ?><br>
+                    <?php echo __('COMPUTERVISIONRESEARCHSCIENTIST', 'iamdavidstutz'); ?>
                 </h4>
                 <div>
                     <hr class="hidden-lg hidden-md">
@@ -117,18 +117,11 @@
                     <hr class="hidden-lg hidden-md">
                 </div>
                 <h4 class="hidden-sm hidden-xs">
-                    <?php echo __('RWTHSTUDENTWEBDEVELOPER', 'iamdavidstutz'); ?><br>
-                    <?php echo __('VIDEOGAMEENTHUSIAST', 'iamdavidstutz'); ?>
+                    <?php echo __('RWTHSTUDENTSOFTWAREENGINEER', 'iamdavidstutz'); ?><br>
+                    <?php echo __('RESEARCHSCIENTIST', 'iamdavidstutz'); ?>
                 </h4>
             </div>
         </div>
-        <?php if (!get_field('note')): ?>
-            <div class="note">
-                <div class="container">
-                    <b><?php echo __('Check out my research on superpixel segmentation:', 'iamdavidstutz'); ?> <a href="http://davidstutz.de/projects/superpixelsseeds/"><?php echo __('Superpixels / SEEDS', 'iamdavidstutz'); ?></a></b>
-                </div>
-            </div>
-        <?php endif; ?>
         <div class="container">
         
 				

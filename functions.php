@@ -122,62 +122,6 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
 }
 
 /**
- * Custom pagination.
- *
- * @param   integer pages
- * @param   integer range
- * @return  string  html
- */
-function iamdavidstutz_pagination($pages = NULL, $range = 2) {
-    global $paged;
-
-    $showitems = ($range * 2) + 1;
-
-    if(empty($paged)) {
-        $paged = 1;
-    }
-
-    if($pages === NULL) {
-        global $wp_query;
-
-        $pages = $wp_query->max_num_pages;
-        if(!$pages) {
-            $pages = 1;
-        }
-    }
-
-    if($pages != 1) {
-        $output = '<div style="text-align:center;"><ul class=pagination pagination-sm">';
-        if($paged > 2 && $paged > $range+1 && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link(1) . '">&laquo;</a></li>';
-        }
-
-        if($paged > 1 && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link($paged - 1) . '">&lsaquo;</a></li>';
-        }
-
-        for ($i = 1; $i <= $pages; $i++) {
-            if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged-$range-1 ) || $pages <= $showitems)) {
-                $output .= $paged == $i ?
-                    '<li class="active"><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>'
-                    : '<li><a href="' . get_pagenum_link($i) . '" class="inactive">' . $i . '</a></li>';
-            }
-        }
-
-        if ($paged < $pages && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link($paged + 1)  . '">&rsaquo;</a></li>';
-        }
-        if ($paged < $pages - 1 &&  $paged+$range-1 < $pages && $showitems < $pages) {
-            $output .= '<li><a href="' . get_pagenum_link($pages) . '">&raquo;</a></li>';
-        }
-
-        $output .= '</ul></div>';
-
-        return $output;
-    }
-}
-
-/**
  * Simple "Older" - "Newer" pagination.
  *
  * @param   integer pages
@@ -239,91 +183,96 @@ function iamdavidstutz_get_archives() {
 }
 
 /**
- * Display tags for the first article.
+ * Article template, assumes that it is called in the loop, i.e. the_content() etc.
+ * refer to the current content.
  */
-function iamdavidstutz_article_first_tags() {
-    $tags = get_the_tags(); ?>
-    <div class="article-first-tags">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>
+function iamdavidstutz_article() {
+    ?>
+    <div class="article-container">
+        <div class="article">
+            <div class="article-date">
+                <?php $day = get_the_date('d'); ?>
+                <?php if ($day == 1): ?>
+                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 2): ?>
+                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 3): ?>
+                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php else: ?>
+                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php endif; ?>
+            </div>
+            <?php if(in_category('series')): ?>
+                <div class="article-above-header">
+                    <h3><?php echo __('SERIES', 'iamdavidstutz'); ?>&raquo;<?php the_field('series'); ?>&laquo;</h3>
+                </div>
+            <?php else: ?>
+                <div class="article-above-header">
+                    <h3><?php echo __('ARTICLE', 'iamdavidstutz'); ?></h3>
+                </div>
+            <?php endif; ?>
+            <div class="article-header">
+                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            </div>
+            <?php $tags = get_the_tags(); ?>
+            <div class="article-tags-alternative hidden-md hidden-lg">
+                <?php if ($tags): ?>
+                    <?php foreach ($tags as $tag): ?>
+                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <?php
+            <div class="article-excerpt">
+                <?php the_excerpt(); ?>
+                <p>
+                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
+                </p>
+                <p class="clearfix"></p>
+            </div>
+        </div>
     </div>
     <?php
 }
 
 /**
- * Display tags for article.
+ * Reading template, assumes that it is called in the loop, i.e. the_content() works.
  */
-function iamdavidstutz_article_tags() {
-    $tags = get_the_tags(); ?>
-    <ul class="article-tags list-unstyled hidden-xs hidden-sm">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </ul>
-    <?php
-}
-
-/**
- * Display tags for the first reading.
- */
-function iamdavidstutz_reading_first_tags() {
-    $tags = get_the_tags(); ?>
-    <div class="reading-first-tags">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-    <?php
-}
-
-/**
- * Display tags for reading.
- */
-function iamdavidstutz_reading_tags() {
-    $tags = get_the_tags(); ?>
-    <ul class="reading-tags list-unstyled hidden-xs hidden-sm">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <li><a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a></li>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </ul>
-    <?php
-}
-
-/**
- * Display tags /of articles) below title if sm or xs.
- */
-function iamdavidstutz_article_below_title() {
-    $tags = get_the_tags(); ?>
-    <div class="article-tags-alternative hidden-md hidden-lg">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-    <?php
-}
-
-/**
- * Display tags (of readings) below title if sm or xs.
- */
-function iamdavidstutz_reading_below_title() {
-    $tags = get_the_tags(); ?>
-    <div class="reading-tags-alternative hidden-md hidden-lg">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>
+ function iamdavidstutz_reading() {
+     ?>
+     <div class="reading-container">
+        <div class="reading">
+            <div class="reading-date">
+                <?php $day = get_the_date('d'); ?>
+                <?php if ($day == 1): ?>
+                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 2): ?>
+                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 3): ?>
+                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php else: ?>
+                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php endif; ?>
+            </div>
+            <div class="reading-above-header">
+                <h3><?php echo __('READING', 'iamdavidstutz'); ?></h3>
+            </div>
+            <div class="reading-reference">
+                <a class="reading-reference-link" href="<?php the_permalink(); ?>"><?php the_field('reference'); ?></a>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
+            </div>
+            <?php $tags = get_the_tags(); ?>
+            <div class="reading-tags-alternative hidden-md hidden-lg">
+                <?php if ($tags): ?>
+                    <?php foreach ($tags as $tag): ?>
+                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <p>
+                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
+            </p>
+            <p class="clearfix"></p>
+        </div>
     </div>
     <?php
 }
@@ -389,23 +338,6 @@ function iamdavidstutz_article_footer() {
         <?php // IMPORTANT! ?>
         <?php wp_reset_postdata(); ?>
     </div>
-    <!--
-        <div class="article-footer">
-            <small class="text-muted">
-                <?php echo __('LASTMODIFIED', 'iamdavidstutz'); ?>
-                <?php $day = get_the_modified_time('d'); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-                <?php elseif ($day == 3): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-                <?php endif; ?>
-            </small>
-        </div>
-    -->
     <?php
 }
 
@@ -502,33 +434,5 @@ function iamdavidstutz_latest_post_id() {
     }
 
     $recent = array_shift($posts);
-    return $recent['ID'];
-}
-
-/**
- * Get ID of latest reading to highlight.
- *
- * @return  int ID
- */
-function iamdavidstutz_latest_reading_id() {
-    $readings = wp_get_recent_posts(array(
-        'numberposts' => 1,
-        'post_type' => 'post',
-        'post_status' => 'publish',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => 'reading',
-                'operator' => 'IN'
-            ),
-        ),
-    ));
-
-    if (sizeof($readings) <= 0) {
-        return FALSE;
-    }
-
-    $recent = array_shift($readings);
     return $recent['ID'];
 }

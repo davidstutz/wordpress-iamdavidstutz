@@ -5,7 +5,6 @@
             <?php while (have_posts()): the_post(); ?>
                 <?php if (in_category('reading')): ?>
                     <div class="reading-container">
-                        <?php iamdavidstutz_reading_tags(); ?>
                         <div class="reading">
                             <div class="reading-date">
                                 <?php $day = get_the_date('d'); ?>
@@ -25,7 +24,7 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
-                            <?php iamdavidstutz_reading_below_title(); ?>
+                            <?php iamdavidstutz_reading_tags(); ?>
                             <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                 <div class="reading-comment">
                                     <?php echo do_shortcode($post->post_content); ?>
@@ -38,7 +37,6 @@
                     </div>
                 <?php else: ?>
                     <div class="article-container">
-                        <?php iamdavidstutz_article_tags(); ?>
                         <div class="article">
                             <div class="article-date">
                                 <?php $day = get_the_date('d'); ?>
@@ -52,18 +50,19 @@
                                     <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="article-top-header">
-                                <h3><?php echo __('ARTICLE', 'iamdavidstutz'); ?></h3>
-                            </div>
-                            <div class="article-header">
-                                <h2<?php if(in_category('series')): echo ' style="margin-bottom:6px;"'; endif; ?>><?php the_title(); ?></h2>
-                            </div>
                             <?php if(in_category('series')): ?>
                                 <div class="article-series">
-                                    <h4><?php echo __('SERIES', 'iamdavidstutz'); ?>&raquo;<?php the_field('series'); ?>&laquo;</h4>
+                                    <h3><?php echo __('SERIES', 'iamdavidstutz'); ?>&raquo;<?php the_field('series'); ?>&laquo;</h3>
+                                </div>
+                            <?php else: ?>
+                                <div class="article-top-header">
+                                    <h3><?php echo __('ARTICLE', 'iamdavidstutz'); ?></h3>
                                 </div>
                             <?php endif; ?>
-                            <?php iamdavidstutz_article_below_title(); ?>
+                            <div class="article-header">
+                                <h2><?php the_title(); ?></h2>
+                            </div>
+                            <?php iamdavidstutz_article_tags(); ?>
                             <?php if (has_excerpt(get_the_ID())): ?>
                                 <div class="article-excerpt">
                                     <?php the_excerpt(); ?>

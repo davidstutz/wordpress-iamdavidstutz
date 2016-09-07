@@ -57,9 +57,11 @@
                             <div class="page-projects-subpage">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <ul class="nav nav-pills nav-pills-border nav-stacked">
-                                            <li><a href="<?php echo get_post_permalink($child->ID); ?>"><?php echo $child->post_title; ?></a></li>
-                                        </ul>
+                                        <div class="page-projects-subpage-navigation">
+                                            <ul class="nav nav-pills nav-pills-border nav-stacked">
+                                                <li><a href="<?php echo get_post_permalink($child->ID); ?>"><?php echo $child->post_title; ?></a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="col-md-9">
                                         <div class="page-projects-subpage-excerpt">

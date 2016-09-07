@@ -11,7 +11,6 @@
             <?php while (have_posts()): the_post(); ?>
                 <?php if (in_category('reading')): ?>
                     <div class="reading-container">
-                        <?php iamdavidstutz_reading_tags(); ?>
                         <div class="reading">
                             <div class="reading-date">
                                 <?php $day = get_the_date('d'); ?>
@@ -31,7 +30,7 @@
                             <div class="reading-reference">
                                 <?php the_field('reference'); ?>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
                             </div>
-                            <?php iamdavidstutz_reading_below_title(); ?>
+                            <?php iamdavidstutz_reading_tags(); ?>
                             <p>
                                 <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
                             </p>
@@ -40,7 +39,6 @@
                     </div>
                 <?php else: ?>
                     <div class="article-container">
-                        <?php iamdavidstutz_article_tags(); ?>
                         <div class="article">
                             <div class="article-date">
                                 <?php $day = get_the_date('d'); ?>
@@ -65,7 +63,7 @@
                                     <h4><?php echo __('SERIES', 'iamdavidstutz'); ?>&raquo;<?php the_field('series'); ?>&laquo;</h4>
                                 </div>
                             <?php endif; ?>
-                            <?php iamdavidstutz_article_below_title(); ?>
+                            <?php iamdavidstutz_article_tags(); ?>
                             <div class="article-excerpt">
                                 <?php the_excerpt(); ?>
                                 <p>
