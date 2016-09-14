@@ -1,95 +1,128 @@
 <?php get_header(); ?>
-<div class="row">
-    <div class="col-md-9">
-        <div class="author">
-            <?php
-                global $wp_query;
-                $user = $wp_query->get_queried_object();
-            ?>
 
-            <div class="author-above-header">
-                <h3><?php echo __('PROFILE', 'iamdavidstutz'); ?></h3>
-            </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="author">
+                <?php
+                    global $wp_query;
+                    $user = $wp_query->get_queried_object();
+                ?>
 
-            <div class="author-header">
-                <h2><?php echo __('SUMMARY', 'iamdavidstutz'); ?></h2>
-            </div>
-
-            <div class="author-short-biography">
-
-            </div>
-
-            <div class="author-links">
-                <div>
-                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV.pdf" target="_blank"><?php echo __('CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
-                </div>
-                <div>
-                    <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-german.pdf" target="_blank"><?php echo __('CV (German)', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
-                </div>
-                <div>
-                    <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><?php echo __('LinkedIn', 'iamdavidstutz'); ?><span class="fa fa-linkedin-square"></span></a>
-                </div>
-                <div>
-                    <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><?php echo __('Xing', 'iamdavidstutz'); ?><span class="fa fa-xing"></span></a>
-                </div>
-                <div>
-                    <a href="https://github.com/davidstutz" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><span class="fa fa-github"></span></a>
-                </div>
-            </div>
-
-            <div class="author-biography">
-                <div class="author-above-header">
-                    <h3><?php echo __('PROFILE', 'iamdavidstutz'); ?></h3>
-                </div>
-
-                <div class="author-header">
-                    <h2><?php echo __('BIOGRAPHY', 'iamdavidstutz'); ?></h2>
-                </div>
-
-                <p>
-                    
-                </p>
-                <p>
-                    
-                </p>
-                <p>
-                
-                </p>
-
-                <div class="author-updates">
-
-                    <div class="author-above-header">
-                        <h3><?php echo __('PROFILE', 'iamdavidstutz'); ?></h3>
+                <div class="author-links">
+                    <div>
+                        <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV.pdf" target="_blank"><?php echo __('CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
                     </div>
-
-                    <div class="author-header">
-                        <h2><?php echo __('UPDATES', 'iamdavidstutz'); ?></h2>
+                    <div>
+                        <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-german.pdf" target="_blank"><?php echo __('CV (German)', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
                     </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><?php echo __('LinkedIn', 'iamdavidstutz'); ?><span class="fa fa-linkedin-square"></span></a>
+                    </div>
+                    <div>
+                        <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><?php echo __('Xing', 'iamdavidstutz'); ?><span class="fa fa-xing"></span></a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/davidstutz" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><span class="fa fa-github"></span></a>
+                    </div>
+                </div>
 
-                    <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&orderby=date&post_limits=10'); ?>
-                    <?php while ($query->have_posts()): $query->the_post(); ?>
-                        <blockquote class="author-description">
-                            <?php str_replace('<p></p>', '', the_content()); ?>
-                            <small>
-                                <?php $day = get_the_date('d'); ?>
-                                <?php if ($day == 1): ?>
-                                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php elseif ($day == 2): ?>
-                                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php elseif ($day == 3): ?>
-                                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php else: ?>
-                                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php endif; ?>, <?php echo $user->display_name; ?>
-                            </small>
-                        </blockquote>
-                    <?php endwhile; ?>
+                <div class="author-biography">
+                    <h2><?php echo __('PROFILE', 'iamdavidstutz'); ?></h2>
+
+                    <p>
+                        I am a graduate student at <a href="https://www.rwth-aachen.de/" target="_blank">
+                            RWTH Aachen University
+                        </a> focusing on computer vision and machine
+                        learning. My <a href="http://davidstutz.de/projects/superpixelsseeds/" target="_blank">
+                            bachelor thesis
+                        </a> was concerned with using depth information for superpixel
+                        segmentation and supervised by <a href="http://www.vision.rwth-aachen.de/person/1/" target="_blank">
+                            Prof. Bastian Leibe
+                        </a>. Some of the results have been published at <a href="http://gcpr2015.rwth-aachen.de/" target="_blank">
+                            GCPR 2015
+                        </a>. Afterwards, I spend a semester at the
+                        <a href="http://www.cc.gatech.edu/cpl/" target="_blank">
+                            Computational Perception Laboratory
+                        </a> at <a href="http://www.gatech.edu/" target="_blank">
+                            Georgia Tech
+                        </a> working in <a href="http://prof.irfanessa.com/" target="_blank">
+                            Prof. Essa
+                        </a>'s group. During
+                        the last two semesters of my master degree, I worked for <a href="http://www.fyusion.com/" target="_blank">
+                            Fyusion Inc.
+                        </a> on interesting computer vision problems.
+                        Before writing my master thesis in the beginning of next year, I am
+                        currently completing two internships. First at <a href="https://en.mobis.co.kr/" target="_blank">
+                            MOBIS
+                        </a> in Frankfurt, advised by Dr. Thomas Guthier working on deep learning
+                        for driver assistance systems. Second, at <a href="https://www.microsoft.com/en-us/" target="_blank">
+                            Microsoft
+                        </a> in Dublin as software engineer.
+                    </p>
+
+                    <p>
+                        As big fan of open source, I am eager to share insights and source code. On this blog you will
+                        find seminar papers, notes on readings as well as short articles.
+                        You can find big portions of my projects at <a href="https://github.com/davidstutz" target="_blank">
+                            GitHub
+                        </a>.
+                    </p>
+
+                    <h3><?php echo __('LOOKINGFOR', 'iamdavidstutz'); ?></h3>
+
+                    <p>
+                        I am always interested in internships and projects involving topics such as computer vision, machine learning, 
+                        autonomous driving and artifical intelligence. Additionally, I am looking for challenging 
+                        PhD programs in these areas starting in 2017.
+                    </p>
+
+                    <h3><?php echo __('MORE...', 'iamdavidstutz'); ?></h3>
+
+                    <p>
+                        The statement of motivation submitted as part of my application for an exchange semester 
+                        at <a href="http://www.gatech.edu/" target="_blank">
+                            Georgia Tech
+                        </a>: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
+                            PDF
+                        </a>. A detailed CV (in german) written for the <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf" target="_blank">
+                            German Academic Scholarship Foundation
+                        </a>: <a href="http://www.studienstiftung.de/en/">
+                            PDF
+                        </a>. Also find me on <a href="https://www.linkedin.com/in/davidstutz92" target="_blank">
+                            LinkedIn
+                        </a> and <a href="https://www.xing.com/profile/David_Stutz5" target="_blank">
+                            Xing
+                        </a>.
+                    </p>
+
+                    <div class="author-updates">
+                        <h3><?php echo __('UPDATES', 'iamdavidstutz'); ?></h3>
+
+                        <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&orderby=date&post_limits=10'); ?>
+                        <?php while ($query->have_posts()): $query->the_post(); ?>
+                            <blockquote class="author-description">
+                                <?php str_replace('<p></p>', '', the_content()); ?>
+                                <small>
+                                    <?php $day = get_the_date('d'); ?>
+                                    <?php if ($day == 1): ?>
+                                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                    <?php elseif ($day == 2): ?>
+                                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                    <?php elseif ($day == 3): ?>
+                                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                    <?php else: ?>
+                                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                                    <?php endif; ?>, <?php echo $user->display_name; ?>
+                                </small>
+                            </blockquote>
+                        <?php endwhile; ?>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <?php get_sidebar(); ?>
+        </div>
     </div>
-    <div class="col-md-3">
-        <?php get_sidebar(); ?>
-    </div>
-</div>
+
 <?php get_footer(); ?>

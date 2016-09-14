@@ -38,7 +38,6 @@ article, header {
     margin-bottom: @line-height-computed / 2;
 
     .article {
-        margin-left: 188px;
 
         .article-date {
             font-size: @font-size-large;
@@ -61,6 +60,11 @@ article, header {
             }
         }
 
+        .article-tags-alternative {
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
         .article-excerpt {
             margin-bottom: @line-height-computed;
             font-size: (@font-size-base * 1.15);
@@ -70,10 +74,34 @@ article, header {
             @media (min-width: 768px) {
               font-size: (@font-size-base * 1.2);
             }
+
+            a[target="_blank"]:after {
+                margin-left: 2px;
+                content: @fa-var-external-link;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+                font-size: inherit; // can't have font-size inherit on line above, so need to override
+                text-rendering: auto; // optimizelegibility throws things off #1094
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 80%;
+            }
         }
 
         .article-content {
             margin-bottom: 12px;
+
+            a[target="_blank"]:after {
+                margin-left: 2px;
+                content: @fa-var-external-link;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+                font-size: inherit; // can't have font-size inherit on line above, so need to override
+                text-rendering: auto; // optimizelegibility throws things off #1094
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 80%;
+            }
         }
 
         .article-author {
@@ -99,38 +127,6 @@ article, header {
                     }
                 }
             }
-        }
-    }
-
-    .article-tags {
-        margin-top: 2px;
-        float: left;
-        text-align: right;
-        width: 180px;
-
-        li {
-            margin-bottom: 4px;
-
-            a {
-                &:hover, &:active, &:visited, &:link {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    .article-tags-alternative {
-         margin-top: 6px;
-         margin-bottom: 12px;
-    }
-
-    // Covering xs and sm.
-    @media (max-width: @screen-sm-max) {
-        .article-tags {
-            width: 0px !important;
-        }
-        .article {
-            margin: 0px 15px !important;
         }
     }
 }
@@ -323,33 +319,22 @@ article, header {
         }
     }
 
-    .author-above-header {
-        h3 {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    }
-
-    .author-header {
-        h2 {
-
-        }
-    }
-
-    .author-teaser {
-        margin-bottom: @line-height-computed;
-        font-size: (@font-size-base * 1.15);
-        font-weight: 400;
-        line-height: 1.4;
-
-        @media (min-width: 768px) {
-            font-size: (@font-size-base * 1.2);
-        }
-    }
-
     .author-biography {
+        margin-left: 186px;
+
+        a[target="_blank"]:after {
+            margin-left: 2px;
+            content: @fa-var-external-link;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+            font-size: inherit; // can't have font-size inherit on line above, so need to override
+            text-rendering: auto; // optimizelegibility throws things off #1094
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 80%;
+        }
+
         .author-updates {
-            margin-left: 180px;
 
             blockquote.author-description {
                 p {
@@ -368,6 +353,7 @@ article, header {
     margin-bottom: @line-height-computed / 2;
 
     .reading {
+        
         .reading-above-header {
             h3 {
                 margin-top: 0;
@@ -385,6 +371,11 @@ article, header {
             font-size: @font-size-large;
         }
 
+        .reading-tags-alternative {
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
         .reading-reference {
             margin-bottom: (@line-height-computed / 2);
             font-size: (@font-size-base * 1.15);
@@ -394,31 +385,23 @@ article, header {
             @media (min-width: 768px) {
               font-size: (@font-size-base * 1.2);
             }
+
+            a, a:hover, a:active, a:visited {
+                color: @text-color;
+            }
         }
-    }
 
-    .reading {
-        margin-left: 188px;
-
-        .reading-reference {
-            font-weight: 500;
-            margin-bottom: @line-height-computed / 2;
-        }
-    }
-
-    .reading-tags {
-        margin-top: 2px;
-        float: left;
-        text-align: right;
-        width: 180px;
-
-        li {
-            margin-bottom: 4px;
-
-            a {
-                &:hover, &:active, &:visited, &:link {
-                    text-decoration: none;
-                }
+        .reading-comment {
+            a[target="_blank"]:after {
+                margin-left: 2px;
+                content: @fa-var-external-link;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+                font-size: inherit; // can't have font-size inherit on line above, so need to override
+                text-rendering: auto; // optimizelegibility throws things off #1094
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 80%;
             }
         }
     }
@@ -432,34 +415,6 @@ article, header {
             h2 {
                 margin-top: 0;
             }
-        }
-    }
-
-    .reading-tags-alternative {
-         margin-top: 6px;
-         margin-bottom: 12px;
-    }
-
-    // Covering xs and sm.
-    @media (max-width: @screen-sm-max) {
-        .reading {
-            .reading-tags {
-                display: none;
-                margin: 0px !important;
-            }
-            .reading-date {
-                font-size: @font-size-base;
-            }
-            .reading-reference {
-                font-size: @font-size-base;
-            }
-        }
-
-        .reading-tags {
-            width: 0px !important;
-        }
-        .reading {
-            margin: 0px 15px !important;
         }
     }
 }

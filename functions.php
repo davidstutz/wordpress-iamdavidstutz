@@ -214,15 +214,7 @@ function iamdavidstutz_article() {
             <div class="article-header">
                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             </div>
-            <?php $tags = get_the_tags(); ?>
-            <div class="article-tags-alternative hidden-md hidden-lg">
-                <?php if ($tags): ?>
-                    <?php foreach ($tags as $tag): ?>
-                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <?php
+            <?php iamdavidstutz_article_tags(); ?>
             <div class="article-excerpt">
                 <?php the_excerpt(); ?>
                 <p>
@@ -231,6 +223,21 @@ function iamdavidstutz_article() {
                 <p class="clearfix"></p>
             </div>
         </div>
+    </div>
+    <?php
+}
+
+/**
+ * Tags for articles.
+ */
+function iamdavidstutz_article_tags() {
+    $tags = get_the_tags(); ?>
+    <div class="article-tags-alternative">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
     <?php
 }
@@ -260,19 +267,27 @@ function iamdavidstutz_article() {
             <div class="reading-reference">
                 <a class="reading-reference-link" href="<?php the_permalink(); ?>"><?php the_field('reference'); ?></a>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
             </div>
-            <?php $tags = get_the_tags(); ?>
-            <div class="reading-tags-alternative hidden-md hidden-lg">
-                <?php if ($tags): ?>
-                    <?php foreach ($tags as $tag): ?>
-                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
+            <?php iamdavidstutz_reading_tags(); ?>
             <p>
                 <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
             </p>
             <p class="clearfix"></p>
         </div>
+    </div>
+    <?php
+}
+
+/**
+ * Tags for readings.
+ */
+function iamdavidstutz_reading_tags() {
+    $tags = get_the_tags(); ?>
+    <div class="reading-tags-alternative">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
     <?php
 }
