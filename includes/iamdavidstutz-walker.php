@@ -32,16 +32,23 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
 
         $projects = get_page_by_title('Projects');
         $author = get_query_var('author_name') ? get_user_by('slug', get_query_var('author_name')) : FALSE;
-
+        $queried_object = get_queried_object();
+        
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
-        else if (!$author && FALSE !== array_search('menu-item-home', $classes)) {
+        else if (!$author && FALSE !== array_search('menu-item-object-category', $classes)
+                && $queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') {
+            $classes[] = 'active';
+        }
+        else if (!$author && FALSE !== array_search('menu-item-home', $classes)
+                && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
             if ($post->post_type != 'page') {
                 $classes[] = 'active';
             }
         }
-        else if ($item->object_id == $projects->ID) {
+        else if (!$author && $item->object_id == $projects->ID
+                && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
             if ($post->post_type == 'page' AND $post->post_parent == $projects->ID) {
                 $classes[] = 'active';
             }

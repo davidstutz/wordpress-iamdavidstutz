@@ -33,14 +33,14 @@
                         I am a graduate student at <a href="https://www.rwth-aachen.de/" target="_blank">
                             RWTH Aachen University
                         </a> focusing on computer vision and machine
-                        learning. My <a href="http://davidstutz.de/projects/superpixelsseeds/" target="_blank">
+                        learning. My <a href="http://davidstutz.de/projects/superpixelsseeds/">
                             bachelor thesis
                         </a> was concerned with using depth information for superpixel
                         segmentation and supervised by <a href="http://www.vision.rwth-aachen.de/person/1/" target="_blank">
                             Prof. Bastian Leibe
                         </a>. Some of the results have been published at <a href="http://gcpr2015.rwth-aachen.de/" target="_blank">
                             GCPR 2015
-                        </a>. Afterwards, I spend a semester at the
+                        </a>. Afterwards, I spent a semester at the
                         <a href="http://www.cc.gatech.edu/cpl/" target="_blank">
                             Computational Perception Laboratory
                         </a> at <a href="http://www.gatech.edu/" target="_blank">

@@ -293,6 +293,28 @@ function iamdavidstutz_reading_tags() {
 }
 
 /**
+ * Display reading in reading list.
+ */
+function iamdavidstutz_list_reading() {
+    ?>
+    <li class="reading-list-item">
+        <span class="reading-list-item-reference<?php if (!in_category('unread')): ?> reading-list-item-reference-read<?php endif; ?>">
+            <?php the_field('reference'); ?>
+        </span>
+        &nbsp;
+        <?php if (get_field('pdf')): ?>
+            <a href="<?php the_field('pdf'); ?>" target="_blank">PDF<i style="margin-left:6px;font-size:80%" class="fa fa-external-link"></i></a>
+        <?php endif; ?>
+        &nbsp;
+
+        <?php if (!in_category('unread')): ?>
+            <a href="<?php the_permalink(); ?>"><?php echo __('Reading Notes'); ?></a>
+        <?php endif; ?>
+    </li>
+    <?php
+}
+
+/**
  * Display page footer.
  */
 function iamdavidstutz_page_footer() {
