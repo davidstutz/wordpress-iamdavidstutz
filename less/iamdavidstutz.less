@@ -74,34 +74,23 @@ article, header {
             @media (min-width: 768px) {
               font-size: (@font-size-base * 1.2);
             }
+        }
 
-            a[target="_blank"]:after {
-                margin-left: 2px;
-                content: @fa-var-external-link;
-                display: inline-block;
-                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
-                font-size: inherit; // can't have font-size inherit on line above, so need to override
-                text-rendering: auto; // optimizelegibility throws things off #1094
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-size: 80%;
-            }
+        .article-excerpt a[target="_blank"]:after,
+        .article-content a[target="_blank"]:after {
+            margin-left: 2px;
+            content: @fa-var-external-link;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+            font-size: inherit; // can't have font-size inherit on line above, so need to override
+            text-rendering: auto; // optimizelegibility throws things off #1094
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 80%;
         }
 
         .article-content {
             margin-bottom: 12px;
-
-            a[target="_blank"]:after {
-                margin-left: 2px;
-                content: @fa-var-external-link;
-                display: inline-block;
-                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
-                font-size: inherit; // can't have font-size inherit on line above, so need to override
-                text-rendering: auto; // optimizelegibility throws things off #1094
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-size: 80%;
-            }
         }
 
         .article-author {
@@ -419,6 +408,64 @@ article, header {
     }
 }
 
+.snippet-container {
+    margin-bottom: @line-height-computed / 2;
+
+    .snippet {
+        
+        .snippet-above-header {
+            h3 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        .snippet-header {
+            h2 {
+                margin-top: 0;
+
+                a, a:hover, a:active, a:visited {
+                    color: @text-color;
+                }
+            }  
+        }
+
+        .snippet-date {
+            font-size: @font-size-large;
+        }
+
+        .snippet-tags-alternative {
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
+        .snippet-excerpt {
+            margin-bottom: @line-height-computed;
+            font-size: (@font-size-base * 1.15);
+            font-weight: 400;
+            line-height: 1.4;
+
+            @media (min-width: 768px) {
+              font-size: (@font-size-base * 1.2);
+            }
+        }
+
+        .snippet-github a[target="_blank"]:after,
+        .snippet-excerpt a[target="_blank"]:after,
+        .snippet-code a[target="_blank"]:after {
+            margin-left: 2px;
+            content: @fa-var-external-link;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+            font-size: inherit; // can't have font-size inherit on line above, so need to override
+            text-rendering: auto; // optimizelegibility throws things off #1094
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 80%;
+        }
+    }
+}
+
 .page-projects-container {
     .page-projects-subpage {
         margin-bottom: 12px;
@@ -537,5 +584,19 @@ svg.line-plot {
         .reading-list-item-reference-read {
             text-decoration: line-through;
         }
+    }
+}
+
+.prettyprint-header {
+    margin-bottom: 0px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-bottom: none;
+    padding: 8px;
+    font-weight: 500;
+
+    code {
+        color: @text-color;
+        background: transparent;
     }
 }

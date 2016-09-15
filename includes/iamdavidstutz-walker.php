@@ -37,17 +37,17 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
-        else if (!$author && FALSE !== array_search('menu-item-object-category', $classes)
+        elseif (!$author && FALSE !== array_search('menu-item-object-category', $classes)
                 && $queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') {
             $classes[] = 'active';
         }
-        else if (!$author && FALSE !== array_search('menu-item-home', $classes)
+        elseif (!$author && FALSE !== array_search('menu-item-home', $classes)
                 && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
             if ($post->post_type != 'page') {
                 $classes[] = 'active';
             }
         }
-        else if (!$author && $item->object_id == $projects->ID
+        elseif (!$author && $item->object_id == $projects->ID
                 && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
             if ($post->post_type == 'page' AND $post->post_parent == $projects->ID) {
                 $classes[] = 'active';
