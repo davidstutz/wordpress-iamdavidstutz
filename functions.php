@@ -12,6 +12,9 @@ if (!class_exists('IAMDAVIDSTUTZ_Walker')) {
     require_once 'includes/iamdavidstutz-walker.php';
 }
 
+// https://paulund.co.uk/remove-line-breaks-in-shortcodes
+remove_filter('the_content', 'wpautop');
+
 /**
  * Register scripts already included hard coded.
  * Cleanup the head among others of the following items:

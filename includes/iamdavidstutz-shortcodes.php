@@ -24,6 +24,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('pseudocode', array($this, 'pseudocode'));
         add_shortcode('mathjax', array($this, 'mathjax'));
         add_shortcode('prettify', array($this, 'prettify'));
+        add_shortcode('prettyprint', array($this, 'prettyprint'));
         add_shortcode('bootstrap', array($this, 'bootstrap'));
         add_shortcode('bxslider', array($this, 'bxslider'));
         add_shortcode('line_plot', array($this, 'line_plot'));
@@ -35,7 +36,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * 
      * @param	array 	attributes
      * @param	string	content
-     * @param	string	html markup
+     * @return	string	html markup
      */
     public function pseudocode($attributes, $content = null) {
         extract(shortcode_atts(array(
@@ -55,7 +56,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * 
      * @param	array 	attributes
      * @param	string	content
-     * @param	string	html markup
+     * @return	string	html markup
      */
     public function mathjax($attributes, $content = null) {
         extract(shortcode_atts(array(
@@ -73,7 +74,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * 
      * @param	array 	attributes
      * @param	string	content
-     * @param	string	html markup
+     * @return	string	html markup
      */
     public function prettify($attributes, $content = null) {
         extract(shortcode_atts(array(
@@ -89,11 +90,33 @@ class IAMDAVIDSTUTZ_Shortcodes {
     }
 
     /**
+     * Prettyprints the given block while replacing common characters with html entities.
+     *
+     * @param   array   attributes
+     * @param   string  content
+     * @return  string  html markup
+     */
+    public function prettyprint($attributes, $content = null)
+    {
+        extract(shortcode_atts(array(
+
+        ), $attributes));
+
+        do_shortcode('[prettify]');
+
+        $content = str_replace('<', '&lt;', $content);
+        $content = str_replace('>', '&gt;', $content);
+        $content = str_replace('"', '&quot;', $content);
+
+        return '<pre class="prettyprint linenums">' . $content . '</pre>';
+    }
+
+    /**
      * Enable bootstrap JS for page/post.
      * 
      * @param	array 	attributes
      * @param	string	content
-     * @param	string	html markup
+     * @return	string	html markup
      */
     public function bootstrap($attributes, $content = null) {
         extract(shortcode_atts(array(
@@ -192,7 +215,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * Display several readings as accordion.
      * 
      * @param type $attributes
-     * @param type $contents
+     * @return type $contents
      */
     public function readings($attributes, $contents = NULL) {
         extract(shortcode_atts(array(
