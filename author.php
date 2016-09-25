@@ -84,9 +84,9 @@
                             Georgia Tech
                         </a>: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
                             PDF
-                        </a>. A detailed CV (in german) written for the <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf" target="_blank">
+                        </a>. A detailed CV (in german) written for the <a href="http://www.studienstiftung.de/en/" target="_blank">
                             German Academic Scholarship Foundation
-                        </a>: <a href="http://www.studienstiftung.de/en/">
+                        </a>: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf">
                             PDF
                         </a>. Also find me on <a href="https://www.linkedin.com/in/davidstutz92" target="_blank">
                             LinkedIn
