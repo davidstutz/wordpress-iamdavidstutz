@@ -18,12 +18,14 @@ remove_filter('the_content', 'wpautop');
 /**
  * Exclude "unread category from being displayed in basic WP loop.
  */
-//function iamdavidstutz_exclude_unread( $wp_query ) {
-//    $unread = get_category_by_slug('unread');
-//    $wp_query->set('category__not_in', array($unread->term_id));
-//}
+function iamdavidstutz_exclude_unread( $wp_query ) {
+    if (!is_category('reading')) {
+        $unread = get_category_by_slug('unread');
+        $wp_query->set('category__not_in', array($unread->term_id));
+    }
+}
 
-//add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
+add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
 
 /**
  * Register scripts already included hard coded.

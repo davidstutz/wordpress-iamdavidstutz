@@ -2,10 +2,6 @@
 
     <div class="row">
         <div class="col-md-9">
-        
-            <?php global $wp_query; ?>
-            <?php $unread = get_category_by_slug('unread'); ?>
-            <?php $wp_query->set('category__not_in', array($unread->term_id)); ?>
 
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()): the_post(); ?>
