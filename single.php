@@ -29,7 +29,7 @@
                                 <?php iamdavidstutz_reading_tags(); ?>
                                 <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                     <div class="reading-comment">
-                                        <?php echo do_shortcode($post->post_content); ?>
+                                        <?php echo the_content(); ?>
                                     </div>
                                 <?php endif; ?>
                                 <div class="reading-comments">
