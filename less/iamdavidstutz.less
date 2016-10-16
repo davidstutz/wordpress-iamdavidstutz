@@ -375,8 +375,20 @@ article, header {
               font-size: (@font-size-base * 1.2);
             }
 
-            a, a:hover, a:active, a:visited {
+            .reading-reference-link, .reading-reference-link:hover, .reading-reference-link:active, .reading-reference-link:visited {
                 color: @text-color;
+            }
+
+            a[target="_blank"]:after {
+                margin-left: 2px;
+                content: @fa-var-external-link;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+                font-size: inherit; // can't have font-size inherit on line above, so need to override
+                text-rendering: auto; // optimizelegibility throws things off #1094
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 80%;
             }
         }
 
