@@ -12,6 +12,23 @@ if (!class_exists('IAMDAVIDSTUTZ_Walker')) {
     require_once 'includes/iamdavidstutz-walker.php';
 }
 
+// http://wordpress.stackexchange.com/questions/91720/replace-html-entities-in-posts-between-pre-tags
+add_filter('the_content', 'iamdavidstutz_pre_filter', 0);
+
+/**
+ * Replace content of pre tags with htmlentities.
+ */
+function iamdavidstutz_pre_filter($content) {
+    return preg_replace_callback('|<pre.*>(.*)</pre|isU' , 'iamdavidstutz_pre_htmlentities', $content);
+}
+
+/**
+ * Helper for replacing html entities.
+ */
+function iamdavidstutz_pre_htmlentities($matches) {
+    return str_replace($matches[1], htmlentities($matches[1]), $matches[0]);
+}
+
 // https://paulund.co.uk/remove-line-breaks-in-shortcodes
 remove_filter('the_content', 'wpautop');
 
