@@ -30,34 +30,35 @@
                     <h2><?php echo __('PROFILE', 'iamdavidstutz'); ?></h2>
 
                     <p>
-                        I am a graduate student at <a href="https://www.rwth-aachen.de/" target="_blank">
+                        I am a master student at <a href="https://www.rwth-aachen.de/" target="_blank">
                             RWTH Aachen University
-                        </a> focusing on computer vision and machine
-                        learning. My <a href="http://davidstutz.de/projects/superpixelsseeds/">
+                        </a> interested in computer vision and machine learning.
+                        In my <a href="http://davidstutz.de/projects/superpixelsseeds/">
                             bachelor thesis
-                        </a> was concerned with using depth information for superpixel
-                        segmentation and supervised by <a href="http://www.vision.rwth-aachen.de/person/1/" target="_blank">
+                        </a>, advised by <a href="http://www.vision.rwth-aachen.de/person/1/" target="_blank">
                             Prof. Bastian Leibe
-                        </a>. Some of the results have been published at <a href="http://gcpr2015.rwth-aachen.de/" target="_blank">
+                        </a>, I researched the use of depth information for superpixel segmentation and supervised by. 
+                        Some of the results have been published at <a href="http://gcpr2015.rwth-aachen.de/" target="_blank">
                             GCPR 2015
                         </a>. Afterwards, I spent a semester at the
                         <a href="http://www.cc.gatech.edu/cpl/" target="_blank">
                             Computational Perception Laboratory
                         </a> at <a href="http://www.gatech.edu/" target="_blank">
                             Georgia Tech
-                        </a> working in <a href="http://prof.irfanessa.com/" target="_blank">
+                        </a> working in the group of <a href="http://prof.irfanessa.com/" target="_blank">
                             Prof. Essa
-                        </a>'s group. During
-                        the last two semesters of my master degree, I worked for <a href="http://www.fyusion.com/" target="_blank">
+                        </a> on video segmentation and intrinsic video.
+                        During the last two semesters of my master degree, 
+                        I hard the opportunity to work for <a href="http://www.fyusion.com/" target="_blank">
                             Fyusion Inc.
-                        </a> on interesting computer vision problems.
+                        </a> on interesting computer vision and machine learning problems.
                         Before writing my master thesis in the beginning of next year, I am
                         currently completing two internships. First at <a href="https://en.mobis.co.kr/" target="_blank">
                             MOBIS
-                        </a> in Frankfurt, advised by Dr. Thomas Guthier working on deep learning
-                        for driver assistance systems. Second, at <a href="https://www.microsoft.com/en-us/" target="_blank">
+                        </a> in Frankfurt, advised by Dr. Thomas Guthier, as front camera intern working
+                        on deep learning for autonomous driving. Second, at <a href="https://www.microsoft.com/en-us/" target="_blank">
                             Microsoft
-                        </a> in Dublin as software engineer.
+                        </a> in Dublin as software engineering intern.
                     </p>
 
                     <p>
@@ -71,9 +72,8 @@
                     <h3><?php echo __('LOOKINGFOR', 'iamdavidstutz'); ?></h3>
 
                     <p>
-                        I am always interested in internships and projects involving topics such as computer vision, machine learning, 
-                        autonomous driving and artifical intelligence. Additionally, I am looking for challenging 
-                        PhD programs in these areas starting in 2017.
+                        I am open for internships and consulting in areas including computer vision, machine learning and 
+                        autonomous driving. Additionally, I am looking for challenging PhD programs in these areas starting in 2017.
                     </p>
 
                     <h3><?php echo __('MORE...', 'iamdavidstutz'); ?></h3>
@@ -82,16 +82,18 @@
                         The statement of motivation submitted as part of my application for an exchange semester 
                         at <a href="http://www.gatech.edu/" target="_blank">
                             Georgia Tech
-                        </a>: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
+                        </a> can be found here: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
                             PDF
                         </a>. A detailed CV (in german) written for the <a href="http://www.studienstiftung.de/en/" target="_blank">
                             German Academic Scholarship Foundation
-                        </a>: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf">
+                        </a> is available here: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf">
                             PDF
                         </a>. Also find me on <a href="https://www.linkedin.com/in/davidstutz92" target="_blank">
                             LinkedIn
-                        </a> and <a href="https://www.xing.com/profile/David_Stutz5" target="_blank">
+                        </a>, <a href="https://www.xing.com/profile/David_Stutz5" target="_blank">
                             Xing
+                        </a> and <a href="https://github.com/davidstutz" target="_blank">
+                            GitHub
                         </a>.
                     </p>
 
