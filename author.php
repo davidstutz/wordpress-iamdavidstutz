@@ -13,9 +13,6 @@
                         <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV.pdf" target="_blank"><?php echo __('CV', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
                     </div>
                     <div>
-                        <a href="http://davidstutz.de/wordpress/wp-content/uploads/2014/12/CV-german.pdf" target="_blank"><?php echo __('CV (German)', 'iamdavidstutz'); ?><span class="fa fa-file-pdf-o"></span></a>
-                    </div>
-                    <div>
                         <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><?php echo __('LinkedIn', 'iamdavidstutz'); ?><span class="fa fa-linkedin-square"></span></a>
                     </div>
                     <div>
