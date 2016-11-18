@@ -36,7 +36,7 @@ remove_filter('the_content', 'wpautop');
  * Exclude "unread category from being displayed in basic WP loop.
  */
 function iamdavidstutz_exclude_unread( $wp_query ) {
-    if (!is_category('reading')) {
+    if (!is_category('reading') && !is_admin()) {
         $unread = get_category_by_slug('unread');
         $wp_query->set('category__not_in', array($unread->term_id));
     }
