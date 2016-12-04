@@ -80,10 +80,15 @@ class IAMDAVIDSTUTZ_Shortcodes {
 
         ), $attributes));
 
-        wp_enqueue_script('prettify', get_bloginfo('template_directory') . '/js/prettify.js');
-        wp_enqueue_style('prettify', get_bloginfo('template_directory') . '/css/prettify.css');
+        // wp_enqueue_script('prettify', get_bloginfo('template_directory') . '/js/prettify.js');
+        wp_enqueue_script('prettify-matlab', 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true');
+        wp_enqueue_script('prettify-matlab', get_bloginfo('template_directory') . '/js/prettify-matlab.js');
+        wp_enqueue_script('prettify-tex', get_bloginfo('template_directory') . '/js/prettify-tex.js');
+        wp_enqueue_script('prettify-sql', get_bloginfo('template_directory') . '/js/prettify-sql.js');
+        // wp_enqueue_script('prettify-init', get_bloginfo('template_directory') . '/js/prettify-init.js');
 
-        wp_enqueue_script('prettify-init', get_bloginfo('template_directory') . '/js/prettify-init.js');
+        //wp_enqueue_style('prettify', get_bloginfo('template_directory') . '/css/prettify.css');
+        wp_enqueue_style('prettify-tomorrow', get_bloginfo('template_directory') . '/css/prettify-github2.css');
 
         return '';
     }

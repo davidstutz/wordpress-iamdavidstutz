@@ -15,6 +15,9 @@ if (!class_exists('IAMDAVIDSTUTZ_Walker')) {
 // http://wordpress.stackexchange.com/questions/91720/replace-html-entities-in-posts-between-pre-tags
 add_filter('the_content', 'iamdavidstutz_pre_filter', 0);
 
+// https://wordpress.org/support/topic/please-give-us-the-option-to-turn-of-smart-quotes/
+remove_filter('the_content', 'wptexturize');
+
 /**
  * Replace content of pre tags with htmlentities.
  */
