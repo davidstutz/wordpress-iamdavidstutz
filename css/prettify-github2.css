@@ -3,6 +3,8 @@
   background: #f7f7f9;
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
   border: 1px solid #e1e1e8 !important;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .pln {
