@@ -121,7 +121,26 @@ article, header {
 }
 
 .page {
-    margin-left: 48px;
+    .page-date {
+        font-size: @font-size-large;
+    }
+
+    .page-above-header {
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .page-header {
+        h2 {
+            margin-top: 0;
+
+            a, a:hover, a:active, a:visited {
+                color: @text-color;
+            }
+        }
+    }
 
     .page-footer {
         font-size: @font-size-small;

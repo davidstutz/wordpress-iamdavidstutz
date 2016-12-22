@@ -403,6 +403,55 @@ function iamdavidstutz_snippet_tags() {
 }
 
 /**
+ * Page template.
+ */
+function iamdavidstutz_page() {
+    ?>
+    <div class="page-container">
+        <div class="page">
+            <div class="page-date">
+                <?php $day = get_the_date('d'); ?>
+                <?php if ($day == 1): ?>
+                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 2): ?>
+                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php elseif ($day == 3): ?>
+                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php else: ?>
+                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                <?php endif; ?>
+            </div>
+            <?php $ind = strpos(get_page_template(), 'projects'); ?>
+            <?php if ($ind >= 0): ?>
+                <div class="page-above-header">
+                    <h3><?php echo __('PROJECT', 'iamdavidstutz'); ?></h3>
+                </div>
+            <?php else: ?>
+            <div class="page-above-header">
+                    <h3><?php echo __('PAGE', 'iamdavidstutz'); ?></h3>
+                </div>
+            <?php endif; ?>
+            <div class="page-header">
+                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            </div>
+            <div class="page-excerpt">
+                <?php the_excerpt(); ?>
+
+                <?php if ($ind >= 0): ?>
+                    <?php iamdavidstutz_related_links(get_the_ID(), FALSE); ?>
+                <?php endif; ?>
+
+                <p>
+                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default page-more"><?php echo __('Interested?'); ?></a>
+                </p>
+                <p class="clearfix"></p>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+/**
  * Display page footer.
  */
 function iamdavidstutz_page_footer() {
@@ -471,7 +520,7 @@ function iamdavidstutz_article_footer() {
  *
  * @param   int id
  */
-function iamdavidstutz_related_links($id) {
+function iamdavidstutz_related_links($id, $break = TRUE) {
 
     if ($string = get_field('related-links', $id)) {
         if (!empty($string)) {
@@ -484,7 +533,7 @@ function iamdavidstutz_related_links($id) {
                 if (sizeof($parts) == 2) {
                     $title = $parts[0];
                     $href = $parts[1];
-                    ?><a href="<?php echo $href; ?>" target="_blank"><?php echo $title; ?></a><br><?php
+                    ?><a href="<?php echo $href; ?>" target="_blank"><?php echo $title; ?></a><?php if ($break): ?><br><?php else: ?>;&nbsp;<?php endif; ?><?php
                 }
             }
         }

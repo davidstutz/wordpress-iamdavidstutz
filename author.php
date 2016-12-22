@@ -79,11 +79,11 @@
                         The statement of motivation submitted as part of my application for an exchange semester 
                         at <a href="http://www.gatech.edu/" target="_blank">
                             Georgia Tech
-                        </a> can be found here: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
+                        </a> can be found here: <a target="_blank" href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Motivation_Georgia_Tech.pdf">
                             PDF
                         </a>. A detailed CV (in german) written for the <a href="http://www.studienstiftung.de/en/" target="_blank">
                             German Academic Scholarship Foundation
-                        </a> is available here: <a href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf">
+                        </a> is available here: <a target="_blank" href="http://davidstutz.de/wordpress/wp-content/uploads/2016/09/Curriculum_Vitae_German_Scholarship_Foundation.pdf">
                             PDF
                         </a>. Also find me on <a href="https://www.linkedin.com/in/davidstutz92" target="_blank">
                             LinkedIn
