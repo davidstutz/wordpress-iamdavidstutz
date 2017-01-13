@@ -37,19 +37,26 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
-        elseif (!$author && FALSE !== array_search('menu-item-object-category', $classes)
-                && $queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') {
-            $classes[] = 'active';
-        }
         elseif (!$author && FALSE !== array_search('menu-item-home', $classes)
-                && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
+                && !in_category('reading', $post->ID)
+                && !in_category('snippet', $post->ID)) {
             if ($post->post_type != 'page') {
                 $classes[] = 'active';
             }
         }
+        elseif (!$author && FALSE !== array_search('menu-item-3063', $classes)
+                && ($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading'
+                || in_category('reading', $post->ID))) {
+            $classes[] = 'active';
+        }
+        elseif (!$author && FALSE !== array_search('menu-item-3597', $classes)
+                && ($queried_object->taxonomy == 'category' && $queried_object->slug == 'snippet'
+                || in_category('snippet', $post->ID))) {
+            $classes[] = 'active';
+        }
         elseif (!$author && $item->object_id == $projects->ID
                 && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
-            if ($post->post_type == 'page' AND $post->post_parent == $projects->ID) {
+            if ($post->post_type == 'page' && $post->post_parent == $projects->ID) {
                 $classes[] = 'active';
             }
         }

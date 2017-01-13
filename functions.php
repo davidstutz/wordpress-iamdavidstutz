@@ -38,14 +38,27 @@ remove_filter('the_content', 'wpautop');
 /**
  * Exclude "unread category from being displayed in basic WP loop.
  */
-function iamdavidstutz_exclude_unread( $wp_query ) {
-    if (!is_category('reading') && !is_admin()) {
-        $unread = get_category_by_slug('unread');
-        $wp_query->set('category__not_in', array($unread->term_id));
+//function iamdavidstutz_exclude_unread( $wp_query ) {
+//    if (!is_category('reading') && !is_admin()) {
+//        $unread = get_category_by_slug('unread');
+//        $wp_query->set('category__not_in', array($unread->term_id));
+//    }
+//}
+
+//add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
+
+/**
+ * Exclude readings, snippets on home page.
+ */
+function iamdavidstutz_home_categories($query) {
+    if ($query->is_home) {
+        $query->set('cat', '-46,-70');
     }
+
+    return $query;
 }
 
-add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
+add_filter('pre_get_posts', 'iamdavidstutz_home_categories');
 
 /**
  * Register scripts already included hard coded.
@@ -300,7 +313,7 @@ function iamdavidstutz_article_tags() {
                 <h3><?php echo __('READING', 'iamdavidstutz'); ?></h3>
             </div>
             <div class="reading-reference">
-                <a class="reading-reference-link" href="<?php the_permalink(); ?>"><?php the_field('reference'); ?></a>&nbsp;<?php if (get_field('pdf')): ?><a href="<?php the_field('pdf'); ?>" target="_blank">PDF</a><?php endif; ?>
+                <a class="reading-reference-link" href="<?php the_permalink(); ?>"><?php the_field('reference'); ?></a>
             </div>
             <?php iamdavidstutz_reading_tags(); ?>
             <p>
@@ -333,18 +346,11 @@ function iamdavidstutz_reading_tags() {
 function iamdavidstutz_list_reading() {
     ?>
     <li class="reading-list-item">
-        <span class="reading-list-item-reference<?php if (!in_category('unread')): ?> reading-list-item-reference-read<?php endif; ?>">
+        <span class="reading-list-item-reference">
             <?php the_field('reference'); ?>
         </span>
         &nbsp;
-        <?php if (get_field('pdf')): ?>
-            <a href="<?php the_field('pdf'); ?>" target="_blank">PDF<i style="margin-left:6px;font-size:80%" class="fa fa-external-link"></i></a>
-        <?php endif; ?>
-        &nbsp;
-
-        <?php if (!in_category('unread')): ?>
-            <a href="<?php the_permalink(); ?>"><?php echo __('Reading Notes'); ?></a>
-        <?php endif; ?>
+        <a href="<?php the_permalink(); ?>"><?php echo __('Reading Notes'); ?></a>
     </li>
     <?php
 }
@@ -384,6 +390,25 @@ function iamdavidstutz_snippet() {
             <p class="clearfix"></p>
         </div>
     </div>
+    <?php
+}
+
+/**
+ * Display snippet in list.
+ */
+function iamdavidstutz_list_snippet() {
+    ?>
+    <li class="snippet-list-item">
+        <span class="snippet-list-item-title">
+            <?php the_title(); ?>
+        </span>
+        <?php if (get_field('github')): ?>
+            &nbsp;
+            <a href="<?php the_field('github'); ?>" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><i style="margin-left:6px;font-size:80%" class="fa fa-external-link"></i></a>
+        <?php endif; ?>
+        &nbsp;
+        <a href="<?php the_permalink(); ?>"><?php echo __('Details'); ?></a>
+    </li>
     <?php
 }
 

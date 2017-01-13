@@ -19,7 +19,7 @@
                         <?php iamdavidstutz_article(); ?>
                     <?php endif; ?>
                 <?php endwhile; ?>
-                <?php iamdavidstutz__simple(); ?>
+                <?php iamdavidstutz_pagination_simple(); ?>
             <?php else: ?>
                 <div class="nothing">
                     <h1><?php echo __('NOTHING', 'iamdavidstutz'); ?></h1>

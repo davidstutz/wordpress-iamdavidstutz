@@ -3,12 +3,13 @@
     <div class="row">
         <div class="col-md-9">
 
+            <?php //query_posts($query_string . '&cat=-46,-70'); ?>
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()): the_post(); ?>
                     <?php if (in_category('reading')): ?>
-                        <?php iamdavidstutz_reading(); ?>
+                        <?php //iamdavidstutz_reading(); ?>
                     <?php elseif (in_category('snippet')): ?>
-                        <?php iamdavidstutz_snippet(); ?>
+                        <?php //iamdavidstutz_snippet(); ?>
                     <?php else: ?>
                         <?php iamdavidstutz_article(); ?>
                     <?php endif; ?>

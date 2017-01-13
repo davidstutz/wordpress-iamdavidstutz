@@ -2,14 +2,14 @@
     
     <div class="row">
         <div class="col-md-9">
-            
+
             <?php if (have_posts()) : ?>
                 <?php $found = true; ?>
                 <?php $i = 0; ?>
                 <?php while (have_posts()): the_post(); ?>
                     <?php if ($i >= 3) break; ?>
-                    <?php if (in_category('reading')): ?>
-                        <?php iamdavidstutz_reading(); ?>
+                    <?php if (in_category('snippet')): ?>
+                        <?php iamdavidstutz_snippet(); ?>
                         <?php $i++; ?>
                     <?php endif; ?>
                 <?php endwhile; ?>
@@ -17,7 +17,7 @@
 
             <div class="searching-category">
                 <h3><?php echo __('MORE', 'iamdavidstutz'); ?></h3>
-                <h2><?php echo __('READINGS', 'iamdavidstutz'); ?></h2>
+                <h2><?php echo __('SNIPPETS', 'iamdavidstutz'); ?></h2>
             </div>
 
             <?php $tags = get_tags(); ?>
@@ -25,20 +25,20 @@
                 <?php $tag_query = new WP_Query(array( 
                     'tag_id' => $tag->term_id,
                     'posts_per_page' => -1,
-                    'category_name' => 'reading',
+                    'category_name' => 'snippet',
                 )); ?>
 
                 <?php if ($tag_query->have_posts()): ?>
                     <?php $found = true; ?>
-                    <div class="reading-list-tag">
+                    <div class="snippet-list-tag">
                         <a href="<?php echo get_tag_link($tag->term_id); ?>">
                             <span class="label label-primary"><?php echo strtoupper($tag->name); ?></span>
                         </a>
                     </div>
                     <?php while($tag_query->have_posts()): ?>
-                        <ul class="reading-list">
+                        <ul class="snippet-list">
                             <?php $tag_query->the_post(); ?>
-                            <?php iamdavidstutz_list_reading(); ?>
+                            <?php iamdavidstutz_list_snippet(); ?>
                         </ul>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>

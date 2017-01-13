@@ -11,32 +11,6 @@
         <div class="clearfix"></div>
     </div>
     <hr class="hidden-lg hidden-md">
-    <!--
-    <div class="sidebar-header">
-        <h4><?php echo __('CURRENTLY', 'iamdavidstutz'); ?></h4>
-        <h4 style="margin-left:30%;"><?php echo __('READING', 'TAGS'); ?></h4>
-    </div>
-    <div class="sidebar-readings">
-        <?php $category = get_category_by_slug('reading'); ?>
-        <?php $posts = get_posts(array(
-            'category' => $category->term_id,
-        )); ?>
-        
-        <?php $i = 0; ?>
-        <?php foreach ($posts as $p): ?>
-            <?php if ($i > 2) break; ?>
-            <div class="sidebar-reading-container">
-                <div class="sidebar-reading">
-                    <div class="sidebar-reading-reference">
-                        <?php echo get_field('reference', $p->ID); ?>&nbsp;<?php if (get_field('pdf', $p->ID)): ?><a href="<?php echo get_field('pdf',$p->ID); ?>" target="_blank">PDF</a><?php endif; ?>
-                    </div>
-                </div>
-            </div>
-            <?php $i++; ?>
-        <?php endforeach; ?>
-    </div>
-    -->
-    <hr class="hidden-lg hidden-md">
     <div class="sidebar-header">
         <h4><?php echo __('ARCHIVES', 'iamdavidstutz'); ?></h4>
         <h4 style="margin-left:30%;"><?php echo __('ARCHIVES', 'TAGS'); ?></h4>
