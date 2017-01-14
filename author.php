@@ -34,7 +34,7 @@
                             bachelor thesis
                         </a>, advised by <a href="http://www.vision.rwth-aachen.de/person/1/" target="_blank">
                             Prof. Bastian Leibe
-                        </a>, I researched the use of depth information for superpixel segmentation and supervised by. 
+                        </a>, I researched the use of depth information for superpixel segmentation. 
                         Some of the results have been published at <a href="http://gcpr2015.rwth-aachen.de/" target="_blank">
                             GCPR 2015
                         </a>. Afterwards, I spent a semester at the
@@ -46,22 +46,31 @@
                             Prof. Essa
                         </a> on video segmentation and intrinsic video.
                         During the last two semesters of my master degree, 
-                        I hard the opportunity to work for <a href="http://www.fyusion.com/" target="_blank">
+                        I had the opportunity to work for <a href="http://www.fyusion.com/" target="_blank">
                             Fyusion Inc.
                         </a> on interesting computer vision and machine learning problems.
-                        Before writing my master thesis in the beginning of next year, I am
-                        currently completing two internships. First at <a href="https://en.mobis.co.kr/" target="_blank">
+                        In the summer of 2016, I completed two internships. 
+                        First at <a href="https://en.mobis.co.kr/" target="_blank">
                             MOBIS
                         </a> in Frankfurt, advised by Dr. Thomas Guthier, as front camera intern working
-                        on deep learning for autonomous driving. Second, at <a href="https://www.microsoft.com/en-us/" target="_blank">
+                        on deep learning for pedestrian detection. Second, at <a href="https://www.microsoft.com/en-us/" target="_blank">
                             Microsoft
-                        </a> in Dublin as software engineering intern.
+                        </a> in Dublin as software engineering intern in the Office Marketplace Experience team.
+                        Currently, I am writing my master thesis at the <a href="https://is.tuebingen.mpg.de/" target="_blank">
+                            Max Planck Institute for Intelligent Systems
+                        </a> in the <a href="https://avg.is.tuebingen.mpg.de/" target="_blank">
+                            Autonomous Vision Group
+                        </a>
+                        supervised by <a href="http://www.cvlibs.net/" target="_blank">
+                            Dr. Andreas Geiger
+                        </a>.
+
                     </p>
 
                     <p>
                         As big fan of open source, I am eager to share insights and source code. On this blog you will
-                        find seminar papers, notes on readings as well as short articles.
-                        You can find big portions of my projects at <a href="https://github.com/davidstutz" target="_blank">
+                        find seminar papers, notes on readings, code snippets as well as short articles.
+                        You can find big portions of my projects on <a href="https://github.com/davidstutz" target="_blank">
                             GitHub
                         </a>.
                     </p>
