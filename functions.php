@@ -481,6 +481,7 @@ function iamdavidstutz_page() {
  */
 function iamdavidstutz_page_footer() {
     $tags = get_the_tags(); ?>
+    <!--
     <div class="page-footer">
         <span class="page-footer-modified text-muted">
             <?php echo __('LASTMODIFIED', 'iamdavidstutz'); ?>
@@ -495,7 +496,8 @@ function iamdavidstutz_page_footer() {
                 <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
             <?php endif; ?>
         </span>
-    </div>
+    </div
+    -->
     <?php if ($tags): ?>
         <span class="page-footer-tags">
             <?php foreach ($tags as $tag): ?>
