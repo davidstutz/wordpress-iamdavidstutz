@@ -23,6 +23,9 @@
                                 <div class="reading-above-header">
                                     <h3><?php echo __('READING', 'iamdavidstutz'); ?></h3>
                                 </div>
+                                <div class="reading-reference">
+                                    <?php the_field('reference'); ?>
+                                </div>
                                 <?php iamdavidstutz_reading_tags(); ?>
                                 <?php if (!empty($post->post_content) && $post->post_content != '' && $post->post_content != '<p></p>'): ?>
                                     <div class="reading-comment">
