@@ -28,6 +28,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('bxslider', array($this, 'bxslider'));
         add_shortcode('line_plot', array($this, 'line_plot'));
         add_shortcode('readings', array($this, 'readings'));
+        add_shortcode('hide_mail', array($this, 'hide_mail'));
     }
     
     /**
@@ -189,7 +190,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
                     . '</script>';
         }
         else {
-            return 'asd';
+            return '';
         }
     }
     
@@ -235,6 +236,23 @@ class IAMDAVIDSTUTZ_Shortcodes {
         }
         else {
             return '';
+        }
+    }
+
+    /**
+     * More spam resistent mails.
+     *
+     * @param type $attributes
+     * @return type $contents
+     */
+    function hide_mail($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'mail' => '',
+            'class' => '',
+        ), $attributes));
+        
+        if (!empty($mail)) {
+            return '<a class="' . $class . '" href="mailto:' . antispambot($mail) . '">' . antispambot($mail) . '</a>';
         }
     }
 }

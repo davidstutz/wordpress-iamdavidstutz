@@ -13,7 +13,7 @@
     <hr class="hidden-lg hidden-md">
     <div class="sidebar-header">
         <h4><?php echo __('ARCHIVES', 'iamdavidstutz'); ?></h4>
-        <h4 style="margin-left:30%;"><?php echo __('ARCHIVES', 'TAGS'); ?></h4>
+        <h4 style="margin-left:30%;"><?php echo __('TAGS', 'TAGS'); ?></h4>
     </div>
     <div class="sidebar-archives">
         <?php echo iamdavidstutz_get_archives(); ?>
