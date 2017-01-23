@@ -14,7 +14,8 @@
                             <div class="row">
                                 <?php $parent = get_page($post->post_parent); ?>
                                 <?php $query = new WP_Query(); ?>
-                                <?php $pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC')); ?>
+                                <?php //$pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC', 'posts_per_page' => -1)); ?>
+                                <?php $pages = get_pages(array('sort_order' => 'asc', 'sort_column' => 'menu_order')); ?>
                                 <?php $siblings = get_page_children($parent->ID, $pages); ?>
                                 <?php if (sizeof($siblings) > 0): ?>
                                     <div class="col-md-3">
@@ -52,7 +53,8 @@
                     <?php elseif ($post->post_parent == 0): ?>
                         <div class="page-projects-container">
                             <?php $query = new WP_Query(); ?>
-                            <?php $pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC')); ?>
+                            <?php //$pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC')); ?>
+                            <?php $pages = get_pages(array('sort_order' => 'asc', 'sort_column' => 'menu_order')); ?>
                             <?php $children = get_page_children($post->ID, $pages); ?>
                             <?php foreach ($children as $child): ?>
                                 <div class="page-projects-subpage">
