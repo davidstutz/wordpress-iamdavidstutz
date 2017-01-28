@@ -48,11 +48,14 @@ remove_filter('the_content', 'wpautop');
 //add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
 
 /**
- * Exclude readings, snippets on home page.
+ * Exclude readings, snippets, personal on home page.
  */
 function iamdavidstutz_home_categories($query) {
     if ($query->is_home) {
-        $query->set('cat', '-46,-70');
+        $query->set('cat', '-46,-70,-82');
+    }
+    if (!$query->is_admin && $query->is_search && $query->is_main_query() ) {
+        $query->set('post__not_in', array(11, 3745));
     }
 
     return $query;
