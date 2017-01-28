@@ -142,6 +142,20 @@ article, header {
         }
     }
 
+    .page-content {
+        a[target="_blank"]:after {
+            margin-left: 2px;
+            content: @fa-var-external-link;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+            font-size: inherit; // can't have font-size inherit on line above, so need to override
+            text-rendering: auto; // optimizelegibility throws things off #1094
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 80%;
+        }
+    }
+
     .page-footer {
         font-size: @font-size-small;
     }
@@ -524,6 +538,18 @@ article, header {
     .subpage-projects-links {
         margin-bottom: (@line-height-computed / 2);
         padding: 4px;
+
+        a[target="_blank"]:after {
+            margin-left: 2px;
+            content: @fa-var-external-link;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+            font-size: inherit; // can't have font-size inherit on line above, so need to override
+            text-rendering: auto; // optimizelegibility throws things off #1094
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 80%;
+        }
     }
 
     .subpage-projects-content {
@@ -544,6 +570,20 @@ article, header {
 .page-projects-subpage-excerpt {
     margin-bottom: 4px;
     padding: 0px 4px 0px 0px;
+}
+
+.page-projects-subpage-links {
+    a[target="_blank"]:after {
+        margin-left: 2px;
+        content: @fa-var-external-link;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+        font-size: inherit; // can't have font-size inherit on line above, so need to override
+        text-rendering: auto; // optimizelegibility throws things off #1094
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 80%;
+    }
 }
 
 .section-header {

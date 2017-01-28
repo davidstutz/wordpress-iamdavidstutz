@@ -16,7 +16,7 @@
     position: relative;
     display: block;
 
-    > a {
+    > a, > b {
       position: relative;
       display: block;
       padding: @nav-link-padding;
@@ -28,7 +28,7 @@
     }
 
     // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
+    &.disabled > a, &.disabled > b {
       color: @nav-disabled-link-color;
 
       &:hover,
@@ -42,7 +42,7 @@
   }
 
   // Open dropdowns
-  .open > a {
+  .open > a, .open > b {
     &,
     &:hover,
     &:focus {
@@ -58,7 +58,7 @@
 
   // Prevent IE8 from misplacing imgs
   // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-  > li > a > img {
+  > li > a > img, > li > b > img {
     max-width: none;
   }
 }
@@ -112,7 +112,7 @@
 .nav-pills {
     
   &.nav-pills-border {
-    > li > a {
+    > li > a, b {
       border: 1px solid @nav-pills-border-color;
     }
   }
@@ -121,7 +121,7 @@
     float: left;
     
     // Links rendered as pills
-    > a {
+    > a, > b {
       border-radius: @border-radius-base;
     }
     + li {
@@ -129,7 +129,7 @@
     }
 
     // Active state
-    &.active > a {
+    &.active > a, &.active > b {
       &,
       &:hover,
       &:focus {
