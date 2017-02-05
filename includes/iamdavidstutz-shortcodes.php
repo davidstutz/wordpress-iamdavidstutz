@@ -86,6 +86,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         wp_enqueue_script('prettify-matlab', get_bloginfo('template_directory') . '/js/prettify-matlab.js');
         wp_enqueue_script('prettify-tex', get_bloginfo('template_directory') . '/js/prettify-tex.js');
         wp_enqueue_script('prettify-sql', get_bloginfo('template_directory') . '/js/prettify-sql.js');
+        wp_enqueue_script('prettify-lua', get_bloginfo('template_directory') . '/js/prettify-lua.js');
+        wp_enqueue_script('prettify-css', get_bloginfo('template_directory') . '/js/prettify-css.js');
         // wp_enqueue_script('prettify-init', get_bloginfo('template_directory') . '/js/prettify-init.js');
 
         //wp_enqueue_style('prettify', get_bloginfo('template_directory') . '/css/prettify.css');

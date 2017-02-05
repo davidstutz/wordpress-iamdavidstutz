@@ -70,6 +70,9 @@
                                             <div class="page-projects-subpage-excerpt">
                                                 <?php echo $child->post_excerpt; ?>
                                             </div>
+                                            <div class="page-projects-subpage-publications">
+                                                <?php iamdavidstutz_related_publications($child->ID); ?>
+                                            </div>
                                             <div class="page-projects-subpage-links">
                                                 <?php iamdavidstutz_related_links_dashed($child->ID); ?>
                                             </div>

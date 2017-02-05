@@ -55,6 +55,7 @@ function iamdavidstutz_home_categories($query) {
         $query->set('cat', '-46,-70,-82');
     }
     if (!$query->is_admin && $query->is_search && $query->is_main_query() ) {
+        $query->set('cat', '-82');
         $query->set('post__not_in', array(11, 3745));
     }
 
@@ -206,7 +207,7 @@ function iamdavidstutz_get_archives() {
     }
 
     // Take cached archives if possible.
-    $query = 'SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM ' . $wpdb->posts . ' WHERE post_type = \'post\' AND post_status = \'publish\' GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY YEAR(post_date) DESC, MONTH(post_date) DESC LIMIT 12';
+    $query = 'SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM ' . $wpdb->posts . ' WHERE post_type = \'post\' AND post_status = \'publish\' GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY YEAR(post_date) DESC, MONTH(post_date)';
     $md5 = md5($query);
     $key = "wp_get_archives:$md5:$last_changed";
 
@@ -464,7 +465,7 @@ function iamdavidstutz_page() {
             </div>
             <div class="page-excerpt">
                 <?php the_excerpt(); ?>
-
+                
                 <?php if ($ind >= 0): ?>
                     <?php iamdavidstutz_related_links(get_the_ID(), FALSE); ?>
                 <?php endif; ?>
@@ -554,7 +555,7 @@ function iamdavidstutz_related_links($id, $break = TRUE) {
 
     if ($string = get_field('related-links', $id)) {
         if (!empty($string)) {
-            ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b><br> <?php
+            ?> <b><?php echo __('LINKS:', 'iamdavidstutz'); ?></b><br> <?php
 
             $links = explode(';', $string);
             foreach ($links as $link) {
@@ -579,7 +580,7 @@ function iamdavidstutz_related_links_dashed($id) {
 
     if ($string = get_field('related-links', $id)) {
         if (!empty($string)) {
-            ?> <b><?php echo __('RELATEDLINKS:', 'iamdavidstutz'); ?></b>&nbsp;<?php
+            ?> <b><?php echo __('LINKS:', 'iamdavidstutz'); ?></b>&nbsp;<?php
 
             $links = explode(';', $string);
             $first = TRUE;
@@ -592,6 +593,19 @@ function iamdavidstutz_related_links_dashed($id) {
                     ?><?php if ($first === TRUE): $first = FALSE; else: ?> &mdash; <?php endif; ?><a href="<?php echo $href; ?>" target="_blank"><?php echo $title; ?></a> <?php
                 }
             }
+        }
+    }
+}
+
+/**
+ * Display related publications.
+ *
+ * @param   int id
+ */
+function iamdavidstutz_related_publications($id) {
+    if ($string = get_field('related-publications', $id)) {
+        if (!empty($string)) {
+            ?> <b><?php echo __('PUBLICATIONS:', 'iamdavidstutz'); ?></b>&nbsp;<?php echo $string;
         }
     }
 }
