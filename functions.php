@@ -467,7 +467,11 @@ function iamdavidstutz_page() {
                 <?php the_excerpt(); ?>
                 
                 <?php if ($ind >= 0): ?>
-                    <?php iamdavidstutz_related_links(get_the_ID(), FALSE); ?>
+                    <?php iamdavidstutz_related_publications(get_the_ID(), FALSE); ?>
+                <?php endif; ?>
+
+                <?php if ($ind >= 0): ?>
+                    <?php iamdavidstutz_related_links_dashed(get_the_ID(), FALSE); ?>
                 <?php endif; ?>
 
                 <p>
