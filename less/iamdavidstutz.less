@@ -697,3 +697,13 @@ svg.line-plot {
     border: 1px solid #e1e1e8 !important;
     width: 100% !important;
 }
+
+ol.list-steps {
+  counter-reset: section;
+  list-style-type: none;
+}
+
+ol.list-steps > li::before {
+  counter-increment: section;
+  content: "(" counters(section,".") ") ";
+}
