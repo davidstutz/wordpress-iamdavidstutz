@@ -39,7 +39,7 @@
             });
     //--><!]]></script>
     
-    <h4>COMMENTS</h4>                         
+    <h4><?php echo __('COMMENTS', 'iamdavidstutz'); ?></h4>                         
     <form method="POST" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" class="comment-form form-horizontal">
         <div class="comment-form-errors"></div>
         <?php if (!$user_ID): ?>
