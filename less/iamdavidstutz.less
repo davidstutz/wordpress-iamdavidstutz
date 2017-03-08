@@ -107,7 +107,7 @@ article, header {
             padding: @alert-padding;
 
             .article-comments-social {
-                font-size: 125%;
+                /* font-size: 125%; */
                 margin-left: 12px;
                 color: @text-color;
                 
@@ -450,7 +450,7 @@ article, header {
             padding: @alert-padding;
 
             .reading-comments-social {
-                font-size: 125%;
+                /* font-size: 125%; */
                 margin-left: 12px;
                 color: @text-color;
                 
@@ -534,7 +534,7 @@ article, header {
             padding: @alert-padding;
 
             .snippet-comments-social {
-                font-size: 125%;
+                /* font-size: 125%; */
                 margin-left: 12px;
                 color: @text-color;
                 
@@ -601,7 +601,7 @@ article, header {
             padding: @alert-padding;
 
             .subpage-projects-comments-social {
-                font-size: 125%;
+                /* font-size: 125%; */
                 margin-left: 12px;
                 color: @text-color;
                 
@@ -766,4 +766,20 @@ ol.list-steps {
 ol.list-steps > li::before {
   counter-increment: section;
   content: "(" counters(section,".") ") ";
+}
+
+.links-internal {
+    a[target="_blank"]:after {
+        margin-left: 0px !important;
+        content: '' !important;
+    }
+}
+
+.icons-black {
+    a, 
+    a:hover,
+    a:active,
+    a:active {
+        color: @text-color;
+    }
 }

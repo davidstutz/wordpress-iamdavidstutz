@@ -124,5 +124,16 @@
                 </h4>
             </div>
         </div>
+
+        <?php if (!get_field('note')): ?>
+            <div class="note">
+                <div class="container">
+                    <b><?php echo __('Check out the latest superpixel benchmark', 'iamdavidstutz'); ?> &mdash; 
+                    <a href="http://davidstutz.de/projects/superpixel-benchmark/"><?php echo __('Superpixel Benchmark (2016)', 'iamdavidstutz'); ?></a> &mdash; 
+                    <?php echo __('and let me know your opinion!', 'iamdavidstutz'); ?> <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <i class="fa fa-twitter"></i></a></b>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="container">
         
