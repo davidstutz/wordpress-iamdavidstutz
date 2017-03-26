@@ -18,6 +18,9 @@ add_filter('the_content', 'iamdavidstutz_pre_filter', 0);
 // https://wordpress.org/support/topic/please-give-us-the-option-to-turn-of-smart-quotes/
 remove_filter('the_content', 'wptexturize');
 
+// http://wordpress.stackexchange.com/questions/42743/the-excerpt-and-shortcodes
+add_filter( 'the_excerpt', 'do_shortcode');
+
 /**
  * Replace content of pre tags with htmlentities.
  */
