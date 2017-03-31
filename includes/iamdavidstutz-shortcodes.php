@@ -149,8 +149,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
     /**
      * Line plot using nvd3.js.
      * 
-     * @param type $attributes
-     * @param type $content
+     * @param array $attributes
+     * @param string $content
      */
     public function line_plot($attributes, $content = NULL) {
         extract(shortcode_atts(array(
@@ -160,8 +160,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         ), $attributes));
         
         wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js');
-        wp_enqueue_script('nvd3', get_bloginfo('template_directory') . '/js/nv.d3.js');
-        wp_enqueue_style('nvd3', get_bloginfo('template_directory') . '/css/nv.d3.css');
+        wp_enqueue_script('nvd3', get_bloginfo('template_directory') . '/js/nv.d3.min.js');
+        wp_enqueue_style('nvd3', get_bloginfo('template_directory') . '/css/nv.d3.min.css');
         
         if (!empty($file)) {
             $id = 'line-plot-' . time() . rand(0, 1000) . '-' . $field;
@@ -197,10 +197,95 @@ class IAMDAVIDSTUTZ_Shortcodes {
     }
     
     /**
+     * Bar chart using nvd3.js.
+     * 
+     * @param array $attributes
+     * @param string $content
+     */
+    public function bar_char($attributes, $contents = NULL) {
+        extract(shortcode_atts(array(
+            'file' => '',
+            'height' => 200,
+        ), $attributes));
+        
+        wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js');
+        wp_enqueue_script('nvd3', get_bloginfo('template_directory') . '/js/nv.d3.min.js');
+        wp_enqueue_style('nvd3', get_bloginfo('template_directory') . '/css/nv.d3.min.css');
+        
+        if (!empty($file)) {
+            $id = 'bar-chart-' . time() . rand(0, 1000);
+            
+            return '<svg style="height:' . $height . 'px" id="' . $id . '" class="bar-chart"></svg>'
+                    . '<script type="text/javascript">'
+                        . '$(document).ready(function() {'
+                            . 'd3.json(\'' . $file . '\', function(data) {'
+                            . 'nv.addGraph({'
+                                . 'generate: function() {'
+                                    . 'var chart = nv.models.multiBarChart()'
+                                        . '.height(' . $height . ')'
+                                        . '.stacked(false)'
+                                        . '.showControls(false)'
+                                        . '.reduceXTicks(false)'
+                                        . '.color(["#337ab7", "#ce4844", "#3c763d"])'
+                                        . ';'
+
+                                    . "var svg = d3.select("#' . $id . '").datum(data);'
+                                    . 'svg.transition().duration(0).call(chart);'
+
+                                    . 'return chart;'
+                                . '},'
+                                . 'callback: function(graph) {'
+                                    . 'nv.utils.windowResize(function() {'
+                                        . 'var width = nv.utils.windowSize().width;'
+                                        . 'var height = nv.utils.windowSize().height;'
+                                        . 'graph.width(width).height(height);'
+
+                                        . "d3.select("#' . $id . '")'
+                                            . '.attr("height", height)'
+                                            . '.transition().duration(0)'
+                                            . '.call(graph);'
+                                    . '});'
+                                . '}'
+                            . '});'
+                        . '});'
+                    . '</script>';
+        }
+        else {
+            return '';
+        }
+    }
+    
+    public function tiles($attributes, $contents = NULL) {
+        extract(shortcode_atts(array(
+            'id' => '',
+        ), $attributes));
+        
+        wp_enqueue_script('unitegallery', get_bloginfo('template_directory') . '/js/unitegallery.min.js');
+        wp_enqueue_script('unitegallery-tiles', get_bloginfo('template_directory') . '/js/tiles.js');
+        wp_enqueue_style('unitegallery', get_bloginfo('template_directory') . '/css/unitegallery.css');
+        
+        if (!empty($id)) {
+            return '<script type="text/javascript">'
+                . '$(document).ready(function() {'
+                    . '$("#' . $id . '").unitegallery({'
+                        . 'tile_enable_textpanel: true,'
+                        . 'tile_textpanel_title_text_align: "center",'
+                        . 'tile_textpanel_always_on: true,'
+                        . 'tiles_type: "justified",'
+                    . '});'
+                . '});'
+            . '</script>';
+        }
+        else {
+            return '';
+        }
+    }
+    
+    /**
      * Display several readings as accordion.
      * 
-     * @param type $attributes
-     * @return type $contents
+     * @param array $attributes
+     * @param string $content
      */
     public function readings($attributes, $contents = NULL) {
         extract(shortcode_atts(array(
@@ -244,8 +329,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
     /**
      * More spam resistent mails.
      *
-     * @param type $attributes
-     * @return type $contents
+     * @param array $attributes
+     * @param string $content
      */
     function hide_mail($attributes, $content = NULL) {
         extract(shortcode_atts(array(
