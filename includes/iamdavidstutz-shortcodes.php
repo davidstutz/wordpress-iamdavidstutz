@@ -29,6 +29,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('line_plot', array($this, 'line_plot'));
         add_shortcode('readings', array($this, 'readings'));
         add_shortcode('hide_mail', array($this, 'hide_mail'));
+        add_shortcode('bar_chart', array($this, 'bar_chart'));
+        add_shortcode('tiles', array($this, 'tiles'));
     }
     
     /**
@@ -202,7 +204,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * @param array $attributes
      * @param string $content
      */
-    public function bar_char($attributes, $contents = NULL) {
+    public function bar_chart($attributes, $contents = NULL) {
         extract(shortcode_atts(array(
             'file' => '',
             'height' => 200,
@@ -219,33 +221,40 @@ class IAMDAVIDSTUTZ_Shortcodes {
                     . '<script type="text/javascript">'
                         . '$(document).ready(function() {'
                             . 'd3.json(\'' . $file . '\', function(data) {'
-                            . 'nv.addGraph({'
-                                . 'generate: function() {'
-                                    . 'var chart = nv.models.multiBarChart()'
-                                        . '.height(' . $height . ')'
-                                        . '.stacked(false)'
-                                        . '.showControls(false)'
-                                        . '.reduceXTicks(false)'
-                                        . '.color(["#337ab7", "#ce4844", "#3c763d"])'
-                                        . ';'
+                                . 'nv.addGraph({'
+                                    . 'generate: function() {'
+                                        . 'var chart = nv.models.multiBarChart()'
+                                            . '.height(' . $height . ')'
+                                            . '.stacked(false)'
+                                            . '.showControls(false)'
+                                            . '.reduceXTicks(false)'
+                                            . '.color(["#337ab7", "#ce4844", "#3c763d"])'
+                                            . ';'
 
-                                    . "var svg = d3.select("#' . $id . '").datum(data);'
-                                    . 'svg.transition().duration(0).call(chart);'
+                                        . 'var svg = d3.select("#' . $id . '").datum(data);'
+                                        . 'svg.transition().duration(0).call(chart);'
 
-                                    . 'return chart;'
-                                . '},'
-                                . 'callback: function(graph) {'
-                                    . 'nv.utils.windowResize(function() {'
-                                        . 'var width = nv.utils.windowSize().width;'
-                                        . 'var height = nv.utils.windowSize().height;'
-                                        . 'graph.width(width).height(height);'
+                                        . 'return chart;'
+                                    . '},'
+                                    . 'callback: function(graph) {'
+                                        . 'nv.utils.windowResize(function() {'
+                                            . 'var width = nv.utils.windowSize().width;'
+                                            . 'var height = nv.utils.windowSize().height;'
+                                            . 'graph.width(width).height(height);'
 
-                                        . "d3.select("#' . $id . '")'
-                                            . '.attr("height", height)'
-                                            . '.transition().duration(0)'
-                                            . '.call(graph);'
-                                    . '});'
-                                . '}'
+                                            . 'd3.select("#' . $id . '")'
+                                                . '.attr("height", height)'
+                                                . '.transition().duration(0)'
+                                                . '.call(graph);'
+                                        . '});'
+                                        . 'var xTicks = d3.select("#' . $id . ' .nv-x.nv-axis > g").selectAll("g");'
+                                        . 'xTicks'
+                                            . '.selectAll("text")'
+                                            . '.attr("transform", function(d,i,j) {'
+                                                . 'return "translate (-10, 25) rotate(-90 0,0)";'
+                                            . '}) ;'
+                                    . '}'
+                                . '});'
                             . '});'
                         . '});'
                     . '</script>';
