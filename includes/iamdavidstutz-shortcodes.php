@@ -207,7 +207,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
     public function bar_chart($attributes, $contents = NULL) {
         extract(shortcode_atts(array(
             'file' => '',
-            'height' => 200,
+            'height' => 300,
         ), $attributes));
         
         wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js');
@@ -225,6 +225,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
                                     . 'generate: function() {'
                                         . 'var chart = nv.models.multiBarChart()'
                                             . '.height(' . $height . ')'
+                                            . '.width(620)'
                                             . '.stacked(false)'
                                             . '.showControls(false)'
                                             . '.reduceXTicks(false)'
@@ -238,12 +239,9 @@ class IAMDAVIDSTUTZ_Shortcodes {
                                     . '},'
                                     . 'callback: function(graph) {'
                                         . 'nv.utils.windowResize(function() {'
-                                            . 'var width = nv.utils.windowSize().width;'
-                                            . 'var height = nv.utils.windowSize().height;'
-                                            . 'graph.width(width).height(height);'
-
                                             . 'd3.select("#' . $id . '")'
-                                                . '.attr("height", height)'
+                                                . '.attr("height", ' . $height . ')'
+                                                . '.attr("width", 620)'
                                                 . '.transition().duration(0)'
                                                 . '.call(graph);'
                                         . '});'
@@ -270,17 +268,17 @@ class IAMDAVIDSTUTZ_Shortcodes {
         ), $attributes));
         
         wp_enqueue_script('unitegallery', get_bloginfo('template_directory') . '/js/unitegallery.min.js');
-        wp_enqueue_script('unitegallery-tiles', get_bloginfo('template_directory') . '/js/tiles.js');
-        wp_enqueue_style('unitegallery', get_bloginfo('template_directory') . '/css/unitegallery.css');
+        wp_enqueue_script('unitegallery-tiles', get_bloginfo('template_directory') . '/js/ug-theme-tiles.js');
+        wp_enqueue_style('unitegallery', get_bloginfo('template_directory') . '/css/unite-gallery.css');
         
         if (!empty($id)) {
             return '<script type="text/javascript">'
                 . '$(document).ready(function() {'
                     . '$("#' . $id . '").unitegallery({'
-                        . 'tile_enable_textpanel: true,'
+                        . 'tile_enable_textpanel :true,'
                         . 'tile_textpanel_title_text_align: "center",'
                         . 'tile_textpanel_always_on: true,'
-                        . 'tiles_type: "justified",'
+                        . 'tiles_col_width: "15"'
                     . '});'
                 . '});'
             . '</script>';
