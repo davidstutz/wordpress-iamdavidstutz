@@ -7,7 +7,7 @@
                 <?php $found = true; ?>
                 <?php $i = 0; ?>
                 <?php while (have_posts()): the_post(); ?>
-                    <?php if ($i >= 3) break; ?>
+                    <?php if ($i >= 5) break; ?>
                     <?php if (in_category('snippet')): ?>
                         <?php iamdavidstutz_snippet(); ?>
                         <?php $i++; ?>
