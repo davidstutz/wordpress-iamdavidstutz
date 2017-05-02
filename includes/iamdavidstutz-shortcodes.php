@@ -64,8 +64,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         extract(shortcode_atts(array(
 
         ), $attributes));
-
-        wp_enqueue_script('mathjax', 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML');
+        
+        wp_enqueue_script('mathjax', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML');
         wp_enqueue_script('mathjax-init', get_bloginfo('template_directory') . '/js/mathjax-init.js');
         
         return '';

@@ -45,10 +45,10 @@
                                             <p>
                                                 <?php echo __('What is <b>your opinion</b> on this project? <b>Let me know</b> your thoughts and ideas in the comments below or using the following platforms:', 'iamdavidstutz'); ?>
                                                 <div class="text-center subpage-projects-comments-social">
+                                                    <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
                                                     <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
                                                     <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
                                                     <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
-                                                    <a href="https://twitter.com/david_stutz" target="_blank"><span class="fa fa-twitter"></span></a>
                                                 </div>
                                             </p>
                                             <?php comments_template(); ?>
