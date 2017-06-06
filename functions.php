@@ -55,7 +55,7 @@ remove_filter('the_content', 'wpautop');
  */
 function iamdavidstutz_home_categories($query) {
     if ($query->is_home) {
-        $query->set('cat', '-46,-70,-82');
+        //$query->set('cat', '-46,-70,-82');
     }
     if (!$query->is_admin && $query->is_search && $query->is_main_query() ) {
         $query->set('cat', '-82');
@@ -187,8 +187,8 @@ function iamdavidstutz_pagination_simple() {
     ?>
     <div style="text-align:center;">
         <ul class="pagination pagination-sm">
-            <li><?php previous_posts_link('<b>NEWER</b>ARTICLES'); ?></li>
-            <li><?php next_posts_link('<b>OLDER</b>ARTICLES'); ?></li>
+            <li><?php previous_posts_link('NEWER'); ?></li>
+            <li><?php next_posts_link('OLDER'); ?></li>
         </ul>
     </div>
     <?php
@@ -273,7 +273,7 @@ function iamdavidstutz_article() {
             <div class="article-excerpt">
                 <?php the_excerpt(); ?>
                 <p>
-                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default article-more"><?php echo __('Interested?'); ?></a>
+                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-primary article-more"><?php echo __('More ...'); ?></a>
                 </p>
                 <p class="clearfix"></p>
             </div>
@@ -317,14 +317,17 @@ function iamdavidstutz_article_tags() {
                 <?php endif; ?>
             </div>
             <div class="reading-above-header">
-                <h3><?php echo __('READING', 'iamdavidstutz'); ?></h3>
+                <h3><?php echo __('READING NOTES', 'iamdavidstutz'); ?></h3>
             </div>
             <div class="reading-reference">
                 <a class="reading-reference-link" href="<?php the_permalink(); ?>"><?php the_field('reference'); ?></a>
             </div>
             <?php iamdavidstutz_reading_tags(); ?>
             <p>
-                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default reading-more"><?php echo __('Interested?'); ?></a>
+                <div class="pull-right">
+                    <a href="<?php $cat = get_category_by_slug('reading'); echo get_category_link($cat->term_id); ?>" class="btn btn-default snippet-more"><?php echo __('All Readings'); ?></a>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary reading-more"><?php echo __('More ...'); ?></a>
+                </div>
             </p>
             <p class="clearfix"></p>
         </div>
@@ -392,7 +395,10 @@ function iamdavidstutz_snippet() {
                 <?php the_excerpt(); ?>
             </div>
             <p>
-                <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default snippet-more"><?php echo __('Interested?'); ?></a>
+                <div class="pull-right">
+                    <a href="<?php $cat = get_category_by_slug('snippet'); echo get_category_link($cat->term_id); ?>" class="btn btn-default snippet-more"><?php echo __('All Snippets'); ?></a>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary snippet-more"><?php echo __('More ...'); ?></a>
+                </div>
             </p>
             <p class="clearfix"></p>
         </div>
@@ -478,7 +484,7 @@ function iamdavidstutz_page() {
                 <?php endif; ?>
 
                 <p>
-                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-default page-more"><?php echo __('Interested?'); ?></a>
+                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-primary page-more"><?php echo __('More ...'); ?></a>
                 </p>
                 <p class="clearfix"></p>
             </div>
