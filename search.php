@@ -11,7 +11,7 @@
                     <?php if (in_category('reading')): ?>
                         <?php iamdavidstutz_reading(); ?>
                     <?php elseif (in_category('snippet')): ?>
-                        <?php iamdavidstutz_snippet(); ?>
+                        <?php //iamdavidstutz_snippet(); ?>
                     <?php elseif (get_post()->post_type == 'page'): ?>
                         <?php iamdavidstutz_page(); ?>
                     <?php else: ?>

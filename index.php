@@ -29,7 +29,7 @@
                     <?php if (in_category('reading')): ?>
                         <?php iamdavidstutz_reading(); ?>
                     <?php elseif (in_category('snippet')): ?>
-                        <?php iamdavidstutz_snippet(); ?>
+                        <?php //iamdavidstutz_snippet(); ?>
                     <?php else: ?>
                         <?php if (!isset($featured[get_the_ID()])): ?>
                             <?php iamdavidstutz_article(); ?>
