@@ -537,20 +537,29 @@ function iamdavidstutz_article_footer() {
         <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&posts_per_page=1'); ?>
         <?php while ($query->have_posts()): $query->the_post(); ?>
             <blockquote class="author-description">
-                <h3><?php echo __('ABOUTTHE', 'iamdavidstutz'); ?><b><?php echo __('AUTHOR', 'iamdavidstutz'); ?></b></h3>
-                <?php str_replace('<p></p>', '', the_content()); ?>
-                <small>
-                    <?php $day = get_the_date('d'); ?>
-                    <?php if ($day == 1): ?>
-                        <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php elseif ($day == 2): ?>
-                        <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php elseif ($day == 3): ?>
-                        <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php else: ?>
-                        <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                    <?php endif; ?>, <a href="<?php echo get_author_posts_url($user->ID); ?>"><?php echo $user->display_name; ?></a>
-                </small>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div style="padding:4px;border:1px solid #ddd;display:inline-block;">
+                            <img src="http://davidstutz.de/wordpress/wp-content/uploads/2017/01/Profilbild_3.png" alt="" width="115" class="alignnone size-medium wp-image-4934" />
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <h3><?php echo __('ABOUTTHE', 'iamdavidstutz'); ?><b><?php echo __('AUTHOR', 'iamdavidstutz'); ?></b></h3>
+                        <?php str_replace('<p></p>', '', the_content()); ?>
+                        <small>
+                            <?php $day = get_the_date('d'); ?>
+                            <?php if ($day == 1): ?>
+                                <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                            <?php elseif ($day == 2): ?>
+                                <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                            <?php elseif ($day == 3): ?>
+                                <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                            <?php else: ?>
+                                <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
+                            <?php endif; ?>, <a href="<?php echo get_author_posts_url($user->ID); ?>"><?php echo $user->display_name; ?></a>
+                        </small>
+                    </div>
+                </div>
             </blockquote>
         <?php endwhile; ?>
         <?php // IMPORTANT! ?>
