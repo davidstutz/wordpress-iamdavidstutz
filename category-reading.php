@@ -9,19 +9,19 @@
                     'category_name' => 'reading',
                 )); ?>
 
-            <?php if ($tag_query->have_posts()): ?>
-                <div class="reading-list-tag">
-                    <a href="<?php echo get_tag_link($tag->term_id); ?>">
-                        <span class="label label-primary"><?php echo strtoupper($tag->name); ?></span>
-                    </a>
-                </div>
-                <?php while($tag_query->have_posts()): $tag_query->the_post(); ?>
-                    <ul class="reading-list">
-                        <?php iamdavidstutz_list_reading(); ?>
-                    </ul>
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()): the_post(); ?>
+                    <?php if (in_category('reading')): ?>
+                        <?php iamdavidstutz_reading(); ?>
+                    <?php endif; ?>
                 <?php endwhile; ?>
 
-                <?php wp_reset_postdata(); ?>
+                <?php iamdavidstutz_pagination_simple(); ?>
+            <?php else: ?>
+                <div class="nothing">
+                    <h1><?php echo __('NOTHING', 'iamdavidstutz'); ?></h1>
+                    <h4><?php echo __('NOTHINGFOUNDHERE', 'iamdavidstutz'); ?></h4>
+                </div>
             <?php endif; ?>
 
         </div>

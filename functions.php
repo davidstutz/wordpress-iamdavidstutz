@@ -325,7 +325,6 @@ function iamdavidstutz_article_tags() {
             <?php iamdavidstutz_reading_tags(); ?>
             <p>
                 <div class="pull-right">
-                    <a href="<?php $cat = get_category_by_slug('reading'); echo get_category_link($cat->term_id); ?>" class="btn btn-default snippet-more"><?php echo __('All Readings'); ?></a>
                     <a href="<?php the_permalink(); ?>" class="btn btn-primary reading-more"><?php echo __('More ...'); ?></a>
                 </div>
             </p>
@@ -474,14 +473,6 @@ function iamdavidstutz_page() {
             </div>
             <div class="page-excerpt">
                 <?php the_excerpt(); ?>
-                
-                <?php if ($ind >= 0): ?>
-                    <?php iamdavidstutz_related_publications(get_the_ID(), FALSE); ?>
-                <?php endif; ?>
-
-                <?php if ($ind >= 0): ?>
-                    <?php iamdavidstutz_related_links_dashed(get_the_ID(), FALSE); ?>
-                <?php endif; ?>
 
                 <p>
                     <a href="<?php the_permalink(); ?>" class="pull-right btn btn-primary page-more"><?php echo __('More ...'); ?></a>

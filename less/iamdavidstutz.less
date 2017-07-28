@@ -320,39 +320,16 @@ article, header {
 }
 
 .comment-form {
-
     .comment-form-user {
         padding-top: 7px;
     }
 }
 
 .author {
-    .author-links {
-        font-size: floor(@font-size-base * 1.25);
-        text-align: right;
-        padding: 12px 6px 0 0;
-        float: left;
-        width: 172px;
-
-        > div {
-            margin: 8px 0;
-        }
-
-        .fa {
-            padding-left: 12px;
-            font-size: floor(@font-size-base * 1.5);
-            color: @text-color;
-
-            &:hover,
-            &:active,
-            &:visited {
-                color: @text-color;
-            }
-        }
-    }
-
     .author-biography {
-        margin-left: 186px;
+        /*font-size: (@font-size-base * 1.2);*/
+        /*font-weight: 400;*/
+        /*line-height: 1.4;*/
 
         a[target="_blank"]:after {
             margin-left: 2px;
@@ -365,16 +342,27 @@ article, header {
             -moz-osx-font-smoothing: grayscale;
             font-size: 80%;
         }
+    }
 
-        .author-updates {
+    .author-social {
+        border: 1px solid #ddd;
+        padding: @alert-padding;
 
-            blockquote.author-description {
-                p {
-                    font-size: @font-size-base;
-                }
-                small {
-                    font-size: @font-size-base;
-                }
+        .author-social-links {
+            /* font-size: 125%; */
+            margin-left: 12px;
+            color: @text-color;
+            
+            a, 
+            a:hover,
+            a:active,
+            a:active {
+                color: @text-color;
+            }
+
+            a:after {
+                content: '';
+                margin-left: 0;
             }
         }
     }
@@ -410,9 +398,9 @@ article, header {
 
         .reading-reference {
             margin-bottom: (@line-height-computed / 2);
-            font-size: (@font-size-base * 1.2);
-            font-weight: 500;
-            line-height: 1.4;
+            font-size: @font-size-large;
+            /*font-weight: 500;*/
+            /*line-height: 1.4;*/
 
             .reading-reference-link, .reading-reference-link:hover, .reading-reference-link:active, .reading-reference-link:visited {
                 color: @text-color;
