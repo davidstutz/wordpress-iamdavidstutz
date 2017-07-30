@@ -34,7 +34,7 @@
                                 <?php endif; ?>
                                 <div class="reading-comments">
                                     <p>
-                                        <?php echo __('What is <b>your opinion</b> on the summarized work? Or do you know related work that is of interest? <b>Let me know</b> your thoughts in the comments below or using the following platforms:', 'iamdavidstutz'); ?>
+                                        <?php echo __('What is <b>your opinion</b> on the summarized work? Or do you know related work that is of interest? <b>Let me know</b> your thoughts in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
                                         <div class="text-center reading-comments-social">
                                             <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
                                             <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
@@ -108,7 +108,7 @@
                                 <?php iamdavidstutz_article_footer(); ?>
                                 <div class="article-comments">
                                     <p>
-                                        <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below or using the following platforms:', 'iamdavidstutz'); ?>
+                                        <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
                                         <div class="text-center article-comments-social">
                                             <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
                                             <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>

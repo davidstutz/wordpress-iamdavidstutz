@@ -37,7 +37,7 @@
                                 
                                 <div class="subpage-projects-comments">
                                     <p>
-                                        <?php echo __('What is <b>your opinion</b> on this project? <b>Let me know</b> your thoughts and ideas in the comments below or using the following platforms:', 'iamdavidstutz'); ?>
+                                        <?php echo __('What is <b>your opinion</b> on this project? <b>Let me know</b> your thoughts and ideas in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
                                         <div class="text-center subpage-projects-comments-social">
                                             <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
                                             <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
