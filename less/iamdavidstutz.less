@@ -347,6 +347,7 @@ article, header {
     .author-social {
         border: 1px solid #ddd;
         padding: @alert-padding;
+        margin-bottom: (@line-height-computed / 2);
 
         .author-social-links {
             /* font-size: 125%; */
@@ -363,6 +364,24 @@ article, header {
             a:after {
                 content: '';
                 margin-left: 0;
+            }
+        }
+    }
+
+    .author-updates {
+        border: 1px solid #ddd;
+        padding: @alert-padding;
+        margin-bottom: (@line-height-computed / 2);
+
+        /*overflow-y: auto;*/
+        /*max-height: 500px;*/
+
+        blockquote.author-description {
+            p {
+                font-size: @font-size-base;
+            }
+            small {
+                font-size: @font-size-base;
             }
         }
     }
