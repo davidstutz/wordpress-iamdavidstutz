@@ -144,6 +144,26 @@ article, header {
         }
     }
 
+    .page-excerpt {
+        margin-bottom: @line-height-computed;
+        font-size: (@font-size-base * 1.2);
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    .page-excerpt a[target="_blank"]:after,
+    .page-content a[target="_blank"]:after {
+        margin-left: 2px;
+        content: @fa-var-external-link;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+        font-size: inherit; // can't have font-size inherit on line above, so need to override
+        text-rendering: auto; // optimizelegibility throws things off #1094
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 80%;
+    }
+
     .page-content {
         a[target="_blank"]:after {
             margin-left: 2px;
@@ -204,6 +224,12 @@ article, header {
 
         form {
             margin-bottom: 0;
+        }
+    }
+
+    .sidebar-donate {
+        h5 {
+            margin-top: 0;
         }
     }
 
