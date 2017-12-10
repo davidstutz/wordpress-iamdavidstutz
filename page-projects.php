@@ -11,48 +11,25 @@
                 <?php while (have_posts()): the_post(); ?>
                     <?php if ($post->post_parent > 0): ?>
                         <div class="subpage-projects-container">
-                            <div class="row">
-                                <?php $parent = get_page($post->post_parent); ?>
-                                <?php $query = new WP_Query(); ?>
-                                <?php //$pages = $query->query(array('post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC', 'posts_per_page' => -1)); ?>
-                                <?php $pages = get_pages(array('sort_order' => 'asc', 'sort_column' => 'menu_order')); ?>
-                                <?php $siblings = get_page_children($parent->ID, $pages); ?>
-                                <?php if (sizeof($siblings) > 0): ?>
-                                    <div class="col-md-3">
-                                        <div class="subpage-projects-navigation">
-                                            <ul class="nav nav-pills nav-pills-border nav-stacked">
-                                                <?php foreach ($siblings as $sibling): ?>
-                                                    <li<?php if ($sibling->ID == $post->ID): ?> class="active"<?php endif; ?>><a href="<?php echo get_post_permalink($sibling->ID); ?>"><?php echo $sibling->post_title; ?></a></li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                        <div class="subpage-projects-links hidden-sm hidden-xs">
-                                            <?php iamdavidstutz_related_links($post->ID); ?>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
-                                <div class="<?php if (sizeof($siblings) > 0): ?>col-md-9<?php else: ?>col-md-12<?php endif; ?>">
-                                    <div class="subpage-projects">
-                                        <div class="subpage-projects-content">
-                                            <?php echo do_shortcode($post->post_content); ?>
-                                        </div>
-                                        
-                                        <div class="subpage-projects-comments">
-                                            <p>
-                                                <?php echo __('What is <b>your opinion</b> on this project? <b>Let me know</b> your thoughts and ideas in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
-                                                <div class="text-center subpage-projects-comments-social">
-                                                    <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
-                                                    <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
-                                                    <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
-                                                    <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
-                                                </div>
-                                            </p>
-                                            <?php comments_template(); ?>
-                                        </div>
-                                        
-                                        <?php iamdavidstutz_page_footer(); ?>
-                                    </div>
+                            <div class="subpage-projects">
+                                <div class="subpage-projects-content">
+                                    <?php echo do_shortcode($post->post_content); ?>
                                 </div>
+                                
+                                <div class="subpage-projects-comments">
+                                    <p>
+                                        <?php echo __('What is <b>your opinion</b> on this project? <b>Let me know</b> your thoughts and ideas in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
+                                        <div class="text-center subpage-projects-comments-social">
+                                            <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
+                                            <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
+                                            <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
+                                            <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
+                                        </div>
+                                    </p>
+                                    <?php comments_template(); ?>
+                                </div>
+                                
+                                <?php iamdavidstutz_page_footer(); ?>
                             </div>
                         </div>
                     <?php elseif ($post->post_parent == 0): ?>
