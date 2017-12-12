@@ -30,35 +30,30 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         $classes[] = 'menu-item-' . $item->ID;
         $classes = apply_filters('nav_menu_css_class', array_filter($classes), $item, $args);
 
-        $projects = get_page_by_title('Projects');
+        if (!function_exists('extract_slug')) {
+            function extract_slug($category) {
+                return $category->slug;
+            }
+        }
+
+        $categories = array_map('extract_slug', get_the_category($post->ID));
         $author = get_query_var('author_name') ? get_user_by('slug', get_query_var('author_name')) : FALSE;
         $queried_object = get_queried_object();
         
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
-        elseif (!$author && FALSE !== array_search('menu-item-home', $classes)
-                && !in_category('reading', $post->ID)
-                && !in_category('snippet', $post->ID)) {
-            if ($post->post_type != 'page') {
-                $classes[] = 'active';
-            }
-        }
-        elseif (!$author && FALSE !== array_search('menu-item-3063', $classes)
-                && ($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading'
-                || in_category('reading', $post->ID))) {
+        elseif (FALSE !== array_search('menu-item-4987', $classes) 
+                && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') || FALSE !== array_search('reading', $categories))) {
             $classes[] = 'active';
         }
-        elseif (!$author && FALSE !== array_search('menu-item-3597', $classes)
-                && ($queried_object->taxonomy == 'category' && $queried_object->slug == 'snippet'
-                || in_category('snippet', $post->ID))) {
+        elseif (FALSE !== array_search('menu-item-5234', $classes)
+                && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'projects') || FALSE !== array_search('projects', $categories))) {
             $classes[] = 'active';
         }
-        elseif (!$author && $item->object_id == $projects->ID
-                && $queried_object->taxonomy != 'category' && $queried_object->slug != 'reading') {
-            if ($post->post_type == 'page' && $post->post_parent == $projects->ID) {
-                $classes[] = 'active';
-            }
+        elseif (FALSE !== array_search('menu-item-home', $classes)
+                && !$author && $queried_object->taxonomy != 'category' && !in_category('reading', $post->ID) && !in_category('projects', $post->ID)) {
+            $classes[] = 'active';
         }
 
         $class_names = join(' ', $classes);

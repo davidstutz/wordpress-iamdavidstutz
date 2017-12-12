@@ -38,6 +38,35 @@ function iamdavidstutz_pre_htmlentities($matches) {
 // https://paulund.co.uk/remove-line-breaks-in-shortcodes
 remove_filter('the_content', 'wpautop');
 
+/** 
+ * Register categories and tags for pages.
+ */
+function iamdavidstutz_page_taxanomies() {
+    register_taxonomy_for_object_type('post_tag', 'page');
+    register_taxonomy_for_object_type('category', 'page');
+}
+
+add_action('init', 'iamdavidstutz_page_taxanomies');
+
+/**
+ * Add pages to tags and category archives.
+ */
+function iamdavidstutz_archives($wp_query) {
+    $my_post_array = array('post', 'page');
+    
+    if ($wp_query->get('category_name') || $wp_query->get( 'cat' )) {
+        $wp_query->set('post_type', $my_post_array);
+    }
+    
+    if ($wp_query->get('tag')) {
+        $wp_query->set('post_type', $my_post_array);
+    }
+}
+
+if (!is_admin()) {
+    add_action('pre_get_posts', 'iamdavidstutz_archives');
+}
+
 /**
  * Exclude "unread category from being displayed in basic WP loop.
  */
