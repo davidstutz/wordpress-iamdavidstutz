@@ -82,22 +82,26 @@
             <?php foreach ($grouped_pages as $array): ?>
                 <?php if ($i%3 == 0) : ?><div class="row"><?php endif; ?>
                 <div class="col-md-4">
-                    <div class="projects-tile well well-sm">
-                        <?php $image = get_field('image-md-lg', $array[0]->ID); ?>
-                        <?php if (!empty($image)): ?>
-                            <img class="projects-tile-image-large hidden-xs hidden-sm" src="<?php echo $image['url']; ?>" width="300" alt="<?php echo $image['alt']; ?>" />
-                        <?php endif; ?>
+                    <div class="projects-tile">
+                        <div class="projects-tile-image text-center">
+                            <?php $image = get_field('image', $array[0]->ID); ?>
+                            <?php if (!empty($image)): ?>
+                                <img src="<?php echo $image['url']; ?>" width="300" alt="<?php echo $image['alt']; ?>" />
+                            <?php else: ?>
+                                <h3 class="text-center">
+                                    <?php $parts = explode(' ', $page->post_title); ?>
+                                    <?php foreach ($parts as $part): ?><?php echo $part; ?><br><?php endforeach; ?>
+                                </h3>
+                            <?php endif; ?>
+                        </div>
 
-                        <?php $image = get_field('image-xs-sm', $array[0]->ID); ?>
-                        <?php if (!empty($image)): ?>
-                            <img class="projects-tile-image-small hidden-md hidden-lg" src="<?php echo $image['url']; ?>" width="300" alt="<?php echo $image['alt']; ?>" />
-                        <?php endif; ?>
-
-                        <ul class="nav nav-pills nav-stacked">
+                        <div class="projects-tile-box well">
+                            <h6 class="projects-tile-header"><?php echo $array[0]->post_title; ?></h6>
+                            <p class="projects-tile-text"><?php echo $array[0]->post_excerpt; ?></p>
                             <?php foreach ($array as $page): ?>
-                                <li><a href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a></li>
+                                <a class="btn btn-block btn-primary" href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a>
                             <?php endforeach; ?>
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <?php if ($i%3 == 2): ?></div><?php endif; ?>
