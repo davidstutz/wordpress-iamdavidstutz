@@ -84,12 +84,13 @@
                 <div class="col-md-4">
                     <div class="projects-tile">
                         <div class="projects-tile-image text-center">
+                            <span class="projcets-tile-image-helper"></span>
                             <?php $image = get_field('image', $array[0]->ID); ?>
                             <?php if (!empty($image)): ?>
-                                <img src="<?php echo $image['url']; ?>" width="300" alt="<?php echo $image['alt']; ?>" />
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                             <?php else: ?>
                                 <h3 class="text-center">
-                                    <?php $parts = explode(' ', $page->post_title); ?>
+                                    <?php $parts = explode(' ', $array[0]->post_title); ?>
                                     <?php foreach ($parts as $part): ?><?php echo $part; ?><br><?php endforeach; ?>
                                 </h3>
                             <?php endif; ?>

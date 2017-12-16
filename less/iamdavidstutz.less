@@ -597,16 +597,38 @@ article, header {
             border-bottom: 0;
             height: 238px;
 
+            &:before {
+                content: "";
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+
+            .projects-tile-image-helper {
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+
             img {
-                max-width: 300px;
+                max-width: 250px;
                 max-height: 200px;
                 margin: auto;
+                vertical-align: middle;
             }
 
             h3 {
-                max-width: 300px;
+                display: inline-block;
+                max-width: 250px;
                 max-height: 200px;
                 margin: auto;
+                vertical-align: middle;
+            }
+
+            @media (min-width: @screen-lg) {
+                img, h3 {
+                    max-width: 300px;
+                }
             }
         }
 
