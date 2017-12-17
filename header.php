@@ -58,25 +58,14 @@
         <div class="container">
             <div class="header">
                 <h1 style="display:inline;">
-                    <?php echo __('IAM', 'iamdavidstutz'); ?>
+                    <?php echo __('I', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('AM', 'iamdavidstutz'); ?>
                 </h1>
                 <h4 style="display:inline;">
                     <span class="hidden-xs-inline hidden-sm-inline">
-                        <?php echo __('OPENSOURCEFAN', 'iamdavidstutz'); ?>
-                    </span>
-                    <span class="hidden-md-inline hidden-lg-inline">
-                        <?php echo __('STUDYING', 'iamdavidstutz'); ?>
-                    </span>
-                    <br>
-                    <span class="hidden-xs-inline hidden-sm-inline">
-                        <?php echo __('STUDYINGCOMPUTERSCIENCEANDMATH', 'iamdavidstutz'); ?>
                         <a href="https://www.linkedin.com/in/davidstutz92" target="_blank" class="header-social"><span class="fa fa-linkedin-square"></span></a>
                         <a href="https://www.xing.com/profile/David_Stutz5" target="_blank" class="header-social"><span class="fa fa-xing"></span></a>
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                         <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="fa fa-twitter"></span></a>
-                    </span>
-                    <span class="hidden-md-inline hidden-lg-inline">
-                        <?php echo __('COMPUTERSCIENCE', 'iamdavidstutz'); ?><span class="hidden-sm hidden-xs"><?php echo __('ANDMATH', 'iamdavidstutz'); ?></span>
                     </span>
                 </h4>
                 <div class="row">
@@ -97,12 +86,6 @@
                         </ul>
                     </div>
                 </div>
-                <h4 class="hidden-md hidden-lg">
-                    <?php echo __('RWTHSTUDENT', 'iamdavidstutz'); ?><span class="hidden-sm hidden-xs"><?php echo __('AND', 'iamdavidstutz'); ?></span>
-                    <br class="hidden-sm hidden-lg"><?php echo __('GEORGIATECHALUMNI', 'iamdavidstutz'); ?><br>
-                    <span class="hidden-sm hidden-xs"><?php echo __('SOFTWAREENGINEERANDWEBDEVELOPER', 'iamdavidstutz'); ?><br></span>
-                    <?php echo __('COMPUTERVISION', 'iamdavidstutz'); ?><br class="hidden-md hidden-lg"><?php echo __('RESEARCHSCIENTIST', 'iamdavidstutz'); ?>
-                </h4>
                 <div>
                     <hr class="hidden-lg hidden-md">
                     <ul class="nav nav-pills nav-stacked hidden-md hidden-lg">
@@ -118,10 +101,6 @@
                     </ul>
                     <hr class="hidden-lg hidden-md">
                 </div>
-                <h4 class="hidden-sm hidden-xs">
-                    <?php echo __('RWTHSTUDENTSOFTWAREENGINEER', 'iamdavidstutz'); ?><br>
-                    <?php echo __('RESEARCHSCIENTIST', 'iamdavidstutz'); ?>
-                </h4>
             </div>
         </div>
 

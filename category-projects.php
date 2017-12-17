@@ -100,7 +100,14 @@
                             <h6 class="projects-tile-header"><?php echo $array[0]->post_title; ?></h6>
                             <p class="projects-tile-text"><?php echo $array[0]->post_excerpt; ?></p>
                             <?php foreach ($array as $page): ?>
-                                <a class="btn btn-block btn-primary" href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a>
+                                <?php if (get_field('inactive', $page->ID)): ?>
+                                    <a class="btn btn-block btn-default"
+                                        disabled="disabled"
+                                        href="#"><?php echo __('Coming Soon', 'iamdavidstutz'); ?></a>
+                                <?php else: ?>
+                                    <a class="btn btn-block btn-primary"
+                                        href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                     </div>
