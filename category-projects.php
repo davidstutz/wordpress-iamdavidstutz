@@ -87,17 +87,31 @@
                             <span class="projcets-tile-image-helper"></span>
                             <?php $image = get_field('image', $array[0]->ID); ?>
                             <?php if (!empty($image)): ?>
-                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                <?php if (!get_field('inactive', $array[0]->ID)): ?><a href="<?php echo get_page_link($array[0]->ID); ?>"><?php endif; ?>
+                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                <?php if (!get_field('inactive', $array[0]->ID)): ?></a><?php endif; ?>
                             <?php else: ?>
                                 <h3 class="text-center">
-                                    <?php $parts = explode(' ', $array[0]->post_title); ?>
-                                    <?php foreach ($parts as $part): ?><?php echo $part; ?><br><?php endforeach; ?>
+                                    <?php if (!get_field('inactive', $array[0]->ID)): ?><a href="<?php echo get_page_link($array[0]->ID); ?>"><?php endif; ?>
+                                        <?php $parts = explode(' ', $array[0]->post_title); ?>
+                                        <?php foreach ($parts as $part): ?><?php echo $part; ?><br><?php endforeach; ?>
+                                    <?php if (!get_field('inactive', $array[0]->ID)): ?></a><?php endif; ?>
                                 </h3>
                             <?php endif; ?>
                         </div>
 
                         <div class="projects-tile-box well">
                             <h6 class="projects-tile-header"><?php echo $array[0]->post_title; ?></h6>
+                            
+                            <?php $tags = get_the_tags($array[0]->ID); ?>
+                            <div class="projects-tile-box-tags">
+                                <?php if ($tags): ?>
+                                    <?php foreach ($tags as $tag): ?>
+                                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+
                             <p class="projects-tile-text"><?php echo $array[0]->post_excerpt; ?></p>
                             <?php foreach ($array as $page): ?>
                                 <?php if (get_field('inactive', $page->ID)): ?>

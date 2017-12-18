@@ -394,81 +394,6 @@ function iamdavidstutz_list_reading() {
 }
 
 /**
- * Display snippet.
- */
-function iamdavidstutz_snippet() {
-    ?>
-    <div class="snippet-container">
-        <div class="snippet">
-            <div class="snippet-date">
-                <?php $day = get_the_date('d'); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 3): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php endif; ?>
-            </div>
-            <div class="snippet-above-header">
-                <h3><?php echo __('SNIPPET', 'iamdavidstutz'); ?></h3>
-            </div>
-            <div class="snippet-header">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            </div>
-            <?php iamdavidstutz_snippet_tags(); ?>
-            <div class="snippet-excerpt">
-                <?php the_excerpt(); ?>
-            </div>
-            <p>
-                <div class="pull-right">
-                    <a href="<?php $cat = get_category_by_slug('snippet'); echo get_category_link($cat->term_id); ?>" class="btn btn-default snippet-more"><?php echo __('All Snippets'); ?></a>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-primary snippet-more"><?php echo __('More ...'); ?></a>
-                </div>
-            </p>
-            <p class="clearfix"></p>
-        </div>
-    </div>
-    <?php
-}
-
-/**
- * Display snippet in list.
- */
-function iamdavidstutz_list_snippet() {
-    ?>
-    <li class="snippet-list-item">
-        <span class="snippet-list-item-title">
-            <?php the_title(); ?>
-        </span>
-        <?php if (get_field('github')): ?>
-            &nbsp;
-            <a href="<?php the_field('github'); ?>" target="_blank"><?php echo __('GitHub', 'iamdavidstutz'); ?><i style="margin-left:6px;font-size:80%" class="fa fa-external-link"></i></a>
-        <?php endif; ?>
-        &nbsp;
-        <a href="<?php the_permalink(); ?>"><?php echo __('Details'); ?></a>
-    </li>
-    <?php
-}
-
-/**
- * Tags for snippets.
- */
-function iamdavidstutz_snippet_tags() {
-    $tags = get_the_tags(); ?>
-    <div class="snippet-tags-alternative">
-        <?php if ($tags): ?>
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-    <?php
-}
-
-/**
  * Page template.
  */
 function iamdavidstutz_page() {
@@ -500,6 +425,7 @@ function iamdavidstutz_page() {
             <div class="page-header">
                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             </div>
+            <?php iamdavidstutz_page_tags(); ?>
             <div class="page-excerpt">
                 <?php the_excerpt(); ?>
 
@@ -514,10 +440,25 @@ function iamdavidstutz_page() {
 }
 
 /**
+ * Tags for pages.
+ */
+function iamdavidstutz_page_tags() {
+    $tags = get_the_tags(); ?>
+    <div class="page-tags-alternative">
+        <?php if ($tags): ?>
+            <?php foreach ($tags as $tag): ?>
+                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span></a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+    <?php
+}
+
+/**
  * Display page footer.
  */
 function iamdavidstutz_page_footer() {
-    $tags = get_the_tags(); ?>
+    ?>
     <!--
     <div class="page-footer">
         <span class="page-footer-modified text-muted">
@@ -533,15 +474,9 @@ function iamdavidstutz_page_footer() {
                 <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
             <?php endif; ?>
         </span>
-    </div
+    </div>
     -->
-    <?php if ($tags): ?>
-        <span class="page-footer-tags">
-            <?php foreach ($tags as $tag): ?>
-                <a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="label label-primary"><?php echo strtoupper($tag->name); ?></span>
-            <?php endforeach; ?>
-        </span>
-    <?php endif;
+    <?
 }
 
 /**

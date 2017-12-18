@@ -32,6 +32,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('bar_chart', array($this, 'bar_chart'));
         add_shortcode('tiles', array($this, 'tiles'));
         add_shortcode('biography', array($this, 'biography'));
+        add_shortcode('tags', array($this, 'tags'));
     }
     
     /**
@@ -409,6 +410,24 @@ class IAMDAVIDSTUTZ_Shortcodes {
             . '</script>';
 
         return $html;
+    }
+
+    /**
+     * Tags.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function tags($attributes, $content = NULL) {
+        $tags = get_the_tags();
+        if ($tags) {
+            $html = '<div class="page-content-tags">';
+            foreach ($tags as $tag) {
+                $html .= '<a href="' . get_tag_link($tag->term_id) . '"><span class="label label-primary">' . strtoupper($tag->name) . '</span></a> ';
+            }
+            $html .= '</div>';
+            return $html;
+        }
     }
 }
 

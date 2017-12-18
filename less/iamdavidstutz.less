@@ -176,11 +176,40 @@ article, header {
             -moz-osx-font-smoothing: grayscale;
             font-size: 80%;
         }
+
+        .page-content-tags {
+            margin-bottom: @line-height-computed / 2;            
+        }
     }
 
     .page-footer {
         font-size: @font-size-small;
     }
+
+    .page-tags-alternative {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+
+    .page-comments {
+        border: 1px solid #ddd;
+        padding: @alert-padding;
+
+        .page-comments-social {
+            /* font-size: 125%; */
+            margin-left: 12px;
+            color: @text-color;
+            
+            a, 
+            a:hover,
+            a:active,
+            a:active {
+                color: @text-color;
+            }
+        }
+    }
+
+    margin-bottom: @line-height-computed;  
 }
 
 .dead-link {
@@ -634,6 +663,20 @@ article, header {
 
         .projects-tile-box {
             margin-top: 0;
+            /*padding-top: 9px;*/
+
+            .projects-tile-box-tags {
+                margin-bottom: @line-height-computed / 2;
+
+                .label {
+                    font-size: ceil(@font-size-base * 0.7);
+                    padding-bottom: .2em;
+                }
+            }
+
+            .btn {
+                margin-bottom: 0;
+            }
         }
     }
 }
