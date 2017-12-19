@@ -29,8 +29,6 @@
                 <?php while (have_posts()): the_post(); ?>
                     <?php if (in_category('reading')): ?>
                         <?php iamdavidstutz_reading(); ?>
-                    <?php elseif (in_category('snippet')): ?>
-                        <?php //iamdavidstutz_snippet(); ?>
                     <?php else: ?>
                         <?php iamdavidstutz_article(); ?>
                     <?php endif; ?>

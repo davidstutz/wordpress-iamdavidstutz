@@ -80,7 +80,7 @@ if (!is_admin()) {
 //add_action('pre_get_posts', 'iamdavidstutz_exclude_unread' );
 
 /**
- * Exclude readings, snippets, personal on home page.
+ * Exclude readings, personal on home page.
  */
 function iamdavidstutz_home_categories($query) {
     if ($query->is_home) {

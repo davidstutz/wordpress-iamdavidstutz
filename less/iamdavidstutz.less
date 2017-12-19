@@ -539,84 +539,6 @@ article, header {
     }
 }
 
-.snippet-container {
-    margin-bottom: @line-height-computed / 2;
-
-    .snippet {
-        
-        .snippet-above-header {
-            h3 {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-        }
-
-        .snippet-header {
-            h2 {
-                margin-top: 0;
-
-                a, a:hover, a:active, a:visited {
-                    color: @text-color;
-                }
-            }  
-        }
-
-        .snippet-date {
-            font-size: @font-size-large;
-        }
-
-        .snippet-tags-alternative {
-            margin-top: 6px;
-            margin-bottom: 12px;
-        }
-
-        .snippet-excerpt {
-            margin-bottom: @line-height-computed;
-            font-size: (@font-size-base * 1.2);
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .snippet-code {
-            > .prettyprint {
-                max-height: 600px !important;
-            }
-        }
-
-        .snippet-github a[target="_blank"]:after,
-        .snippet-excerpt a[target="_blank"]:after,
-        .snippet-code a[target="_blank"]:after {
-            margin-left: 2px;
-            content: @fa-var-external-link;
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
-            font-size: inherit; // can't have font-size inherit on line above, so need to override
-            text-rendering: auto; // optimizelegibility throws things off #1094
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-size: 80%;
-        }
-
-        .snippet-comments {
-            border: 1px solid #ddd;
-            padding: @alert-padding;
-
-            .snippet-comments-social {
-                /* font-size: 125%; */
-                margin-left: 12px;
-                color: @text-color;
-                
-                a, 
-                a:hover,
-                a:active,
-                a:active {
-                    color: @text-color;
-                }
-            }
-        }
-    }
-}
-
 .projects-container {
     .projects-tile {
         .projects-tile-image {
@@ -765,12 +687,6 @@ svg.line-plot {
 
 .reading-list {
     .reading-list-tag {
-        margin-bottom: 6px;
-    }
-}
-
-.snippet-list {
-    .snippet-list-tag {
         margin-bottom: 6px;
     }
 }

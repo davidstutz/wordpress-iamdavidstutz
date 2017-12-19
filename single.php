@@ -48,8 +48,6 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                    <?php elseif (in_category('snippet')): ?>
-                        
                     <?php else: ?>
                         <div class="article-container">
                             <div class="article">
