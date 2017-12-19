@@ -2,15 +2,26 @@
 
     <div class="row">
         <div class="col-md-9">
-            <div class="searching-tag">
-                <h1><?php echo __('TAG', 'iamdavidstutz'); ?>&raquo;<?php echo strtoupper(single_cat_title('', false)); ?>&laquo;</h1>
+            <div class="searching-publications">
+                <h1>
+                    <?php echo __('THESES', 'iamdavidstutz'); ?>
+                </h1>
                 <?php if (category_description()): ?>
-                    <div class="searching-tag-description">
+                    <div class="searching-publications-description">
                         <?php echo category_description(); ?>
                     </div>
                 <?php endif; ?>
+
+                <h1>
+                    <span class="publications-header-small"><?php echo __('RELATED', 'iamdavidstutz'); ?></span><?php echo __('ARTICLES', 'iamdavidstutz'); ?><span class="publications-header-small"><?php echo __('AND', 'iamdavidstutz'); ?></span><?php echo __('PROJECTS', 'iamdavidstutz'); ?>
+                </h1>
+
+                <div class="searching-publications-description">
+                    <?php echo __('Articles and project pages related to bachelor and master thesis.', 'iamdavidstutz'); ?>
+                    <?php echo __('Also see', 'iamdavidstutz'); ?> <a href="http://davidstutz.de/category/projects/"><?php echo __('Projects', 'iamdavidstutz'); ?></a>  <?php echo __(' as well as', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="publication" title="Publications"]'); ?> <?php echo __('and', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="seminar" title="Seminar Papers"]'); ?>.
+                </div>
             </div>
-            
+
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()): the_post(); ?>
                     <?php if (in_category('reading')): ?>

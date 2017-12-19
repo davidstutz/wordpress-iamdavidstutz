@@ -319,26 +319,33 @@ article, header {
 }
 
 .searching {
-    margin-left: 20%;
-    margin-bottom: 12px;
+    /*margin-left: 20%;*/
+    margin-bottom: 24px;
 
-    h1,h2 {
-        margin: 0;
+    > h1, > h2 {
+        margin-top: (@line-height-computed / 2);
+        margin-bottom: @line-height-computed;
     }
 }
 
 .searching-tag {
-    margin-left: 20%;
+    /*margin-left: 20%;*/
     margin-bottom: 24px;
 
     > h1 {
         margin-top: (@line-height-computed / 2);
         margin-bottom: @line-height-computed;
     }
+
+    .searching-tag-description {
+        font-size: (@font-size-base * 1.2);
+        font-weight: 400;
+        line-height: 1.4;
+    }
 }
 
 .searching-category {
-    margin-left: 20%;
+    /*margin-left: 20%;*/
     margin-bottom: 24px;
 
     > h1 {
@@ -353,15 +360,40 @@ article, header {
     > h3 {
         margin-bottom: 0;
     }
+
+    .searching-category-description {
+        font-size: (@font-size-base * 1.2);
+        font-weight: 400;
+        line-height: 1.4;
+    }
 }
 
 .searching-archive {
-    margin-left: 5%;
+    /*margin-left: 5%;*/
     margin-bottom: 24px;
 
     > h1 {
         margin-top: (@line-height-computed / 2);
         margin-bottom: @line-height-computed;
+    }
+}
+
+.searching-publications {
+    margin-bottom: 24px;
+
+    > h1 {
+        margin-top: (@line-height-computed / 2);
+        margin-bottom: @line-height-computed;
+
+        > .publications-header-small {
+            font-size: floor(@font-size-base * 2.6); /* h2 */
+        }
+    }
+
+    .searching-publications-description {
+        font-size: (@font-size-base * 1.2);
+        font-weight: 400;
+        line-height: 1.4;
     }
 }
 

@@ -5,7 +5,9 @@
             <div class="searching-category">
                 <h1><?php echo __('CATEGORY', 'iamdavidstutz'); ?>&raquo;<?php echo strtoupper(single_cat_title( '', false )); ?>&laquo;</h1>
                 <?php if (category_description()): ?>
-            <div class="lead"><?php echo category_description(); ?></div>
+                    <div class="searching-category-description">
+                        <?php echo category_description(); ?>
+                    </div>
                 <?php endif; ?>
             </div>
 
@@ -13,6 +15,8 @@
                 <?php while (have_posts()): the_post(); ?>
                     <?php if (in_category('reading')): ?>
                         <?php iamdavidstutz_reading(); ?>
+                    <?php elseif (get_post()->post_type == 'page'): ?>
+                        <?php iamdavidstutz_page(); ?>
                     <?php else: ?>
                         <?php iamdavidstutz_article(); ?>
                     <?php endif; ?>

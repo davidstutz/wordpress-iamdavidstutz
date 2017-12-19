@@ -33,6 +33,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('tiles', array($this, 'tiles'));
         add_shortcode('biography', array($this, 'biography'));
         add_shortcode('tags', array($this, 'tags'));
+        add_shortcode('tag', array($this, 'tag'));
     }
     
     /**
@@ -420,6 +421,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      */
     function tags($attributes, $content = NULL) {
         $tags = get_the_tags();
+
         if ($tags) {
             $html = '<div class="page-content-tags">';
             foreach ($tags as $tag) {
@@ -427,6 +429,30 @@ class IAMDAVIDSTUTZ_Shortcodes {
             }
             $html .= '</div>';
             return $html;
+        }
+    }
+
+    /**
+     * Tag.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function tag($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'slug' => '',
+            'title' => '',
+        ), $attributes));
+
+        $tag = get_term_by('slug', $slug, 'post_tag');
+        
+        if ($tag) {
+            $name = $tag->name;
+            if ($title) {
+                $name = $title;
+            }
+
+            return '<a href="' . get_tag_link($tag->term_id) . '"><span class="label label-primary">' . strtoupper($name) . '</span></a> ';
         }
     }
 }
