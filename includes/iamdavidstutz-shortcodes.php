@@ -34,6 +34,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('biography', array($this, 'biography'));
         add_shortcode('tags', array($this, 'tags'));
         add_shortcode('tag', array($this, 'tag'));
+        add_shortcode('bracket_open', array($this, 'bracket_open'));
+        add_shortcode('bracket_close', array($this, 'bracket_close'));
     }
     
     /**
@@ -454,6 +456,26 @@ class IAMDAVIDSTUTZ_Shortcodes {
 
             return '<a href="' . get_tag_link($tag->term_id) . '"><span class="label label-primary">' . strtoupper($name) . '</span></a> ';
         }
+    }
+
+    /**
+     * HTML entity.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function bracket_open($attributes, $content = NULL) {
+        return "[";
+    }
+
+    /**
+     * HTML entity.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function bracket_close($attributes, $content = NULL) {
+        return "]";
     }
 }
 
