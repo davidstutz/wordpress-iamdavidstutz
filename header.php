@@ -51,6 +51,20 @@
             <script src="../js/respond.js"></script>
         <![endif]-->
 
+        <?php if (is_admin_bar_showing()): ?>
+            <style type="text/css">
+                .sidebar.affix {
+                    top: 52px !important;
+                }
+            </style>
+        <?php else: ?>
+            <style type="text/css">
+                .sidebar.affix {
+                    top: 20px !important;
+                }
+            </style>
+        <?php endif; ?>
+
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>

@@ -43,16 +43,16 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
+        elseif (FALSE !== array_search('menu-item-home', $classes)
+                && !$author && $queried_object->taxonomy != 'category' && !in_category('reading', $post->ID) && !in_category('projects', $post->ID)) {
+            $classes[] = 'active';
+        }
         elseif (FALSE !== array_search('menu-item-4987', $classes) 
-                && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') || FALSE !== array_search('reading', $categories))) {
+                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') || (is_singular() && in_category('reading', $post->ID)))) {
             $classes[] = 'active';
         }
         elseif (FALSE !== array_search('menu-item-5234', $classes)
-                && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'projects') || FALSE !== array_search('projects', $categories))) {
-            $classes[] = 'active';
-        }
-        elseif (FALSE !== array_search('menu-item-home', $classes)
-                && !$author && $queried_object->taxonomy != 'category' && !in_category('reading', $post->ID) && !in_category('projects', $post->ID)) {
+                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'projects') || (is_singular() && in_category('projects', $post->ID)))) {
             $classes[] = 'active';
         }
 
