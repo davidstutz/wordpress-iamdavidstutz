@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+        <meta name="flattr:id" content="7pnqp0">
+        
         <title>
             <?php
             if (defined('WPSEO_VERSION')) {
