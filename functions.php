@@ -68,7 +68,7 @@ if (!is_admin()) {
 }
 
 /**
- * Exclude "unread category from being displayed in basic WP loop.
+ * Exclude "unread" category from being displayed in basic WP loop.
  */
 //function iamdavidstutz_exclude_unread( $wp_query ) {
 //    if (!is_category('reading') && !is_admin()) {
@@ -84,7 +84,7 @@ if (!is_admin()) {
  */
 function iamdavidstutz_home_categories($query) {
     if ($query->is_home) {
-        //$query->set('cat', '-46,-70,-82');
+        $query->set('cat', '-46,-70,-82');
     }
     if (!$query->is_admin && $query->is_search && $query->is_main_query() ) {
         $query->set('cat', '-82');
