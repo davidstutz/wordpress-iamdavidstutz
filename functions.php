@@ -423,15 +423,28 @@ function iamdavidstutz_page() {
                 </div>
             <?php endif; ?>
             <div class="page-header">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <h2>
+                    <?php if (!get_field('inactive')): ?>
+                        <a href="<?php the_permalink(); ?>">
+                    <?php endif; ?>
+                        <?php the_title(); ?>
+                    <?php if (!get_field('inactive')): ?>
+                    </a>
+                    <?php endif; ?>
+                </h2>
             </div>
             <?php iamdavidstutz_page_tags(); ?>
             <div class="page-excerpt">
                 <?php the_excerpt(); ?>
-
-                <p>
-                    <a href="<?php the_permalink(); ?>" class="pull-right btn btn-primary page-more"><?php echo __('More ...'); ?></a>
-                </p>
+                <?php if (!get_field('inactive')): ?>
+                    <p>
+                        <a href="<?php the_permalink(); ?>" class="pull-right btn btn-primary page-more"><?php echo __('More ...'); ?></a>
+                    </p>
+                <?php else: ?>
+                    <p>
+                        <button class="pull-right btn btn-default page-more"><?php echo __('Coming Soon!'); ?></button>
+                    </p>
+                <?php endif; ?>
                 <p class="clearfix"></p>
             </div>
         </div>
