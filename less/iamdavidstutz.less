@@ -543,6 +543,24 @@ article, header {
             }
         }
 
+        .reading-shortscience {
+            border: 1px solid #ddd;
+            padding: @alert-padding;
+            margin: 0 0 (@line-height-computed / 2);
+
+            a[target="_blank"]:after {
+                margin-left: 2px;
+                content: @fa-var-external-link;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+                font-size: inherit; // can't have font-size inherit on line above, so need to override
+                text-rendering: auto; // optimizelegibility throws things off #1094
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 80%;
+            }
+        }
+
         .reading-comments {
             border: 1px solid #ddd;
             padding: @alert-padding;

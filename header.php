@@ -39,7 +39,8 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/style.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/bxslider.css" />
-        
+        <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/academicons.min.css" />
+
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validate.js"></script>
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.js"></script>
@@ -81,6 +82,7 @@
                         <a href="https://www.xing.com/profile/David_Stutz5" target="_blank" class="header-social"><span class="fa fa-xing"></span></a>
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                         <a href="https://twitter.com/david_stutz" target="_blank" class="header-social"><span class="fa fa-twitter"></span></a>
+                        <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank" class="header-social"><span class="ai ai-google-scholar"></span></a>
                     </span>
                 </h4>
                 <div class="row">

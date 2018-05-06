@@ -18,6 +18,7 @@
                                         <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
                                         <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
                                         <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
+                                        <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank"><span class="ai ai-google-scholar"></span></a>
                                     </div>
                                 </p>
                                 <?php comments_template(); ?>

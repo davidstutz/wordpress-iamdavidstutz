@@ -32,6 +32,13 @@
                                         <?php echo the_content(); ?>
                                     </div>
                                 <?php endif; ?>
+
+                                <?php if (get_field('shortscience')): ?>
+                                    <div class="reading-shortscience">
+                                        <?php echo __('Also find this summary on', 'iamdavidstutz'); ?> <a href="<?php the_field('shortscience'); ?>" target="_blank">ShortScience.org</a>.
+                                    </div>
+                                <?php endif; ?>
+
                                 <?php if (iamdavidstutz_comments_open()): ?>
                                     <div class="reading-comments">
                                         <p>
@@ -41,6 +48,7 @@
                                                 <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
                                                 <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
                                                 <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
+                                                <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank"><span class="ai ai-google-scholar"></span></a>
                                             </div>
                                         </p>
                                         <?php comments_template(); ?>
@@ -115,6 +123,7 @@
                                                 <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
                                                 <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
                                                 <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
+                                                <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank"><span class="ai ai-google-scholar"></span></a>
                                             </div>
                                         </p>
                                         <?php comments_template(); ?>
