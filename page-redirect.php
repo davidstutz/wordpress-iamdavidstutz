@@ -8,7 +8,7 @@ if (!empty($url)) {
     header('Location: ' . $url);
 }
 else {
-    header('Location: http://davidstutz.de');
+    header('Location: https://davidstutz.de');
 }
 
 exit();

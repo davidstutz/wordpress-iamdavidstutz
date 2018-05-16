@@ -18,7 +18,7 @@
 
                 <div class="searching-publications-description">
                     <?php echo __('Articles and project pages related to the publications listed above.', 'iamdavidstutz'); ?>
-                    <?php echo __('Also see', 'iamdavidstutz'); ?> <a href="http://davidstutz.de/category/projects/"><?php echo __('Projects', 'iamdavidstutz'); ?></a>  <?php echo __(' for an overview as well as', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="thesis" title="Theses"]'); ?> <?php echo __('and', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="seminar" title="Seminar Papers"]'); ?>.
+                    <?php echo __('Also see', 'iamdavidstutz'); ?> <a href="https://davidstutz.de/category/projects/"><?php echo __('Projects', 'iamdavidstutz'); ?></a>  <?php echo __(' for an overview as well as', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="thesis" title="Theses"]'); ?> <?php echo __('and', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="seminar" title="Seminar Papers"]'); ?>.
                 </div>
             </div>
 
