@@ -124,9 +124,8 @@
         <?php if (!get_field('note')): ?>
             <div class="note">
                 <div class="container">
-                    <b><?php echo __('Check out our CVPR\'18 paper on', 'iamdavidstutz'); ?>
-                     <a href="https://davidstutz.de/projects/shape-completion/"><?php echo __('weakly-supervised 3D shape completion', 'iamdavidstutz'); ?></a> &mdash; 
-                    <?php echo __('and let me know your opinion!', 'iamdavidstutz'); ?> <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <i class="fa fa-twitter"></i></a></b>
+                    <b><?php echo __('Meet me at CVPR\'18: Tuesday, June 19th, I will be presenting our work on'); ?>
+                     <a href="https://davidstutz.de/projects/improved-shape-completion/"><?php echo __('weakly-supervised 3D shape completion', 'iamdavidstutz'); ?></a>.
                 </div>
             </div>
         <?php endif; ?>
