@@ -125,7 +125,7 @@
             <div class="note">
                 <div class="container">
                     <b><?php echo __('Meet me at CVPR\'18: Tuesday, June 19th, I will be presenting our work on'); ?>
-                     <a href="https://davidstutz.de/projects/improved-shape-completion/"><?php echo __('weakly-supervised 3D shape completion', 'iamdavidstutz'); ?></a>.
+                     <a href="https://davidstutz.de/projects/improved-shape-completion/"><?php echo __('weakly-supervised 3D shape completion', 'iamdavidstutz'); ?></a>.</b>
                 </div>
             </div>
         <?php endif; ?>
