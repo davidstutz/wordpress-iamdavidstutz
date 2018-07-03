@@ -19,7 +19,7 @@ add_filter('the_content', 'iamdavidstutz_pre_filter', 0);
 remove_filter('the_content', 'wptexturize');
 
 // http://wordpress.stackexchange.com/questions/42743/the-excerpt-and-shortcodes
-add_filter( 'the_excerpt', 'do_shortcode');
+add_filter('the_excerpt', 'do_shortcode');
 
 /**
  * Replace content of pre tags with htmlentities.
@@ -33,6 +33,32 @@ function iamdavidstutz_pre_filter($content) {
  */
 function iamdavidstutz_pre_htmlentities($matches) {
     return str_replace($matches[1], htmlentities($matches[1]), $matches[0]);
+}
+
+// https://wordpress.stackexchange.com/questions/44503/replace-image-urlsabsolute-instead-of-relative-by-using-filter-in-single-page
+//if (is_single()) {
+    add_filter('the_content', 'iamdavidstutz_png_to_jpg');
+//}
+
+/**
+ * Replacing pngs with jpgs.
+ */
+function iamdavidstutz_png_to_jpg($content) {
+
+    $matches = NULL;
+    $regex = '#src="(http|https)://davidstutz.de/wordpress/(wp-content/uploads/[0-9]+/[0-9]+/[^.]+\.png)"#';
+    preg_match_all($regex, $content, $matches, PREG_SET_ORDER);
+
+    foreach ($matches as $match) {
+        $png_file = $match[2];
+        $jpg_file = substr($png_file, 0, strlen($png_file) - 4) . 'jpg';
+        
+        if (file_exists(__DIR__ . '/../../../' . $jpg_file)) {
+            $content = str_replace($png_file, $jpg_file);
+        }
+    }
+
+    return $content;
 }
 
 // https://paulund.co.uk/remove-line-breaks-in-shortcodes
