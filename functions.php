@@ -51,10 +51,10 @@ function iamdavidstutz_png_to_jpg($content) {
 
     foreach ($matches as $match) {
         $png_file = $match[2];
-        $jpg_file = substr($png_file, 0, strlen($png_file) - 4) . 'jpg';
+        $jpg_file = substr($png_file, 0, strlen($png_file) - 3) . 'jpg';
         
         if (file_exists(__DIR__ . '/../../../' . $jpg_file)) {
-            $content = str_replace($png_file, $jpg_file);
+            $content = str_replace($png_file, $jpg_file, $content);
         }
     }
 
