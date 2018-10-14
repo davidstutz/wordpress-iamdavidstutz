@@ -534,7 +534,7 @@ function iamdavidstutz_article_footer() {
                 <div class="row">
                     <div class="col-md-2">
                         <div style="padding:4px;border:1px solid #ddd;display:inline-block;">
-                            <img src="https://davidstutz.de/wordpress/wp-content/uploads/2017/01/Profilbild_3.png" alt="" width="115" class="alignnone size-medium wp-image-4934" />
+                            <?php echo get_avatar('davidstutz@web.de', 115); ?> 
                         </div>
                     </div>
                     <div class="col-md-10">

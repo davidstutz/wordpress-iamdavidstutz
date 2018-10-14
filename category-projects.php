@@ -88,7 +88,7 @@
                             <?php $image = get_field('image', $array[0]->ID); ?>
                             <?php if (!empty($image)): ?>
                                 <?php if (!get_field('inactive', $array[0]->ID)): ?><a href="<?php echo get_page_link($array[0]->ID); ?>"><?php endif; ?>
-                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                    <img src="<?php echo $image['url']; ?>" />
                                 <?php if (!get_field('inactive', $array[0]->ID)): ?></a><?php endif; ?>
                             <?php else: ?>
                                 <h3 class="text-center">
