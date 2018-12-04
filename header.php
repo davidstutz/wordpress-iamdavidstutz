@@ -125,7 +125,7 @@
             <div class="note">
                 <div class="container">
                     <b><?php echo __('Check out our latest research on'); ?>
-                     <a href="https://davidstutz.de/projects/improved-shape-completion/"><?php echo __('weakly-supervised 3D shape completion', 'iamdavidstutz'); ?></a>.</b>
+                     <a href="https://davidstutz.de/projects/adversarial-robustness/"><?php echo __('adversarial robustness and generalization of deep networks', 'iamdavidstutz'); ?></a>.</b>
                 </div>
             </div>
         <?php endif; ?>
