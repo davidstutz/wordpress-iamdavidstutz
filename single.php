@@ -42,14 +42,7 @@
                                 <?php if (iamdavidstutz_comments_open()): ?>
                                     <div class="reading-comments">
                                         <p>
-                                            <?php echo __('What is <b>your opinion</b> on the summarized work? Or do you know related work that is of interest? <b>Let me know</b> your thoughts in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
-                                            <div class="text-center reading-comments-social">
-                                                <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
-                                                <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
-                                                <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
-                                                <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
-                                                <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank"><span class="ai ai-google-scholar"></span></a>
-                                            </div>
+                                            <?php echo __('What is <b>your opinion</b> on the summarized work? Or do you know related work that is of interest? <b>Let me know</b> your thoughts in the comments below:', 'iamdavidstutz'); ?>
                                         </p>
                                         <?php comments_template(); ?>
                                     </div>
@@ -117,14 +110,7 @@
                                 <?php if (iamdavidstutz_comments_open()): ?>
                                     <div class="article-comments">
                                         <p>
-                                            <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below or get in touch with me:', 'iamdavidstutz'); ?>
-                                            <div class="text-center article-comments-social">
-                                                <a href="https://twitter.com/david_stutz" target="_blank">@david_stutz <span class="fa fa-twitter"></span></a>&nbsp;
-                                                <a href="https://www.linkedin.com/in/davidstutz92" target="_blank"><span class="fa fa-linkedin-square"></span></a>
-                                                <a href="https://www.xing.com/profile/David_Stutz5" target="_blank"><span class="fa fa-xing"></span></a>
-                                                <a href="https://github.com/davidstutz" target="_blank"><span class="fa fa-github"></span></a>
-                                                <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank"><span class="ai ai-google-scholar"></span></a>
-                                            </div>
+                                            <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below:', 'iamdavidstutz'); ?>
                                         </p>
                                         <?php comments_template(); ?>
                                     </div>
