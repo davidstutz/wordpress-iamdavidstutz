@@ -31,7 +31,6 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('hide_mail', array($this, 'hide_mail'));
         add_shortcode('bar_chart', array($this, 'bar_chart'));
         add_shortcode('tiles', array($this, 'tiles'));
-        add_shortcode('biography', array($this, 'biography'));
         add_shortcode('tags', array($this, 'tags'));
         add_shortcode('tag', array($this, 'tag'));
         add_shortcode('bracket_open', array($this, 'bracket_open'));
@@ -353,66 +352,6 @@ class IAMDAVIDSTUTZ_Shortcodes {
         if (!empty($mail)) {
             return '<a class="' . $class . '" href="mailto:' . antispambot($mail) . '">' . antispambot($mail) . '</a>';
         }
-    }
-
-    /**
-     * Author biography.
-     *
-     * @param array $attributes
-     * @param string $content
-     */
-    function biography($attributes, $content = NULL) {
-        $html = '<div class="author-updates">';
-        $html .= '<p><b>' . __('What I\'ve been up to ...', 'iamdavidstutz') . '</b></p>';
-        $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&orderby=date&post_limits=10');
-
-        $i = 0;
-        while ($query->have_posts()) {
-            $query->the_post();
-
-            if ($i > 1) {
-                $html .= '<blockquote class="author-description" style="display:none">';
-            }
-            else {
-                $html .= '<blockquote class="author-description">';
-            }
-
-            $html .= str_replace('<p></p>', '', get_the_content());
-            $html .= '<small>';
-
-            $day = get_the_date('d');
-            if ($day == 1) {
-                $html .= $day . '<sup>st</sup>' . strtoupper(get_the_date('F')) . get_the_date('Y');
-            }
-            elseif ($day == 2) {
-                $html .= $day . '<sup>nd</sup>' . strtoupper(get_the_date('F')) . get_the_date('Y');
-            }
-            elseif ($day == 3) {
-                $html .= $day . '<sup>rd</sup>' . strtoupper(get_the_date('F')) . get_the_date('Y');
-            }
-            else {
-                $html .= $day . '<sup>th</sup>' . strtoupper(get_the_date('F')) . get_the_date('Y');
-            }
-            
-            $html .= '</small>';
-            $html .= '</blockquote>';
-
-            $i++;
-        }
-
-        $html .= '<div><button class="pull-right btn btn-default author-updates-more">' . __('More ...', 'iamdavidstutz') . '</button></div><div class="clearfix"></div>';
-        $html .= '</div>';
-
-        $html .= '<script type="text/javascript">'
-                . '$(document).ready(function() {'
-                    . '$(".author-updates-more").on("click", function() {'
-                        . '$(".author-updates blockquote").show();'
-                        . '$(this).hide();'
-                    . '});'
-                . '});'
-            . '</script>';
-
-        return $html;
     }
 
     /**
