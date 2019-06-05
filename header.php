@@ -123,8 +123,7 @@
         <?php if (!get_field('note')): ?>
             <div class="note">
                 <div class="container">
-                    <b><?php echo __('Check out our latest research on'); ?>
-                     <a href="https://davidstutz.de/projects/adversarial-robustness/"><?php echo __('adversarial robustness and generalization of deep networks', 'iamdavidstutz'); ?></a>.</b>
+                    <b><?php echo __('I will be presenting our work on'); ?> <a href="https://davidstutz.de/projects/adversarial-robustness/"> <?php echo __('adversarial robustness', 'iamdavidstutz'); ?></a> <?php echo __('at ICML\'19 and CVPR\'19 in Long Beach beginning next week!'); ?></b>
                 </div>
             </div>
         <?php endif; ?>
