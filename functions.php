@@ -497,69 +497,14 @@ function iamdavidstutz_page_tags() {
  * Display page footer.
  */
 function iamdavidstutz_page_footer() {
-    ?>
-    <!--
-    <div class="page-footer">
-        <span class="page-footer-modified text-muted">
-            <?php echo __('LASTMODIFIED', 'iamdavidstutz'); ?>
-            <?php $day = get_the_modified_time('d'); ?>
-            <?php if ($day == 1): ?>
-                <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-            <?php elseif ($day == 2): ?>
-                <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-            <?php elseif ($day == 3): ?>
-                <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-            <?php else: ?>
-                <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_modified_time('F')); ?><?php echo get_the_modified_time('Y'); ?>
-            <?php endif; ?>
-        </span>
-    </div>
-    -->
-    <?
+    // Nothing ...
 }
 
 /**
  * Display post footer.
  */
 function iamdavidstutz_article_footer() {
-    // Get corresponding suer.
-    $id = get_the_author_meta('ID');
-    $user = get_user_by('id', $id);
-
-    ?>
-    <div class="article-author">
-        <?php $query = new WP_query('post_type=ub_part&post_author=' . $user->ID . '&posts_per_page=1'); ?>
-        <?php while ($query->have_posts()): $query->the_post(); ?>
-            <blockquote class="author-description">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div style="padding:4px;border:1px solid #ddd;display:inline-block;">
-                            <?php echo get_avatar('davidstutz@web.de', 115); ?> 
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <h3><?php echo __('ABOUTTHE', 'iamdavidstutz'); ?><b><?php echo __('AUTHOR', 'iamdavidstutz'); ?></b></h3>
-                        <?php str_replace('<p></p>', '', the_content()); ?>
-                        <small>
-                            <?php $day = get_the_date('d'); ?>
-                            <?php if ($day == 1): ?>
-                                <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                            <?php elseif ($day == 2): ?>
-                                <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                            <?php elseif ($day == 3): ?>
-                                <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                            <?php else: ?>
-                                <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                            <?php endif; ?>, <a href="<?php echo get_author_posts_url($user->ID); ?>"><?php echo $user->display_name; ?></a>
-                        </small>
-                    </div>
-                </div>
-            </blockquote>
-        <?php endwhile; ?>
-        <?php // IMPORTANT! ?>
-        <?php wp_reset_postdata(); ?>
-    </div>
-    <?php
+    // Nothing ...
 }
 
 /**
