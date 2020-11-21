@@ -35,6 +35,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('tag', array($this, 'tag'));
         add_shortcode('bracket_open', array($this, 'bracket_open'));
         add_shortcode('bracket_close', array($this, 'bracket_close'));
+        add_shortcode('youtube', array($this, 'youtube'));
+        add_shortcode('slideslive', array($this, 'slideslive'));
     }
     
     /**
@@ -415,6 +417,50 @@ class IAMDAVIDSTUTZ_Shortcodes {
      */
     function bracket_close($attributes, $content = NULL) {
         return "]";
+    }
+
+    /**
+     * Youtube video.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function youtube($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'id' => '',
+            'height' => '420',
+            'width' => '315',
+            'mute' => '0',
+            'autoplay' => '0',
+        ), $attributes));
+        
+        if ($id) {
+            return '<iframe width="' . $width . '" height="' . $height . '" src="https://www.youtube.com/embed/' . $id . '?autoplay=' . $autoplay . '&mute=' . $mute . '"></iframe> ';
+        }
+    }
+
+    /**
+     * Slideslive video.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function slideslive($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'id' => '',
+        ), $attributes));
+        
+        if ($id) { 
+            return '<div id="presentation-embed-' . $id . '"></div>'
+                . '<script src="https://slideslive.com/embed_presentation.js"></script>'
+                    . '<script>'
+                    . 'embed = new SlidesLiveEmbed("presentation-embed-' . $id . '", {'
+                        . 'presentationId: "' . $id . '",'
+                        . 'autoPlay: false,'
+                        . 'verticalEnabled: true'
+                    . '});'
+                . '</script>';
+        }
     }
 }
 
