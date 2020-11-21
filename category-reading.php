@@ -5,7 +5,7 @@
 
             <?php $tag_query = new WP_Query(array( 
                     'tag_id' => $tag->term_id,
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 20,
                     'category_name' => 'reading',
                 )); ?>
 
