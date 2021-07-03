@@ -86,7 +86,7 @@
                 </h4>
                 <div class="row">
                     <div class="col-md-4">
-                        <h1><?php echo __('DAVIDSTUTZ', 'iamdavidstutz'); ?></h1>
+                        <h1><?php echo __('DAVID', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('STUTZ', 'iamdavidstutz'); ?></h1>
                     </div>
                     <div class="col-md-8">
                         <ul class="nav nav-pills hidden-xs hidden-sm">

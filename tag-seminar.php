@@ -12,12 +12,9 @@
                     </div>
                 <?php endif; ?>
 
-                <!--
                 <h1>
-                    <span class="publications-header-small"><?php echo __('RELATED', 'iamdavidstutz'); ?></span><?php echo __('ARTICLES', 'iamdavidstutz'); ?><span class="publications-header-small"><?php echo __('AND', 'iamdavidstutz'); ?></span><?php echo __('PROJECTS', 'iamdavidstutz'); ?>
+                    <span class="publications-header-small"><?php echo __('RELATED', 'iamdavidstutz'); ?></span><?php echo __('ARTICLES', 'iamdavidstutz'); ?>
                 </h1>
-                -->
-
                 <div class="searching-publications-description">
                     <?php echo __('Find articles and project pages related to seminar papers.', 'iamdavidstutz'); ?>
                     <?php echo __('Also see', 'iamdavidstutz'); ?> <a href="https://davidstutz.de/category/projects/"><?php echo __('Projects', 'iamdavidstutz'); ?></a>  <?php echo __(' as well as', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="publication" title="Publications"]'); ?> <?php echo __('and', 'iamdavidstutz'); ?> <?php echo do_shortcode('[tag slug="thesis" title="Theses"]'); ?>.

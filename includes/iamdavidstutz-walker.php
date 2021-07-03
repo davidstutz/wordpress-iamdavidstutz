@@ -38,21 +38,24 @@ class IAMDAVIDSTUTZ_Walker extends Walker_Nav_Menu {
 
         $categories = array_map('extract_slug', get_the_category($post->ID));
         $author = get_query_var('author_name') ? get_user_by('slug', get_query_var('author_name')) : FALSE;
+        $author = $author || $post->ID == 3745;
         $queried_object = get_queried_object();
         
         if ($author && FALSE !== array_search('menu-item-2965', $classes)) {
             $classes[] = 'active';
         }
-        elseif (FALSE !== array_search('menu-item-home', $classes)
-                && !$author && $queried_object->taxonomy != 'category' && !in_category('reading', $post->ID) && !in_category('projects', $post->ID)) {
+        // Reading notes was menu-item-4987 before, now it is merged with
+        // blog which is menu-item-home.
+        elseif (FALSE !== array_search('menu-item-8384', $classes) 
+                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') || (is_singular() && !in_category('blog', $post->ID) && in_category('reading', $post->ID)))) {
             $classes[] = 'active';
         }
-        elseif (FALSE !== array_search('menu-item-4987', $classes) 
-                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'reading') || (is_singular() && in_category('reading', $post->ID)))) {
+        elseif (FALSE !== array_search('menu-item-8384', $classes)
+                && !$author && in_category('blog', $post->ID) && !in_category('projects', $post->ID)) {
             $classes[] = 'active';
         }
         elseif (FALSE !== array_search('menu-item-5234', $classes)
-                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'projects') || (is_singular() && in_category('projects', $post->ID)))) {
+                && !$author && (($queried_object->taxonomy == 'category' && $queried_object->slug == 'projects') || (is_singular() && !in_category('blog', $post->ID) && in_category('projects', $post->ID)))) {
             $classes[] = 'active';
         }
 
