@@ -120,15 +120,13 @@
             </div>
         </div>
 
-        <!--
-		<?php if (!get_field('note')): ?>
+		<?php //if (!get_field('note')): ?>
             <div class="note">
                 <div class="container">
-                    <b><?php echo __('Check out my latest work on '); ?> <a href="https://davidstutz.de/projects/adversarial-robustness/"> <?php echo __('adversarial robustness', 'iamdavidstutz'); ?></a><?php echo __('.'); ?></b>
+                    <b><?php echo __('I am looking for full-time (applied) research opportunities in industry, involving (trustworthy and robust) machine learning or (3D) computer vision, starting early 2022. Check out my'); ?> <a href="https://davidstutz.de/cv">CV</a> <?php echo __('and get in touch on'); ?> <a href="https://www.linkedin.com/in/davidstutz92" target="_blank">LinkedIn</a>!</b>
                 </div>
             </div>
-        <?php endif; ?>
-		-->
+        <?php //endif; ?>
 
         <div class="container">
         

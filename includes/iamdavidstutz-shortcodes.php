@@ -37,10 +37,13 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('bracket_close', array($this, 'bracket_close'));
         add_shortcode('youtube', array($this, 'youtube'));
         add_shortcode('slideslive', array($this, 'slideslive'));
+        add_shortcode('github_card', array($this, 'github_card'));
+        add_shortcode('linkedin', array($this, 'linkedin'));
+        add_shortcode('articles', array($this, 'articles'));
     }
     
     /**
-     * Include and initialiye jQuery Pseudocode.
+     * Include and initialize jQuery Pseudocode.
      * 
      * @param	array 	attributes
      * @param	string	content
@@ -461,6 +464,76 @@ class IAMDAVIDSTUTZ_Shortcodes {
                     . '});'
                 . '</script>';
         }
+    }
+
+    /**
+     * Create GitHub card.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function github_card($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'user' => '',
+            'repo' => '',
+            'width' => 400,
+        ), $attributes));
+
+        wp_enqueue_script('github-card', '//cdn.jsdelivr.net/github-cards/latest/widget.js');
+
+        if ($user) {
+            return '<div class="github-card" data-github="davidstutz" data-width="' . $width . '" data-height="" data-theme="default"></div>';
+        }
+        if ($user && $repo) {
+            return '<div class="github-card" data-github="' . $repo . '" data-width="' . $width . '" data-height="" data-theme="default"></div>';
+        }
+    }
+
+    /**
+     * Enable LinkedIn badges.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function linkedin($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+
+        ), $attributes));
+
+        wp_enqueue_script('linkedin', 'https://platform.linkedin.com/badges/js/profile.js');
+
+        return '';
+    }
+
+    /**
+     * Display recent article headlines.
+     * 
+     * @param array $attributes
+     * @param string $content
+     */
+    function articles() {
+        extract(shortcode_atts(array(
+            'category' => 'blog',
+            'limit' => 2,
+        ), $attributes));
+
+        $category_query = new WP_Query(array( 
+            'category_name' => $category,
+            'posts_per_page' => $limit,
+        )); 
+          
+        $string = '';
+        if ($category_query->have_posts()) {
+            $string .= '<ul class="list-unstyled">';
+            while ($category_query->have_posts()) {
+                $category_query->the_post();
+                $string .= '<li><a href="' . get_the_permalink() .'" rel="bookmark">' . get_the_title() .'</a></li>';
+            }
+            $string .= '</ul>';
+        }
+
+        wp_reset_postdata();
+        return $string;
     }
 }
 
