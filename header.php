@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/images/logo.ico">
         <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/images/logo.ico">
         
         <title>
@@ -76,14 +77,15 @@
                 <h1 style="display:inline;">
                     <?php echo __('I', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('AM', 'iamdavidstutz'); ?>
                 </h1>
-                <h4 style="display:inline;">
+                <h5 style="display:inline;">
                     <span class="hidden-xs-inline hidden-sm-inline">
                         <a href="https://www.linkedin.com/in/davidstutz92" target="_blank" class="header-social"><span class="fa fa-linkedin-square"></span></a>
                         <a href="https://www.xing.com/profile/David_Stutz5" target="_blank" class="header-social"><span class="fa fa-xing"></span></a>
                         <a href="https://github.com/davidstutz" target="_blank" class="header-social"><span class="fa fa-github"></span></a>
                         <a href="https://scholar.google.com/citations?user=TxEy3cwAAAAJ&hl=en" target="_blank" class="header-social"><span class="ai ai-google-scholar"></span></a>
+                        <a href="https://www.youtube.com/channel/UCfhh-OAwqkGbX_RN87Ht3ow" target="_blank" class="header-social"><span class="fa fa-youtube"></span></a>
                     </span>
-                </h4>
+                </h5>
                 <div class="row">
                     <div class="col-md-4">
                         <h1><?php echo __('DAVID', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('STUTZ', 'iamdavidstutz'); ?></h1>
