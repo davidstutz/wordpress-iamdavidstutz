@@ -22,6 +22,7 @@
                     'order' => 'ASC',
                     'orderby' => 'menu_order',
                     'fields' => 'ID,menu_order,post_title',
+                    'posts_per_page' => -1,
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'category',
