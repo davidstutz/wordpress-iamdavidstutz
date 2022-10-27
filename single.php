@@ -41,9 +41,6 @@
 
                                 <?php if (iamdavidstutz_comments_open()): ?>
                                     <div class="reading-comments">
-                                        <p>
-                                            <?php echo __('What is <b>your opinion</b> on the summarized work? Or do you know related work that is of interest? <b>Let me know</b> your thoughts in the comments below:', 'iamdavidstutz'); ?>
-                                        </p>
                                         <?php comments_template(); ?>
                                     </div>
                                 <?php endif; ?>
@@ -109,9 +106,6 @@
                                 <?php iamdavidstutz_article_footer(); ?>
                                 <?php if (iamdavidstutz_comments_open()): ?>
                                     <div class="article-comments">
-                                        <p>
-                                            <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below:', 'iamdavidstutz'); ?>
-                                        </p>
                                         <?php comments_template(); ?>
                                     </div>
                                 <?php endif; ?>

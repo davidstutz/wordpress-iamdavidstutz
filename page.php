@@ -11,9 +11,6 @@
                         <?php iamdavidstutz_page_footer(); ?>
                         <?php if (iamdavidstutz_comments_open()): ?>
                             <div class="page-comments">
-                                <p>
-                                    <?php echo __('What is <b>your opinion</b> on this article? Did you find it interesting or useful? <b>Let me know</b> your thoughts in the comments below:', 'iamdavidstutz'); ?>
-                                </p>
                                 <?php comments_template(); ?>
                             </div>
                         <?php endif; ?>
