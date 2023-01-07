@@ -78,7 +78,8 @@
                     <?php echo __('I', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('AM', 'iamdavidstutz'); ?>
                 </h1>
                 <h5 style="display:inline;">
-                    <span class="hidden-xs-inline hidden-sm-inline">
+                    <br class="hidden-md hidden-lg">
+                    <span>
                         <a href="https://twitter.com/davidstutz92" target="_blank" class="header-social"><span class="fa fa-twitter"></span></a>
                         <a href="https://www.linkedin.com/in/davidstutz92" target="_blank" class="header-social"><span class="fa fa-linkedin-square"></span></a>
                         <a href="https://www.xing.com/profile/David_Stutz5" target="_blank" class="header-social"><span class="fa fa-xing"></span></a>
