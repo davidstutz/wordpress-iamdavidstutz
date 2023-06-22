@@ -16,16 +16,7 @@
                         <?php iamdavidstutz_article_tags(); ?>
                         <div class="article">
                             <div class="article-date">
-                                <?php $day = get_the_date('d'); ?>
-                                <?php if ($day == 1): ?>
-                                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php elseif ($day == 2): ?>
-                                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php elseif ($day == 3): ?>
-                                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?> 
-                                <?php else: ?>
-                                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                                <?php endif; ?>
+                                <?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                             </div>
                             <div class="article-header">
                                 <h2><?php the_title(); ?></h2>

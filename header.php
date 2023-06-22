@@ -75,7 +75,7 @@
         <div class="container">
             <div class="header">
                 <h1 style="display:inline;">
-                    <?php echo __('I', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('AM', 'iamdavidstutz'); ?>
+                <a href="https://davidstutz.de/" class="nostyle"><?php echo __('I', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('AM', 'iamdavidstutz'); ?></a>
                 </h1>
                 <h5 style="display:inline;">
                     <br class="hidden-md hidden-lg">
@@ -90,7 +90,7 @@
                 </h5>
                 <div class="row">
                     <div class="col-md-4">
-                        <h1><?php echo __('DAVID', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('STUTZ', 'iamdavidstutz'); ?></h1>
+                        <h1><a href="https://davidstutz.de/" class="nostyle"><?php echo __('DAVID', 'iamdavidstutz'); ?><span style="margin-right:6px;"></span><?php echo __('STUTZ', 'iamdavidstutz'); ?></a></h1>
                     </div>
                     <div class="col-md-8">
                         <ul class="nav nav-pills hidden-xs hidden-sm">

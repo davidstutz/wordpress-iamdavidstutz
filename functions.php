@@ -207,16 +207,7 @@ function iamdavidstutz_custom_comments($comment, $args, $depth) {
         <blockquote class="article-comment">
             <?php $time = strtotime($comment->comment_date); ?>
             <h4>
-                <?php $day = date('d', $time); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php endif; ?>
+                <?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
                  &mdash;
                 <a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a>
                 <?php if (current_user_can('edit_comment',$comment->comment_ID)): ?>
@@ -301,16 +292,7 @@ function iamdavidstutz_article() {
     <div class="article-container">
         <div class="article">
             <div class="article-date">
-                <?php $day = get_the_date('d'); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 3): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php endif; ?>
+                <?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
             </div>
             <?php if(in_category('series')): ?>
                 <div class="article-above-header">
@@ -360,16 +342,7 @@ function iamdavidstutz_article_tags() {
      <div class="reading-container">
         <div class="reading">
             <div class="reading-date">
-                <?php $day = get_the_date('d'); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 3): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php endif; ?>
+                <?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
             </div>
             <div class="reading-above-header">
                 <h3><?php echo __('READING NOTES', 'iamdavidstutz'); ?></h3>
@@ -427,16 +400,7 @@ function iamdavidstutz_page() {
     <div class="page-container">
         <div class="page">
             <div class="page-date">
-                <?php $day = get_the_date('d'); ?>
-                <?php if ($day == 1): ?>
-                    <?php echo $day; ?><sup>st</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 2): ?>
-                    <?php echo $day; ?><sup>nd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php elseif ($day == 3): ?>
-                    <?php echo $day; ?><sup>rd</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php else: ?>
-                    <?php echo $day; ?><sup>th</sup><?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
-                <?php endif; ?>
+                <?php echo strtoupper(get_the_date('F')); ?><?php echo get_the_date('Y'); ?>
             </div>
             <?php $ind = strpos(get_page_template(), 'projects'); ?>
             <?php if ($ind >= 0): ?>
