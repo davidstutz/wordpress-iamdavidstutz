@@ -438,8 +438,8 @@ class IAMDAVIDSTUTZ_Shortcodes {
         ), $attributes));
         
         if ($id) {
-            //return '<iframe width="' . $width . '" height="' . $height . '" src="https://www.youtube.com/embed/' . $id . '?autoplay=' . $autoplay . '&mute=' . $mute . '"></iframe> ';
-            return '<p class="alert alert-info">Due to German data protection laws, it is currently not possible to include the video directly, so please head over to YouTube using the link below!</p><a target="_blank" href="https://www.youtube.com/watch?v=' . $id . '" class="btn btn-block btn-primary">Watch on YouTube</a><div class="clearfix"></div>';
+            return '<iframe width="' . $width . '" height="' . $height . '" src="https://www.youtube-nocookie.com/embed/' . $id . '?autoplay=' . $autoplay . '&mute=' . $mute . '"></iframe> ';
+            //return '<p class="alert alert-info">Due to German data protection laws, it is currently not possible to include the video directly, so please head over to YouTube using the link below!</p><a target="_blank" href="https://www.youtube.com/watch?v=' . $id . '" class="btn btn-block btn-primary">Watch on YouTube</a><div class="clearfix"></div>';
         }
     }
 
