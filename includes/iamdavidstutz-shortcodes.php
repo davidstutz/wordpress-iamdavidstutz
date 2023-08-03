@@ -512,7 +512,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
      * @param array $attributes
      * @param string $content
      */
-    function articles() {
+    function articles($attributes, $content = NULL) {
         extract(shortcode_atts(array(
             'category' => 'blog',
             'limit' => 2,
