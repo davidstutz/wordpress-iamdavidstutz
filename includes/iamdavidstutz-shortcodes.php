@@ -33,6 +33,7 @@ class IAMDAVIDSTUTZ_Shortcodes {
         add_shortcode('tiles', array($this, 'tiles'));
         add_shortcode('tags', array($this, 'tags'));
         add_shortcode('tag', array($this, 'tag'));
+        add_shortcode('category', array($this, 'category'));
         add_shortcode('bracket_open', array($this, 'bracket_open'));
         add_shortcode('bracket_close', array($this, 'bracket_close'));
         add_shortcode('youtube', array($this, 'youtube'));
@@ -399,6 +400,30 @@ class IAMDAVIDSTUTZ_Shortcodes {
             }
 
             return '<a href="' . get_tag_link($tag->term_id) . '"><span class="label label-primary">' . strtoupper($name) . '</span></a> ';
+        }
+    }
+
+    /**
+     * Category.
+     *
+     * @param array $attributes
+     * @param string $content
+     */
+    function category($attributes, $content = NULL) {
+        extract(shortcode_atts(array(
+            'slug' => '',
+            'title' => '',
+        ), $attributes));
+
+        $category = get_term_by('slug', $slug, 'category');
+        
+        if ($category) {
+            $name = $category->name;
+            if ($title) {
+                $name = $title;
+            }
+
+            return '<a href="' . get_category_link($category->term_id) . '"><span class="label label-primary">' . strtoupper($name) . '</span></a> ';
         }
     }
 
